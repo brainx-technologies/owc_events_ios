@@ -51,5 +51,7 @@
 		<string>Sofia_SemiBold.otf</string>
 		<string>Sofia_UltraLight.otf</string>
 	</array>
+	<key>UIViewControllerBasedStatusBarAppearance</key>
+	<true/>
 </dict>
 </plist>

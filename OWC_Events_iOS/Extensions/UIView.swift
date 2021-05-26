@@ -24,7 +24,7 @@ extension UIView {
             layer.masksToBounds = newValue > 0
         }
     }
-    
+
     var borderWidth: CGFloat {
         get {
             return layer.borderWidth

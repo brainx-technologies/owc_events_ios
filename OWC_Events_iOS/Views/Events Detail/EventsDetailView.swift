@@ -9,39 +9,35 @@ import UIKit
 
 class EventsDetailView: UIView {
     // MARK: Outlets
-    
-    @IBOutlet var loginLabel: UILabel!
-    @IBOutlet var emailFieldView: UIView!
-    @IBOutlet var emailField: UITextField!
-    
+
+    @IBOutlet var eventDetailLabel: UILabel!
+    @IBOutlet var topContainerView: UIView!
+    @IBOutlet var backButton: UIButton!
+
     // MARK: Life Cycle Method
-    
+
     override func awakeFromNib() {
         configureView()
     }
-    
+
     // MARK: - Private Methods
-    
+
     private func configureView() {
         setBorders()
         setFonts()
         setText()
         setColors()
     }
-    
-    private func setBorders(){
-        
+
+    private func setBorders() {}
+
+    private func setFonts() {
+        eventDetailLabel.font = Font.sofiaSemiBold(16)
     }
-    
-    private func setFonts(){
-        
+
+    private func setText() {
+        eventDetailLabel.text = LocalizedKey.eventDetails.string
     }
-    
-    private func setText(){
-        
-    }
-    
-    private func setColors(){
-        
-    }
+
+    private func setColors() {}
 }

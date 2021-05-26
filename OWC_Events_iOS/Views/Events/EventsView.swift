@@ -11,20 +11,25 @@ import UIKit
 
 class EventsView: UIView {
     // MARK: Outlets
-    
+
     @IBOutlet var eventsLabel: UILabel!
     @IBOutlet var dateLabel: UILabel!
     @IBOutlet var calendarView: UIView!
     @IBOutlet var calendarImageView: UIImageView!
-    
+    @IBOutlet var searchBarView: UIView!
+    @IBOutlet var searchIconImageView: UIImageView!
+    @IBOutlet var searchTextField: UITextField!
+    @IBOutlet var eventsTableView: UITableView!
+    @IBOutlet var filterView: UIView!
+
     // MARK: Life Cycle Method
-    
+
     override func awakeFromNib() {
         configureView()
     }
-    
+
     // MARK: - Private Methods
-    
+
     private func configureView() {
         setCornersAndBorders()
         setFonts()
@@ -32,21 +37,28 @@ class EventsView: UIView {
         setColors()
     }
 
-    private func setCornersAndBorders(){
+    private func setCornersAndBorders() {
         calendarView.setCornerRadius(22)
         calendarView.setBorderColor(Color.borderGrey, andWidth: 1)
+        searchBarView.setCornerRadius(10)
+        filterView.setCornerRadius(25)
     }
-    
-    private func setFonts(){
 
+    private func setFonts() {
+        eventsLabel.font = Font.sofiaBold(30)
+        dateLabel.font = Font.sofiaBold(16)
+        searchTextField.font = Font.sofiaSemiBold(13)
     }
-    
-    private func setText(){
-        
+
+    private func setText() {
+        eventsLabel.text = LocalizedKey.events.string
+        searchTextField.placeholder = LocalizedKey.searchEvents.string
     }
-    
-    private func setColors(){
+
+    private func setColors() {
         backgroundColor = Color.backgroundPrimary
-        
+        calendarImageView.tintColor = Color.tintColor
+        filterView.backgroundColor = Color.tintColor
+        searchIconImageView.tintColor = Color.selectedDisabledColor
     }
 }

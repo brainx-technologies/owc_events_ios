@@ -8,7 +8,6 @@
 import UIKit
 
 class BaseViewController: UIViewController {
-
     override func viewDidLoad() {
         super.viewDidLoad()
         disableDarkMode()
@@ -16,7 +15,7 @@ class BaseViewController: UIViewController {
 
     override var preferredStatusBarStyle: UIStatusBarStyle {
         if #available(iOS 13.0, *) {
-            return .lightContent
+            return .default
         } else {
             return .default
         }
