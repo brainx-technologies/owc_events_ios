@@ -42,8 +42,8 @@
                                 </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splash" highlightedImage="splash" translatesAutoresizingMaskIntoConstraints="NO" id="Xxz-ep-iGP">
-                                <rect key="frame" x="44" y="362" width="326" height="172"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splashImage" translatesAutoresizingMaskIntoConstraints="NO" id="Xxz-ep-iGP">
+                                <rect key="frame" x="64" y="362" width="286" height="172"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="172" id="q3w-oc-LfJ"/>
@@ -56,8 +56,8 @@
                             <constraint firstItem="Xxz-ep-iGP" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="11J-xW-vve"/>
                             <constraint firstItem="leg-CC-YgV" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="7Fa-f0-F10"/>
                             <constraint firstItem="leg-CC-YgV" firstAttribute="top" secondItem="Qed-Hu-RBj" secondAttribute="bottom" constant="8" id="8wA-LC-P6a"/>
-                            <constraint firstItem="Xxz-ep-iGP" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="44" id="OGl-Dh-fzb"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Xxz-ep-iGP" secondAttribute="trailing" constant="44" id="U63-6G-GQa"/>
+                            <constraint firstItem="Xxz-ep-iGP" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="64" id="OGl-Dh-fzb"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Xxz-ep-iGP" secondAttribute="trailing" constant="64" id="U63-6G-GQa"/>
                             <constraint firstItem="leg-CC-YgV" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" constant="-8" id="Ux7-eH-HiK"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="leg-CC-YgV" secondAttribute="trailing" constant="16" id="bsG-ok-qLZ"/>
                             <constraint firstItem="Qed-Hu-RBj" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="pIr-Tx-Cbl"/>
@@ -72,6 +72,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="splash" width="222" height="176.5"/>
+        <image name="splashImage" width="222" height="124"/>
     </resources>
 </document>

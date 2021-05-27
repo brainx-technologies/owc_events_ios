@@ -44,8 +44,8 @@
                                 </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splash" translatesAutoresizingMaskIntoConstraints="NO" id="qKD-jY-76U">
-                                <rect key="frame" x="44" y="362" width="326" height="172"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splashImage" translatesAutoresizingMaskIntoConstraints="NO" id="qKD-jY-76U">
+                                <rect key="frame" x="64" y="362" width="286" height="172"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="172" id="Znc-ps-MOj"/>
                                 </constraints>
@@ -56,14 +56,14 @@
                         <constraints>
                             <constraint firstItem="UzL-f7-jqz" firstAttribute="leading" secondItem="ky0-mj-0h6" secondAttribute="leading" constant="16" id="2Vt-XA-EaM"/>
                             <constraint firstItem="dMB-NV-PYn" firstAttribute="trailing" secondItem="UzL-f7-jqz" secondAttribute="trailing" constant="16" id="2vq-Z5-Qla"/>
-                            <constraint firstItem="dMB-NV-PYn" firstAttribute="trailing" secondItem="qKD-jY-76U" secondAttribute="trailing" constant="44" id="6If-58-Hx4"/>
+                            <constraint firstItem="dMB-NV-PYn" firstAttribute="trailing" secondItem="qKD-jY-76U" secondAttribute="trailing" constant="64" id="6If-58-Hx4"/>
                             <constraint firstItem="dMB-NV-PYn" firstAttribute="trailing" secondItem="asp-oJ-Oyf" secondAttribute="trailing" constant="16" id="9iA-5Q-Mt7"/>
                             <constraint firstItem="UzL-f7-jqz" firstAttribute="top" secondItem="asp-oJ-Oyf" secondAttribute="bottom" constant="8" id="BR5-Bb-ZL3"/>
                             <constraint firstItem="qKD-jY-76U" firstAttribute="centerY" secondItem="ky0-mj-0h6" secondAttribute="centerY" id="Pto-lI-d3n"/>
                             <constraint firstItem="UzL-f7-jqz" firstAttribute="top" secondItem="asp-oJ-Oyf" secondAttribute="bottom" constant="8" id="d5a-7w-M0A"/>
                             <constraint firstItem="dMB-NV-PYn" firstAttribute="bottom" secondItem="UzL-f7-jqz" secondAttribute="bottom" constant="8" id="e7Q-rx-SaP"/>
                             <constraint firstItem="qKD-jY-76U" firstAttribute="centerX" secondItem="ky0-mj-0h6" secondAttribute="centerX" id="j9w-pl-kyz"/>
-                            <constraint firstItem="qKD-jY-76U" firstAttribute="leading" secondItem="dMB-NV-PYn" secondAttribute="leading" constant="44" id="lYO-mE-sdS"/>
+                            <constraint firstItem="qKD-jY-76U" firstAttribute="leading" secondItem="dMB-NV-PYn" secondAttribute="leading" constant="64" id="lYO-mE-sdS"/>
                             <constraint firstItem="asp-oJ-Oyf" firstAttribute="leading" secondItem="ky0-mj-0h6" secondAttribute="leading" constant="16" id="uEG-NL-STl"/>
                         </constraints>
                     </view>
@@ -874,7 +874,7 @@
         <image name="location" width="20" height="20"/>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
         <image name="mapView" width="335" height="148"/>
-        <image name="splash" width="222" height="176.5"/>
+        <image name="splashImage" width="222" height="124"/>
         <image name="xmark" catalog="system" width="128" height="113"/>
         <namedColor name="AccentColor">
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
