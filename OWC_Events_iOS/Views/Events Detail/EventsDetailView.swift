@@ -90,9 +90,8 @@ class EventsDetailView: UIView {
     }
 
     private func setupViews() {
-        locationValueLabel.text = "400 margrate st, Marelebone, London"
-        aboutMessageTextView.text = "We had to develop app within 6 months. It’s quite short time but we managed it out. You can check how it works by downloading app on Appstore and Google. We had to develop app within 6 months. It’s quite short time but we managed it out. You can check how it works by downloading app on Appstore and Google"
-
+        locationValueLabel.text = "400 margrate st, Marelebone, London" // will replace with actual data after api implementation
+        aboutMessageTextView.text = "We had to develop app within 6 months. It’s quite short time but we managed it out. You can check how it works by downloading app on Appstore and Google. We had to develop app within 6 months. It’s quite short time but we managed it out. You can check how it works by downloading app on Appstore and Google" // will replace with actual data after api implementation
         aboutMessageTextView.shouldTrim = true
         aboutMessageTextView.maximumNumberOfLines = 4
         aboutMessageTextView.attributedReadMoreText = NSAttributedString(string: LocalizedKey.threeDots.string + LocalizedKey.seeMore.string, attributes: [NSAttributedString.Key.foregroundColor: Color.seeMoreColor])

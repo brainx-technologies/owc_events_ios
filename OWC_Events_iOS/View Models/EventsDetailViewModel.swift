@@ -37,10 +37,10 @@ class EventsDetailViewModel {
         mapItem.name = "Lahore" // will replace with actual data after api implementation
         mapItem.openInMaps(launchOptions: options)
     }
-
+    
     func openInGoogleMap(latitude: CLLocationDegrees, longitude: CLLocationDegrees) {
         if UIApplication.shared.canOpenURL(URL(string: "comgooglemaps://")!) {
-            if let url = URL(string: "comgooglemaps://?center=\(latitude),\(longitude)&zoom=0.1&views=traffic&q=\(latitude),\(longitude)") {
+            if let url = EndPoints.createGoogleMapURL(latitude, longitude) {
                 UIApplication.shared.open(url, options: [:])
             }
         } else {
@@ -72,9 +72,7 @@ class EventsDetailViewModel {
     func addToCalendar() {
         eventStore.requestAccess(to: .event) { granted, error in
             if granted, error == nil {
-                print("granted \(granted)")
                 let event = EKEvent(eventStore: self.eventStore)
-
                 event.title = "Test Title" // will replace with actual data after api implementation
                 event.startDate = Date()
                 event.endDate = Date()

@@ -25,14 +25,6 @@ enum TypesAndThemeFilters: String, CaseIterable {
     case recreationAndSport = "Recreation and Sport"
     case tours = "Tours"
     case workshopsAndPresentation = "Workshops and Presentation"
-
-    static func getTypeAndThemeFilters() -> [String] {
-        var names: [String] = []
-        TypesAndThemeFilters.allCases.forEach { month in
-            names.append(month.rawValue)
-        }
-        return names
-    }
 }
 
 enum LocationFilters: String, CaseIterable {
@@ -45,14 +37,6 @@ enum LocationFilters: String, CaseIterable {
     case townshipOfAshfield = "Township of Ashfield-Colborne-Wawanosh"
     case townshipOfHowick = "Township of Howick"
     case townshipOfNorthHuron = "Township of North Huron"
-
-    static func getLocationFilters() -> [String] {
-        var names: [String] = []
-        LocationFilters.allCases.forEach { month in
-            names.append(month.rawValue)
-        }
-        return names
-    }
 }
 
 class EventsFilterViewController: BaseViewController {
@@ -62,11 +46,10 @@ class EventsFilterViewController: BaseViewController {
 
     // MARK: - Instance Variables
 
-    private let typeThemeFilters = TypesAndThemeFilters.allCases // ..getTypeAndThemeFilters()
-    private let locationFilters = LocationFilters.allCases // getLocationFilters()
+    private let typeThemeFilters = TypesAndThemeFilters.allCases
+    private let locationFilters = LocationFilters.allCases
     private let headersArray = [LocalizedKey.typeTheme.string, LocalizedKey.location.string]
     private let eventsTableViewHeaderHeight: CGFloat = 50
-
     private var viewModel: EventsFilterViewModel!
     var delegate: UpdateSelectedValuesProtocol?
     var selectedDate = Date()
@@ -110,7 +93,7 @@ class EventsFilterViewController: BaseViewController {
             pathRef.addRect(bounds)
         }
         layer.path = pathRef
-        layer.fillColor = UIColor(red: 255 / 255.0, green: 255 / 255.0, blue: 255 / 255.0, alpha: 0.8).cgColor
+        layer.fillColor = Color.grayColor.cgColor
         let testView = UIView(frame: bounds)
         testView.layer.insertSublayer(layer, at: 0)
         testView.backgroundColor = UIColor.clear

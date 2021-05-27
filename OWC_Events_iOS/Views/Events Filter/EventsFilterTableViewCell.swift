@@ -29,22 +29,13 @@ class EventsFilterTableViewCell: UITableViewCell {
     // MARK: - Private Methods
 
     private func configureView() {
-        setCorners()
-        setBorders()
         setFonts()
-        setText()
         setColors()
     }
-
-    private func setCorners() {}
-
-    private func setBorders() {}
 
     private func setFonts() {
         filterLabel.font = Font.sofiaMedium(14)
     }
-
-    private func setText() {}
 
     private func setColors() {
         lineView.backgroundColor = Color.borderGrey

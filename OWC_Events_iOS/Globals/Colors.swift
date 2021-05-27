@@ -24,4 +24,5 @@ enum Color {
     static let white = UIColor(0xFFFFFF)
     static let dateContainerColor = UIColor(0x7540EE)
     static let seeMoreColor = UIColor(0xFFC800)
+    static let grayColor = UIColor(red: 255 / 255.0, green: 255 / 255.0, blue: 255 / 255.0, alpha: 0.8)
 }
