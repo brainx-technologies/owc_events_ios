@@ -21,6 +21,6 @@ class EventsFilterViewModel {
     // MARK: - Public Methods
 
     func closedButtonPressed() {
-        router.dismissVC(navigationType: .stack, animated: true, completion: nil)
+        router.dismissVC(navigationType: .overlay, animated: true, completion: nil)
     }
 }

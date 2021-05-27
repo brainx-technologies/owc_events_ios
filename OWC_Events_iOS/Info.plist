@@ -20,8 +20,25 @@
 	<string>1.0</string>
 	<key>CFBundleVersion</key>
 	<string>1</string>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>comgooglemaps</string>
+		<string>comgooglemaps-x-callback</string>
+	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSCalendarsUsageDescription</key>
+	<string>Need Calendar access to add Events in Calendar</string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Sofia_Black.otf</string>
+		<string>Sofia_Bold.otf</string>
+		<string>Sofia_Light.otf</string>
+		<string>Sofia_Medium.otf</string>
+		<string>Sofia_Regular.otf</string>
+		<string>Sofia_SemiBold.otf</string>
+		<string>Sofia_UltraLight.otf</string>
+	</array>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
 	<key>UILaunchStoryboardName</key>
@@ -30,6 +47,8 @@
 	<array>
 		<string>armv7</string>
 	</array>
+	<key>UIStatusBarHidden</key>
+	<true/>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
@@ -41,24 +60,7 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-	<key>UIAppFonts</key>
-	<array>
-		<string>Sofia_Black.otf</string>
-		<string>Sofia_Bold.otf</string>
-		<string>Sofia_Light.otf</string>
-		<string>Sofia_Medium.otf</string>
-		<string>Sofia_Regular.otf</string>
-		<string>Sofia_SemiBold.otf</string>
-		<string>Sofia_UltraLight.otf</string>
-	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<true/>
-	<key>LSApplicationQueriesSchemes</key>
-	<array>
-		<string>comgooglemaps</string>
-		<string>comgooglemaps-x-callback</string>
-	</array>
-	<key>NSCalendarsUsageDescription</key>
-	<string>Need Calendar access to add Events in Calendar</string>
 </dict>
 </plist>

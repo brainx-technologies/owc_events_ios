@@ -21,6 +21,9 @@ class EventsView: UIView {
     @IBOutlet var searchTextField: UITextField!
     @IBOutlet var eventsTableView: UITableView!
     @IBOutlet var filterView: UIView!
+    @IBOutlet var filterNumberView: UIView!
+    @IBOutlet var filterNumberLabel: UILabel!
+    
 
     // MARK: Life Cycle Method
 
@@ -42,12 +45,14 @@ class EventsView: UIView {
         calendarView.setBorderColor(Color.borderGrey, andWidth: 1)
         searchBarView.setCornerRadius(10)
         filterView.setCornerRadius(25)
+        filterNumberView.setCornerRadius(9)
     }
 
     private func setFonts() {
         eventsLabel.font = Font.sofiaBold(30)
         dateLabel.font = Font.sofiaBold(16)
         searchTextField.font = Font.sofiaSemiBold(13)
+        filterNumberLabel.font = Font.sofiaRegular(12)
     }
 
     private func setText() {
@@ -60,5 +65,6 @@ class EventsView: UIView {
         calendarImageView.tintColor = Color.tintColor
         filterView.backgroundColor = Color.tintColor
         searchIconImageView.tintColor = Color.selectedDisabledColor
+        filterNumberView.backgroundColor = Color.filterNumberBackground
     }
 }

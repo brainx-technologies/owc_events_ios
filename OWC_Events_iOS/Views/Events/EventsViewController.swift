@@ -72,6 +72,7 @@ class EventsViewController: BaseViewController {
     // MARK: - Instance Variables
 
     private let heightForEventsRow: CGFloat = 200
+    private var totalFilterBeingApplied = 0
     var viewModel: EventsViewModel!
     var selectedDate = Date()
 
@@ -96,6 +97,10 @@ class EventsViewController: BaseViewController {
 
     private func setupViews() {
         eventsView.dateLabel.text = Date.monthYearFormatter.string(from: selectedDate)
+        FilterManager.getFilterBeingApplied { (typeThemeFilters, locationFilter) in
+            self.totalFilterBeingApplied = typeThemeFilters.count + locationFilter.count
+            self.eventsView.filterNumberLabel.text = "\(self.totalFilterBeingApplied)"
+        }
     }
 
     private func fetchDataFor(date _: Date) {}
@@ -148,4 +153,15 @@ extension EventsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_: UITableView, heightForRowAt _: IndexPath) -> CGFloat {
         return heightForEventsRow
     }
+}
+
+//MARK: - Protocol Methods
+
+extension EventsViewController: UpdateSelectedValuesProtocol {
+    func updateSelectedValues(typeThemeSelectedItems: [TypesAndThemeFilters], locationSelectedItems: [LocationFilters]) {
+        totalFilterBeingApplied = typeThemeSelectedItems.count + locationSelectedItems.count
+        eventsView.filterNumberLabel.text = "\(totalFilterBeingApplied)"
+    }
+    
+    
 }

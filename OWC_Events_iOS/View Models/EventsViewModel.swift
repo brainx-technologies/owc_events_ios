@@ -21,10 +21,11 @@ class EventsViewModel {
     // MARK: - Public Methods
 
     func LoadFilterViewController() {
-        router.presentVC(routeType: EventsRouteType.FilterView(), navigationType: .stack, animated: false, completion: nil)
+        router.presentVC(routeType: EventsRouteType.FilterView(), navigationType: .overlay, animated: false, completion: nil)
     }
 
     func LoadDetailsViewController() {
         router.presentVC(routeType: EventsRouteType.EventsDetail(), navigationType: .stack, animated: false, completion: nil)
     }
+    
 }

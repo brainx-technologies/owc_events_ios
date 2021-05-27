@@ -24,8 +24,15 @@ class EventsRouter: Router {
         viewController?.navigationController?.popViewController(animated: animated)
     }
 
-    func dismissVC(navigationType _: NavigationType, animated: Bool, completion _: (() -> Void)?) {
-        viewController?.navigationController?.popViewController(animated: animated)
+    func dismissVC(navigationType : NavigationType, animated: Bool, completion : (() -> Void)?) {
+        switch navigationType {
+        case .overlay:
+            viewController?.dismiss(animated: animated, completion: completion)
+        case .stack:
+            viewController?.navigationController?.popViewController(animated: animated)
+        case .root:
+            viewController?.dismiss(animated: animated, completion: nil)
+        }
     }
 
     func presentVC(routeType: RouteType, navigationType: NavigationType, animated: Bool, completion: (() -> Void)?) {
@@ -38,8 +45,11 @@ class EventsRouter: Router {
         switch routeType {
         case .FilterView:
             let dateFilterVC = UIViewController.instantiate(EventsFilterViewController.self, fromStoryboard: .Main)
+            let eventViewController: EventsViewController = viewController as! EventsViewController
+            dateFilterVC.delegate = eventViewController
             vc = dateFilterVC
-//            vc.modalPresentationStyle = .overCurrentContext
+            vc.modalPresentationStyle = .overFullScreen
+            vc.modalTransitionStyle = .coverVertical
         case .EventsDetail:
             let detailReportController = UIViewController.instantiate(EventsDetailViewController.self, fromStoryboard: .Main)
             vc = detailReportController

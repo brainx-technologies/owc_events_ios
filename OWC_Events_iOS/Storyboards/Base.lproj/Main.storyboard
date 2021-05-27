@@ -67,6 +67,7 @@
                             <constraint firstItem="asp-oJ-Oyf" firstAttribute="leading" secondItem="ky0-mj-0h6" secondAttribute="leading" constant="16" id="uEG-NL-STl"/>
                         </constraints>
                     </view>
+                    <nil key="simulatedTopBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gT5-yr-16t" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -339,11 +340,33 @@
                                             <constraint firstAttribute="height" constant="24" id="yFM-5i-vLB"/>
                                         </constraints>
                                     </imageView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Il-06-Hrf">
+                                        <rect key="frame" x="32" y="0.0" width="18" height="18"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uvy-BE-fBJ">
+                                                <rect key="frame" x="0.0" y="0.0" width="18" height="18"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemTealColor"/>
+                                        <constraints>
+                                            <constraint firstItem="uvy-BE-fBJ" firstAttribute="leading" secondItem="5Il-06-Hrf" secondAttribute="leading" id="SK6-rW-LGo"/>
+                                            <constraint firstAttribute="height" constant="18" id="Z28-cE-K8M"/>
+                                            <constraint firstAttribute="bottom" secondItem="uvy-BE-fBJ" secondAttribute="bottom" id="fse-kW-oG9"/>
+                                            <constraint firstItem="uvy-BE-fBJ" firstAttribute="top" secondItem="5Il-06-Hrf" secondAttribute="top" id="iKm-ay-2Ve"/>
+                                            <constraint firstAttribute="width" constant="18" id="jK8-6a-wtT"/>
+                                            <constraint firstAttribute="trailing" secondItem="uvy-BE-fBJ" secondAttribute="trailing" id="l5d-2a-h6g"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemPinkColor"/>
                                 <constraints>
                                     <constraint firstItem="LI4-Mz-mps" firstAttribute="centerX" secondItem="ggw-j8-rNV" secondAttribute="centerX" id="DUS-nx-3kU"/>
+                                    <constraint firstAttribute="trailing" secondItem="5Il-06-Hrf" secondAttribute="trailing" id="Q1B-lN-sgK"/>
                                     <constraint firstAttribute="height" constant="50" id="Ss8-3d-wY2"/>
+                                    <constraint firstItem="5Il-06-Hrf" firstAttribute="top" secondItem="ggw-j8-rNV" secondAttribute="top" id="fbC-tq-1dr"/>
                                     <constraint firstAttribute="width" constant="50" id="qIZ-gH-Aot"/>
                                     <constraint firstItem="LI4-Mz-mps" firstAttribute="centerY" secondItem="ggw-j8-rNV" secondAttribute="centerY" id="x8Y-Wh-aVf"/>
                                 </constraints>
@@ -371,6 +394,8 @@
                             <outlet property="dateLabel" destination="oye-E8-N8J" id="jvM-fs-dzo"/>
                             <outlet property="eventsLabel" destination="JPM-oJ-h7z" id="GzR-rt-cN2"/>
                             <outlet property="eventsTableView" destination="8CU-wd-zFJ" id="bCR-8N-SF4"/>
+                            <outlet property="filterNumberLabel" destination="uvy-BE-fBJ" id="lXm-Cg-wy1"/>
+                            <outlet property="filterNumberView" destination="5Il-06-Hrf" id="GWh-tz-EhR"/>
                             <outlet property="filterView" destination="ggw-j8-rNV" id="UBS-oo-GcY"/>
                             <outlet property="searchBarView" destination="RmO-LJ-xNp" id="xel-lJ-lnd"/>
                             <outlet property="searchIconImageView" destination="Q5m-MT-J2i" id="MiC-gF-zyz"/>
@@ -409,7 +434,7 @@
                                             <constraint firstAttribute="width" constant="24" id="kC6-Ml-9rU"/>
                                         </constraints>
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <state key="normal" image="arrow.backward" catalog="system"/>
+                                        <state key="normal" image="back"/>
                                         <connections>
                                             <action selector="handleBackButton:" destination="WhE-aN-Z2o" eventType="touchUpInside" id="4Ew-ly-Tb6"/>
                                         </connections>
@@ -687,10 +712,10 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OvM-Mj-nfx">
+                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="256" horizontalCompressionResistancePriority="742" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OvM-Mj-nfx">
                                         <rect key="frame" x="314" y="33" width="84" height="30"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="84" id="VH3-GQ-glp"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="84" id="VH3-GQ-glp"/>
                                         </constraints>
                                         <state key="normal" title="Select All"/>
                                         <connections>
@@ -866,7 +891,7 @@
         </designable>
     </designables>
     <resources>
-        <image name="arrow.backward" catalog="system" width="128" height="98"/>
+        <image name="back" width="23" height="23"/>
         <image name="calendar" width="24" height="24"/>
         <image name="checkBox" width="23" height="23"/>
         <image name="clock" width="20" height="20"/>
@@ -893,6 +918,9 @@
         </systemColor>
         <systemColor name="systemPinkColor">
             <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemTealColor">
+            <color red="0.35294117647058826" green="0.78431372549019607" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
