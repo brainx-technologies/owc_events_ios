@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		9528C5D7CCC5C7673413B286 /* Pods_OWC_Events_iOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35F625BD058B8A5F32D0924F /* Pods_OWC_Events_iOSTests.framework */; };
 		9F6F17FA2B9C67F2532F2B89 /* Pods_OWC_Events_iOS_OWC_Events_iOSUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C35260ADF6699CDA2E24386 /* Pods_OWC_Events_iOS_OWC_Events_iOSUITests.framework */; };
+		D92111A4265E815B002490EE /* UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92111A3265E815B002490EE /* UILabel.swift */; };
+		D92111F9265F8CC6002490EE /* EventsFilterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92111F8265F8CC6002490EE /* EventsFilterViewModel.swift */; };
+		D92111FE265F8FF3002490EE /* EventsFilterRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92111FD265F8FF3002490EE /* EventsFilterRouter.swift */; };
 		D94ED4BB265B735400ACD160 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D94ED4BA265B735400ACD160 /* AppDelegate.swift */; };
 		D94ED4C2265B735400ACD160 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D94ED4C0265B735400ACD160 /* Main.storyboard */; };
 		D94ED4C4265B735700ACD160 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D94ED4C3265B735700ACD160 /* Assets.xcassets */; };
@@ -85,6 +88,9 @@
 		B58A5142C18A2D2B34AD61F9 /* Pods-OWC_Events_iOS-OWC_Events_iOSUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OWC_Events_iOS-OWC_Events_iOSUITests.debug.xcconfig"; path = "Target Support Files/Pods-OWC_Events_iOS-OWC_Events_iOSUITests/Pods-OWC_Events_iOS-OWC_Events_iOSUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		B661A7232AF260F0FE55A6C7 /* Pods-OWC_Events_iOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OWC_Events_iOSTests.debug.xcconfig"; path = "Target Support Files/Pods-OWC_Events_iOSTests/Pods-OWC_Events_iOSTests.debug.xcconfig"; sourceTree = "<group>"; };
 		C4A607D29F11E9D7B6521434 /* Pods-OWC_Events_iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OWC_Events_iOS.debug.xcconfig"; path = "Target Support Files/Pods-OWC_Events_iOS/Pods-OWC_Events_iOS.debug.xcconfig"; sourceTree = "<group>"; };
+		D92111A3265E815B002490EE /* UILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabel.swift; sourceTree = "<group>"; };
+		D92111F8265F8CC6002490EE /* EventsFilterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsFilterViewModel.swift; sourceTree = "<group>"; };
+		D92111FD265F8FF3002490EE /* EventsFilterRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsFilterRouter.swift; sourceTree = "<group>"; };
 		D94ED4B7265B735400ACD160 /* OWC_Events_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OWC_Events_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D94ED4BA265B735400ACD160 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D94ED4C1265B735400ACD160 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -267,6 +273,7 @@
 				D94ED533265B964200ACD160 /* HomeViewModel.swift */,
 				D94ED5E7265DFFDC00ACD160 /* EventsViewModel.swift */,
 				D94ED601265E457D00ACD160 /* EventsDetailViewModel.swift */,
+				D92111F8265F8CC6002490EE /* EventsFilterViewModel.swift */,
 			);
 			path = "View Models";
 			sourceTree = "<group>";
@@ -298,6 +305,7 @@
 				D94ED5B0265D105500ACD160 /* UITableViewCell.swift */,
 				D94ED57B265BF80E00ACD160 /* UIView.swift */,
 				D94ED525265B953900ACD160 /* UIViewController.swift */,
+				D92111A3265E815B002490EE /* UILabel.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -411,6 +419,7 @@
 				D94ED5DD265DFA3600ACD160 /* EventsFilterView.swift */,
 				D94ED5EC265E04B900ACD160 /* EventsFilterTableViewCell.swift */,
 				D94ED5F1265E36CE00ACD160 /* EventsFilterTableViewHeader.swift */,
+				D92111FD265F8FF3002490EE /* EventsFilterRouter.swift */,
 			);
 			path = "Events Filter";
 			sourceTree = "<group>";
@@ -670,12 +679,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D92111F9265F8CC6002490EE /* EventsFilterViewModel.swift in Sources */,
 				D94ED5CB265D2DD000ACD160 /* Date.swift in Sources */,
 				D94ED55B265B97DE00ACD160 /* LoaderManager.swift in Sources */,
 				D94ED551265B97B900ACD160 /* Fonts.swift in Sources */,
 				D94ED542265B977900ACD160 /* Router.swift in Sources */,
 				D94ED508265B797200ACD160 /* UIStoryboard.swift in Sources */,
 				D94ED534265B964200ACD160 /* HomeViewModel.swift in Sources */,
+				D92111A4265E815B002490EE /* UILabel.swift in Sources */,
 				D94ED520265B94D700ACD160 /* HomeRouter.swift in Sources */,
 				D94ED526265B953900ACD160 /* UIViewController.swift in Sources */,
 				D94ED521265B94D700ACD160 /* HomeViewController.swift in Sources */,
@@ -697,6 +708,7 @@
 				D94ED547265B97A100ACD160 /* LocalizedKey.swift in Sources */,
 				D94ED5DE265DFA3600ACD160 /* EventsFilterView.swift in Sources */,
 				D94ED5F2265E36CE00ACD160 /* EventsFilterTableViewHeader.swift in Sources */,
+				D92111FE265F8FF3002490EE /* EventsFilterRouter.swift in Sources */,
 				D94ED519265B94A000ACD160 /* BaseViewController.swift in Sources */,
 				D94ED5E8265DFFDC00ACD160 /* EventsViewModel.swift in Sources */,
 				D94ED52C265B95EF00ACD160 /* EventsViewController.swift in Sources */,

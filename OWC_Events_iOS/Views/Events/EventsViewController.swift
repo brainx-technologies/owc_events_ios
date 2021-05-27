@@ -71,6 +71,7 @@ class EventsViewController: BaseViewController {
 
     // MARK: - Instance Variables
 
+    private let heightForEventsRow: CGFloat = 200
     var viewModel: EventsViewModel!
     var selectedDate = Date()
 
@@ -103,26 +104,16 @@ class EventsViewController: BaseViewController {
 
     @objc
     private func handleDatePicker() {
-//        ActionSheetDatePicker.show(
-//            withTitle: LocalizedKey.selectDate.string,
-//            datePickerMode: .date,
-//            selectedDate: selectedDate,
-//            doneBlock: {
-//                _, date, _ in
-//                self.selectedDate = date as? Date ?? Date()
-//                self.eventsView.dateLabel.text = Date.monthYearFormatter.string(from: self.selectedDate)
-//                self.eventsView.eventsTableView.reloadData()
-//                self.fetchDataFor(date: self.selectedDate)
-//            },
-//            cancel: nil,
-//            origin: eventsView
-//        )
-        ActionSheetStringPicker.show(
-            withTitle: LocalizedKey.selectMonth.string,
-            rows: MonthsOfYear.getMonthsNames(),
-            initialSelection: 0,
-            doneBlock: { _, monthIndex, _ in
-                print(monthIndex)
+        ActionSheetDatePicker.show(
+            withTitle: LocalizedKey.selectDate.string,
+            datePickerMode: .date,
+            selectedDate: selectedDate,
+            doneBlock: {
+                _, date, _ in
+                self.selectedDate = date as? Date ?? Date()
+                self.eventsView.dateLabel.text = Date.monthYearFormatter.string(from: self.selectedDate)
+                self.eventsView.eventsTableView.reloadData()
+                self.fetchDataFor(date: self.selectedDate)
             },
             cancel: nil,
             origin: eventsView
@@ -139,7 +130,7 @@ class EventsViewController: BaseViewController {
 
 extension EventsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
-        return 1
+        return 2
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -155,6 +146,6 @@ extension EventsViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_: UITableView, heightForRowAt _: IndexPath) -> CGFloat {
-        return 200
+        return heightForEventsRow
     }
 }

@@ -13,8 +13,6 @@ class EventsFilterView: UIView {
     @IBOutlet var cancelButton: UIButton!
     @IBOutlet var selectAllButton: UIButton!
     @IBOutlet var filterLabel: UILabel!
-//    @IBOutlet var typeThemeLabel: UILabel!
-//    @IBOutlet var tableContainerView: UIView!
     @IBOutlet var filterTableView: UITableView!
     @IBOutlet var clearApplyContainerView: UIView!
     @IBOutlet var clearAllButton: UIButton!
@@ -40,7 +38,6 @@ class EventsFilterView: UIView {
         [clearAllButton, applyFilterButton].forEach {
             $0?.setCornerRadius(10)
         }
-//        tableContainerView.setCornerRadius(10)
     }
 
     private func setBorders() {
@@ -49,7 +46,6 @@ class EventsFilterView: UIView {
 
     private func setFonts() {
         filterLabel.font = Font.sofiaSemiBold(16)
-//        typeThemeLabel.font = Font.sofiaBold(18)
         selectAllButton.titleLabel?.font = Font.sofiaSemiBold(17)
         [clearAllButton, applyFilterButton].forEach {
             $0?.titleLabel?.font = Font.sofiaRegular(17)
@@ -59,7 +55,6 @@ class EventsFilterView: UIView {
     private func setText() {
         filterLabel.text = LocalizedKey.filter.string
         selectAllButton.setTitle(LocalizedKey.selectAll.string, for: .normal)
-//        typeThemeLabel.text = LocalizedKey.typeTheme.string
         clearAllButton.setTitle(LocalizedKey.clearAll.string, for: .normal)
         applyFilterButton.setTitle(LocalizedKey.applyFilter.string, for: .normal)
     }

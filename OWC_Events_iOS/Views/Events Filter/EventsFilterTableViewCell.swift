@@ -55,4 +55,8 @@ class EventsFilterTableViewCell: UITableViewCell {
     func updateViewsWith(typeName: String) {
         filterLabel.text = typeName
     }
+
+    func updateSelectedFilter(isSelected: Bool) {
+        filterImageView.image = isSelected ? UIImage(named: Image.checkbox) : UIImage(named: Image.emptyCheckbox)
+    }
 }

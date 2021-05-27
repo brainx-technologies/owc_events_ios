@@ -12,6 +12,7 @@ enum LocalizedKey: String {
         NSLocalizedString(rawValue, comment: "")
     }
 
+    case empty = ""
     case appName = "OWC Events"
     case error = "Error"
     case events = "Events"
@@ -28,4 +29,16 @@ enum LocalizedKey: String {
     case clearAll = "Clear All"
     case location = "Location"
     case eventDetails = "Event Details"
+    case aboutThisEvent = "About this event"
+    case seeMore = "See More"
+    case threeDots = "... "
+    case viewMap = "View Map"
+    case addToCalendar = "Add To Calendar"
+    case openGoogleMap = "Open Google Map"
+    case openAppleMap = "Open Apple Map"
+    case cancel = "Cancel"
+    case cannotUseGoogleMapMessage = "Can't use google maps"
+    case failedToSave = "failed to save event with error"
+    case successTitle = "Event Added Successfully"
+    case successMessage = "Your event added successfully to your calendar"
 }

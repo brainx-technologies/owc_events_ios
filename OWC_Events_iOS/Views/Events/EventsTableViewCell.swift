@@ -32,6 +32,12 @@ class EventsTableViewCell: UITableViewCell {
         configureView()
     }
 
+    override func layoutSubviews() {
+        super.layoutSubviews()
+
+        contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 8, left: 0, bottom: 8, right: 0))
+    }
+
     // MARK: - Private Methods
 
     private func configureView() {
@@ -43,7 +49,7 @@ class EventsTableViewCell: UITableViewCell {
     }
 
     private func setCorners() {
-        [containerView].forEach {
+        [self, containerView].forEach {
             $0.setCornerRadius(10)
         }
         dateStackView.setCornerRadius(10)

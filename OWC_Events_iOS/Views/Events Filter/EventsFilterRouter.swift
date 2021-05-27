@@ -1,20 +1,20 @@
 //
-//  EventsDetailRouter.swift
+//  EventsFilterRouter.swift
 //  OWC_Events_iOS
 //
-//  Created by BrainX Technologies on 5/26/21.
+//  Created by BrainX Technologies on 5/27/21.
 //
 
 import UIKit
 
-class EventsDetailRouter: Router {
+class EventsFilterRouter: Router {
     // MARK: - Instance variable
 
     var viewController: BaseViewController?
 
     // MARK: - Init Method
 
-    required init(controller: EventsDetailViewController) {
+    required init(controller: EventsFilterViewController) {
         viewController = controller
     }
 
@@ -22,9 +22,5 @@ class EventsDetailRouter: Router {
 
     func dismissVC(navigationType _: NavigationType, animated: Bool, completion _: (() -> Void)?) {
         viewController?.navigationController?.popViewController(animated: animated)
-    }
-
-    func showActionSheet(alert: UIAlertController, animated: Bool, completion: (() -> Void)?) {
-        viewController?.present(alert, animated: animated, completion: completion)
     }
 }

@@ -27,7 +27,18 @@ class EventsDetailViewController: BaseViewController {
 
     // MARK: - Action Methods
 
-    @IBAction func handleBackButton(_: Any) {
+    @IBAction
+    func handleBackButton(_: Any) {
         viewModel.backButtonPressed()
+    }
+
+    @IBAction
+    func handleViewMapButton(_: Any) {
+        viewModel.viewInMap()
+    }
+
+    @IBAction
+    func handleAddToCalendarButton(_: Any) {
+        viewModel.addToCalendar()
     }
 }

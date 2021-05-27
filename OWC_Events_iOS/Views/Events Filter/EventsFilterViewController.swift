@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol UpdateSelectedValuesProtocol {
+    func updateSelectedValues(typeThemeSelectedItems: [TypesAndThemeFilters], locationSelectedItems: [LocationFilters])
+}
+
 enum TypesAndThemeFilters: String, CaseIterable {
     case agriculture = "Agriculture"
     case arts = "Arts"
@@ -58,16 +62,23 @@ class EventsFilterViewController: BaseViewController {
 
     // MARK: - Instance Variables
 
-    private let typeThemeFilters = TypesAndThemeFilters.getTypeAndThemeFilters()
-    private let locationFilters = LocationFilters.getLocationFilters()
+    private let typeThemeFilters = TypesAndThemeFilters.allCases // ..getTypeAndThemeFilters()
+    private let locationFilters = LocationFilters.allCases // getLocationFilters()
     private let headersArray = [LocalizedKey.typeTheme.string, LocalizedKey.location.string]
     private let eventsTableViewHeaderHeight: CGFloat = 50
+
+    private var viewModel: EventsFilterViewModel!
+    var delegate: UpdateSelectedValuesProtocol?
     var selectedDate = Date()
+    var selectedTypeThemeFilters: [TypesAndThemeFilters] = []
+    var selectedLocationFilters: [LocationFilters] = []
 
     // MARK: - Override Methods
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        let router = EventsFilterRouter(controller: self)
+        viewModel = EventsFilterViewModel(router: router)
         setupEventsTableView()
     }
 
@@ -105,6 +116,33 @@ class EventsFilterViewController: BaseViewController {
         testView.backgroundColor = UIColor.clear
         cell.backgroundView = testView
     }
+
+    // MARK: - Action Methods
+
+    @IBAction
+    func handleClosedButton(_: Any) {
+        viewModel.closedButtonPressed()
+    }
+
+    @IBAction
+    func handleSelectAllButton(_: Any) {
+        selectedTypeThemeFilters = TypesAndThemeFilters.allCases
+        selectedLocationFilters = LocationFilters.allCases
+        eventsFilterView.filterTableView.reloadData()
+    }
+
+    @IBAction
+    func handleApplyFiltersButton(_: Any) {
+        delegate?.updateSelectedValues(typeThemeSelectedItems: selectedTypeThemeFilters, locationSelectedItems: selectedLocationFilters)
+        viewModel.closedButtonPressed()
+    }
+
+    @IBAction
+    func handleCancelButton(_: Any) {
+        selectedTypeThemeFilters = []
+        selectedLocationFilters = []
+        eventsFilterView.filterTableView.reloadData()
+    }
 }
 
 // MARK: - TableView Delegate and DataSource Methods
@@ -130,14 +168,26 @@ extension EventsFilterViewController: UITableViewDelegate, UITableViewDataSource
         ) as! EventsFilterTableViewCell
         switch indexPath.section {
         case 0:
-            cell.updateViewsWith(typeName: typeThemeFilters[indexPath.row])
+            cell.updateViewsWith(typeName: typeThemeFilters[indexPath.row].rawValue)
             cell.lineView.isHidden = indexPath.row == (typeThemeFilters.count - 1)
+            cell.updateSelectedFilter(isSelected: selectedTypeThemeFilters.contains(typeThemeFilters[indexPath.row]))
         default:
-            cell.updateViewsWith(typeName: locationFilters[indexPath.row])
+            cell.updateViewsWith(typeName: locationFilters[indexPath.row].rawValue)
             cell.lineView.isHidden = indexPath.row == (locationFilters.count - 1)
+            cell.updateSelectedFilter(isSelected: selectedLocationFilters.contains(locationFilters[indexPath.row]))
         }
         addBottomRadiusAndBorder(cell, indexPath, tableView)
         return cell
+    }
+
+    func tableView(_: UITableView, didSelectRowAt indexPath: IndexPath) {
+        switch indexPath.section {
+        case 0:
+            selectedTypeThemeFilters.append(typeThemeFilters[indexPath.row])
+        default:
+            selectedLocationFilters.append(locationFilters[indexPath.row])
+        }
+        eventsFilterView.filterTableView.reloadData()
     }
 
     func tableView(_: UITableView, heightForRowAt _: IndexPath) -> CGFloat {

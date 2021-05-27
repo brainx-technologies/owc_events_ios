@@ -7,7 +7,9 @@ target 'OWC_Events_iOS' do
 
   # Pods for OWC_Events_iOS
   pod 'ActionSheetPicker-3.0'
-
+  pod 'ReadMoreTextView'
+  
+  
   target 'OWC_Events_iOSTests' do
     inherit! :search_paths
     # Pods for testing
