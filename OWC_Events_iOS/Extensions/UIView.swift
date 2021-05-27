@@ -24,7 +24,7 @@ extension UIView {
             layer.masksToBounds = newValue > 0
         }
     }
-    
+
     var borderWidth: CGFloat {
         get {
             return layer.borderWidth
@@ -175,5 +175,18 @@ extension UIView {
         cornerLayer.path = path.cgPath
 
         layer.addSublayer(cornerLayer)
+    }
+
+    func addShadow(color: UIColor = Color.black,
+                   alpha: Float = 1,
+                   x: CGFloat = 0,
+                   y: CGFloat = 2,
+                   blur: CGFloat = 2)
+    {
+        layer.shadowColor = color.cgColor
+        layer.shadowOffset = CGSize(width: x, height: y)
+        layer.shadowOpacity = alpha
+        layer.shadowRadius = blur
+        layer.masksToBounds = false
     }
 }

@@ -51,5 +51,14 @@
 		<string>Sofia_SemiBold.otf</string>
 		<string>Sofia_UltraLight.otf</string>
 	</array>
+	<key>UIViewControllerBasedStatusBarAppearance</key>
+	<true/>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>comgooglemaps</string>
+		<string>comgooglemaps-x-callback</string>
+	</array>
+	<key>NSCalendarsUsageDescription</key>
+	<string>Need Calendar access to add Events in Calendar</string>
 </dict>
 </plist>
