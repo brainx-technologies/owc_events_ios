@@ -34,7 +34,7 @@ class EventsDetailViewModel {
         ]
         let placeMark = MKPlacemark(coordinate: coordinates, addressDictionary: nil)
         let mapItem = MKMapItem(placemark: placeMark)
-        mapItem.name = "Lahore"
+        mapItem.name = "Lahore" // will replace with actual data after api implementation
         mapItem.openInMaps(launchOptions: options)
     }
 
@@ -55,8 +55,8 @@ class EventsDetailViewModel {
     }
 
     func viewInMap() {
-        let latitude: CLLocationDegrees = 31.5204
-        let longitude: CLLocationDegrees = 74.3587
+        let latitude: CLLocationDegrees = 31.5204 // will replace with actual data after api implementation
+        let longitude: CLLocationDegrees = 74.3587 // will replace with actual data after api implementation
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         alert.view.tintColor = Color.tintColor
         alert.addAction(UIAlertAction(title: LocalizedKey.openGoogleMap.string, style: .default, handler: { _ in
@@ -75,10 +75,10 @@ class EventsDetailViewModel {
                 print("granted \(granted)")
                 let event = EKEvent(eventStore: self.eventStore)
 
-                event.title = "Test Title"
+                event.title = "Test Title" // will replace with actual data after api implementation
                 event.startDate = Date()
                 event.endDate = Date()
-                event.notes = "This is a note"
+                event.notes = "This is a note" // will replace with actual data after api implementation
                 event.calendar = self.eventStore.defaultCalendarForNewEvents
                 do {
                     try self.eventStore.save(event, span: .thisEvent)
