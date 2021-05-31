@@ -8,45 +8,6 @@
 import ActionSheetPicker_3_0
 import UIKit
 
-enum DayOfWeek: CaseIterable {
-    case monday, tuesday, wednesday, thursday, friday, saturday, sunday
-
-    var name: String {
-        switch self {
-        case .monday: return "Mon"
-        case .tuesday: return "Tue"
-        case .wednesday: return "Wed"
-        case .thursday: return "Thu"
-        case .friday: return "Fri"
-        case .saturday: return "Sat"
-        case .sunday: return "Sun"
-        }
-    }
-
-    func getDate(forWeek weekStartDate: Date) -> Date? {
-        let calendar = Calendar.gregorian
-        let offset: Int
-
-        switch self {
-        case .monday: offset = 0
-        case .tuesday: offset = 1
-        case .wednesday: offset = 2
-        case .thursday: offset = 3
-        case .friday: offset = 4
-        case .saturday: offset = 5
-        case .sunday: offset = 6
-        }
-
-        let date = calendar.date(
-            byAdding: .day,
-            value: offset,
-            to: weekStartDate
-        )
-
-        return date
-    }
-}
-
 enum MonthsOfYear: String, CaseIterable {
     case January, February, March, April, May, June, July, August, September, October, November, December
 
@@ -73,9 +34,12 @@ class EventsViewController: BaseViewController {
     // MARK: - Instance Variables
 
     private let heightForEventsRow: CGFloat = 200
+    var selectedTypeThemeFilters: [TypesAndThemeFilters] = []
+    var selectedLocationFilters: [LocationFilters] = []
     private var totalFilterBeingApplied = 0
     var viewModel: EventsViewModel!
     var selectedDate = Date()
+    var OWCEvents: [OWCEvent] = []
     var isSearchResult: Bool? {
         didSet {
             if isSearchResult ?? false {
@@ -85,6 +49,14 @@ class EventsViewController: BaseViewController {
                 eventsView.noEventsLabel.text = LocalizedKey.noEventsAvailable.string
                 eventsView.noEventsImageView.image = UIImage(named: Image.noEvents)
             }
+        }
+    }
+    var isTableDataAvailable: Bool = false {
+        didSet {
+            eventsView.noEventsImageView.isHidden = isTableDataAvailable
+            eventsView.noEventsLabel.isHidden = isTableDataAvailable
+            eventsView.eventsTableView.isHidden = !isTableDataAvailable
+            eventsView.eventsTableView.reloadData()
         }
     }
 
@@ -113,7 +85,36 @@ class EventsViewController: BaseViewController {
         eventsView.dateLabel.text = Date.monthYearFormatter.string(from: selectedDate)
         FilterManager.getFilterBeingApplied { typeThemeFilters, locationFilter in
             self.totalFilterBeingApplied = typeThemeFilters.count + locationFilter.count
+            self.eventsView.filterNumberView.isHidden = self.totalFilterBeingApplied == 0
             self.eventsView.filterNumberLabel.text = "\(self.totalFilterBeingApplied)"
+            self.selectedTypeThemeFilters = typeThemeFilters
+            self.selectedLocationFilters = locationFilter
+        }
+        viewModel.getDummyEvents { (events) in
+            self.OWCEvents.removeAll()
+            for event in events {
+                if self.totalFilterBeingApplied == 0 {
+                    self.OWCEvents = events
+                    break
+                }
+                if let kinds = event.isKindOf {
+                    for kind in kinds {
+                        if let newFilter = TypesAndThemeFilters(rawValue: kind){
+                            if self.selectedTypeThemeFilters.contains(newFilter){
+                                self.OWCEvents.append(event)
+                                break
+                            }
+                        }
+                        if let newFilter = LocationFilters(rawValue: kind){
+                            if self.selectedLocationFilters.contains(newFilter){
+                                self.OWCEvents.append(event)
+                                break
+                            }
+                        }
+                    }
+                }
+            }
+            self.isTableDataAvailable = self.OWCEvents.count > 0
         }
     }
 
@@ -143,7 +144,7 @@ class EventsViewController: BaseViewController {
 
 extension EventsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
-        return 2
+        return OWCEvents.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -151,6 +152,7 @@ extension EventsViewController: UITableViewDelegate, UITableViewDataSource {
             withIdentifier: EventsTableViewCell.reuseIdentifier,
             for: indexPath
         ) as! EventsTableViewCell
+        cell.updateWith(event: OWCEvents[indexPath.row])
         return cell
     }
 
@@ -187,8 +189,11 @@ extension EventsViewController: UITextFieldDelegate {
 
 extension EventsViewController: UpdateSelectedValuesProtocol {
     func updateSelectedValues(typeThemeSelectedItems: [TypesAndThemeFilters], locationSelectedItems: [LocationFilters]) {
+        selectedTypeThemeFilters = typeThemeSelectedItems
+        selectedLocationFilters = locationSelectedItems
         totalFilterBeingApplied = typeThemeSelectedItems.count + locationSelectedItems.count
         eventsView.filterNumberLabel.text = "\(totalFilterBeingApplied)"
+        setupViews()
     }
 }
 

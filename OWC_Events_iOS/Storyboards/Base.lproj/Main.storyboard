@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="asp-oJ-Oyf">
-                                <rect key="frame" x="16" y="818" width="382" height="12"/>
+                                <rect key="frame" x="16" y="813" width="382" height="14"/>
                                 <attributedString key="attributedText">
                                     <fragment content="Powered By">
                                         <attributes>
@@ -32,7 +32,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UzL-f7-jqz">
-                                <rect key="frame" x="16" y="838" width="382" height="16"/>
+                                <rect key="frame" x="16" y="835" width="382" height="19"/>
                                 <attributedString key="attributedText">
                                     <fragment content="Huron County Economic Development">
                                         <attributes>
@@ -129,13 +129,13 @@
                                     <constraint firstItem="JPM-oJ-h7z" firstAttribute="top" secondItem="FmD-dL-Juu" secondAttribute="top" constant="44" id="myD-ee-xt1"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6fC-xO-ovM">
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6fC-xO-ovM">
                                 <rect key="frame" x="16" y="530" width="382" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="noEvents" translatesAutoresizingMaskIntoConstraints="NO" id="CIS-AL-8VD">
+                            <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="noEvents" translatesAutoresizingMaskIntoConstraints="NO" id="CIS-AL-8VD">
                                 <rect key="frame" x="141" y="382" width="132" height="132"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="132" id="iN8-Ah-CHq"/>
@@ -331,14 +331,17 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
                                             <outlet property="containerView" destination="yeV-E7-LEb" id="Scr-JQ-BeR"/>
-                                            <outlet property="dateDayLabel" destination="k0H-bt-MxQ" id="zgg-Mn-NKj"/>
-                                            <outlet property="dateLabel" destination="KJZ-iz-Ysi" id="jbh-gj-neL"/>
                                             <outlet property="dateStackView" destination="aQm-Xw-Pa8" id="kAp-fi-TVS"/>
                                             <outlet property="endDateDayLabel" destination="tUV-25-FV3" id="kva-8Q-5ha"/>
                                             <outlet property="endDateLabel" destination="LfB-bc-1gq" id="eET-KR-74C"/>
+                                            <outlet property="endDateView" destination="Qfz-ZZ-Ziv" id="i7C-VT-cWj"/>
                                             <outlet property="eventLocationLabel" destination="vBD-po-KLn" id="JSR-10-5mt"/>
                                             <outlet property="eventTimeLabel" destination="3GG-ow-3NA" id="cvC-zE-NfG"/>
                                             <outlet property="eventTitleLabel" destination="b73-AS-H1u" id="22Y-ee-Nz1"/>
+                                            <outlet property="separatorView" destination="RQA-va-GhA" id="unZ-eR-50E"/>
+                                            <outlet property="startDateDayLabel" destination="k0H-bt-MxQ" id="zgg-Mn-NKj"/>
+                                            <outlet property="startDateLabel" destination="KJZ-iz-Ysi" id="jbh-gj-neL"/>
+                                            <outlet property="startDateView" destination="XTx-h5-JxF" id="Jx8-3R-1WY"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

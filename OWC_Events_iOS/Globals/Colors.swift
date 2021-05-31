@@ -26,4 +26,11 @@ enum Color {
     static let seeMoreColor = UIColor(0xFFC800)
     static let grayColor = UIColor(red: 255 / 255.0, green: 255 / 255.0, blue: 255 / 255.0, alpha: 0.8)
     static let filterNumberBackground = UIColor(0xFF7052)
+    static let monday = UIColor(0x2F61D5)
+    static let tuesday = UIColor(0x22D369)
+    static let wednesday = UIColor(0xFF7052)
+    static let thursday = UIColor(0x787993)
+    static let friday = UIColor(0x7540EE)
+    static let saturday = UIColor(0x013E6E)
+    static let sunday = UIColor(0x3FB6DC)
 }

@@ -63,6 +63,8 @@
 		D95319D02664C86100CC0B2E /* MonthYearView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D95319CF2664C86100CC0B2E /* MonthYearView.swift */; };
 		D95319D82664D3D400CC0B2E /* MonthYearPickerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D95319D72664D3D400CC0B2E /* MonthYearPickerViewModel.swift */; };
 		D95319DD2664D3FC00CC0B2E /* MonthYearRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D95319DC2664D3FC00CC0B2E /* MonthYearRouter.swift */; };
+		D95319E32664F4F500CC0B2E /* OWCEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D95319E22664F4F500CC0B2E /* OWCEvent.swift */; };
+		D95319EC2664F64F00CC0B2E /* ObjectMapper in Frameworks */ = {isa = PBXBuildFile; productRef = D95319EB2664F64F00CC0B2E /* ObjectMapper */; };
 		D99D2131265FE5A5006B812D /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D99D2130265FE5A5006B812D /* UserDefaultsManager.swift */; };
 		D99D2136265FE835006B812D /* FilterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D99D2135265FE835006B812D /* FilterManager.swift */; };
 		F87128B2F021A092EFBBF1A5 /* Pods_OWC_Events_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15E80C01EA794408DC28BD9E /* Pods_OWC_Events_iOS.framework */; };
@@ -152,6 +154,7 @@
 		D95319CF2664C86100CC0B2E /* MonthYearView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthYearView.swift; sourceTree = "<group>"; };
 		D95319D72664D3D400CC0B2E /* MonthYearPickerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthYearPickerViewModel.swift; sourceTree = "<group>"; };
 		D95319DC2664D3FC00CC0B2E /* MonthYearRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthYearRouter.swift; sourceTree = "<group>"; };
+		D95319E22664F4F500CC0B2E /* OWCEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OWCEvent.swift; sourceTree = "<group>"; };
 		D99D2130265FE5A5006B812D /* UserDefaultsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
 		D99D2135265FE835006B812D /* FilterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -162,6 +165,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D94ED561265B984A00ACD160 /* MBProgressHUD in Frameworks */,
+				D95319EC2664F64F00CC0B2E /* ObjectMapper in Frameworks */,
 				D94ED5F8265E37C800ACD160 /* SnapKit in Frameworks */,
 				D94ED513265B942A00ACD160 /* IQKeyboardManagerSwift in Frameworks */,
 				F87128B2F021A092EFBBF1A5 /* Pods_OWC_Events_iOS.framework in Frameworks */,
@@ -240,6 +244,7 @@
 				D94ED4F1265B755700ACD160 /* Extensions */,
 				D94ED4F2265B755F00ACD160 /* Globals */,
 				D94ED4F5265B75B100ACD160 /* Managers */,
+				D95319E12664F4A800CC0B2E /* Models */,
 				D94ED4F3265B756E00ACD160 /* Repositories */,
 				D94ED4F0265B755000ACD160 /* Resources */,
 				D94ED4F4265B75AA00ACD160 /* Router */,
@@ -453,6 +458,14 @@
 			path = "Month Year Picker";
 			sourceTree = "<group>";
 		};
+		D95319E12664F4A800CC0B2E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				D95319E22664F4F500CC0B2E /* OWCEvent.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -475,6 +488,7 @@
 				D94ED512265B942A00ACD160 /* IQKeyboardManagerSwift */,
 				D94ED560265B984A00ACD160 /* MBProgressHUD */,
 				D94ED5F7265E37C800ACD160 /* SnapKit */,
+				D95319EB2664F64F00CC0B2E /* ObjectMapper */,
 			);
 			productName = OWC_Events_iOS;
 			productReference = D94ED4B7265B735400ACD160 /* OWC_Events_iOS.app */;
@@ -554,6 +568,7 @@
 				D94ED511265B942A00ACD160 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
 				D94ED55F265B984A00ACD160 /* XCRemoteSwiftPackageReference "MBProgressHUD" */,
 				D94ED5F6265E37C800ACD160 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				D95319EA2664F64F00CC0B2E /* XCRemoteSwiftPackageReference "ObjectMapper" */,
 			);
 			productRefGroup = D94ED4B8265B735400ACD160 /* Products */;
 			projectDirPath = "";
@@ -720,6 +735,7 @@
 				D94ED521265B94D700ACD160 /* HomeViewController.swift in Sources */,
 				D94ED556265B97C200ACD160 /* Images.swift in Sources */,
 				D94ED4BB265B735400ACD160 /* AppDelegate.swift in Sources */,
+				D95319E32664F4F500CC0B2E /* OWCEvent.swift in Sources */,
 				D94ED567265B9A3300ACD160 /* EventsDetailViewController.swift in Sources */,
 				D94ED5C3265D2BCD00ACD160 /* Calendar.swift in Sources */,
 				D94ED574265B9B5200ACD160 /* EventsDetailView.swift in Sources */,
@@ -1115,6 +1131,14 @@
 				minimumVersion = 5.0.1;
 			};
 		};
+		D95319EA2664F64F00CC0B2E /* XCRemoteSwiftPackageReference "ObjectMapper" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/tristanhimmelman/ObjectMapper";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.2.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1132,6 +1156,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = D94ED5F6265E37C800ACD160 /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
+		};
+		D95319EB2664F64F00CC0B2E /* ObjectMapper */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D95319EA2664F64F00CC0B2E /* XCRemoteSwiftPackageReference "ObjectMapper" */;
+			productName = ObjectMapper;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

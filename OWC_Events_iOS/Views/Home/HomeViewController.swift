@@ -30,6 +30,8 @@ class HomeViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         homeViewModel.LoadEventsViewController()
+        UserDefaultsManager.typeThemeFilters.removeAll()
+        UserDefaultsManager.locationFilters.removeAll()
     }
 
     override var preferredStatusBarStyle: UIStatusBarStyle {
