@@ -5,8 +5,6 @@
 //  Created by BrainX Technologies on 5/24/21.
 //
 
-import Foundation
-
 import UIKit
 
 class EventsView: UIView {
@@ -23,7 +21,8 @@ class EventsView: UIView {
     @IBOutlet var filterView: UIView!
     @IBOutlet var filterNumberView: UIView!
     @IBOutlet var filterNumberLabel: UILabel!
-    
+    @IBOutlet var noEventsImageView: UIImageView!
+    @IBOutlet var noEventsLabel: UILabel!
 
     // MARK: Life Cycle Method
 
@@ -50,7 +49,9 @@ class EventsView: UIView {
 
     private func setFonts() {
         eventsLabel.font = Font.sofiaBold(30)
-        dateLabel.font = Font.sofiaBold(16)
+        [dateLabel, noEventsLabel].forEach {
+            $0.font = Font.sofiaBold(16)
+        }
         searchTextField.font = Font.sofiaSemiBold(13)
         filterNumberLabel.font = Font.sofiaRegular(12)
     }
@@ -58,6 +59,7 @@ class EventsView: UIView {
     private func setText() {
         eventsLabel.text = LocalizedKey.events.string
         searchTextField.placeholder = LocalizedKey.searchEvents.string
+        noEventsLabel.text = LocalizedKey.noEventsAvailable.string
     }
 
     private func setColors() {

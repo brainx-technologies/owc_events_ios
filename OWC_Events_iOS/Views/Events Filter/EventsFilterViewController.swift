@@ -78,9 +78,9 @@ class EventsFilterViewController: BaseViewController {
         eventsFilterView.filterTableView.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: eventsFilterView.filterTableView.bounds.size.width, height: eventsTableViewHeaderHeight))
         eventsFilterView.filterTableView.contentInset = UIEdgeInsets(top: -eventsTableViewHeaderHeight, left: 0, bottom: 0, right: 0)
     }
-    
-    private func setupViews(){
-        FilterManager.getFilterBeingApplied { (typeThemeFilters, locationFilter) in
+
+    private func setupViews() {
+        FilterManager.getFilterBeingApplied { typeThemeFilters, locationFilter in
             self.selectedTypeThemeFilters = typeThemeFilters
             self.selectedLocationFilters = locationFilter
         }
@@ -125,8 +125,8 @@ class EventsFilterViewController: BaseViewController {
 
     @IBAction
     func handleApplyFiltersButton(_: Any) {
-        UserDefaultsManager.typeThemeFilters = selectedTypeThemeFilters.map{ $0.rawValue }
-        UserDefaultsManager.locationFilters = selectedLocationFilters.map{ $0.rawValue }
+        UserDefaultsManager.typeThemeFilters = selectedTypeThemeFilters.map { $0.rawValue }
+        UserDefaultsManager.locationFilters = selectedLocationFilters.map { $0.rawValue }
         delegate?.updateSelectedValues(typeThemeSelectedItems: selectedTypeThemeFilters, locationSelectedItems: selectedLocationFilters)
         viewModel.closedButtonPressed()
     }
@@ -177,15 +177,15 @@ extension EventsFilterViewController: UITableViewDelegate, UITableViewDataSource
     func tableView(_: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath.section {
         case 0:
-            if selectedTypeThemeFilters.contains(typeThemeFilters[indexPath.row]){
+            if selectedTypeThemeFilters.contains(typeThemeFilters[indexPath.row]) {
                 selectedTypeThemeFilters.remove(at: selectedTypeThemeFilters.firstIndex(of: typeThemeFilters[indexPath.row]) ?? 0)
-            }else{
+            } else {
                 selectedTypeThemeFilters.append(typeThemeFilters[indexPath.row])
             }
         default:
-            if selectedLocationFilters.contains(locationFilters[indexPath.row]){
+            if selectedLocationFilters.contains(locationFilters[indexPath.row]) {
                 selectedLocationFilters.remove(at: selectedLocationFilters.firstIndex(of: locationFilters[indexPath.row]) ?? 0)
-            }else{
+            } else {
                 selectedLocationFilters.append(locationFilters[indexPath.row])
             }
         }

@@ -62,6 +62,7 @@ enum MonthsOfYear: String, CaseIterable {
 enum EventsRouteType: RouteType {
     case FilterView(data: Any? = nil)
     case EventsDetail(data: Any? = nil)
+    case MonthYearPickerView(data: Any? = nil)
 }
 
 class EventsViewController: BaseViewController {
@@ -75,6 +76,17 @@ class EventsViewController: BaseViewController {
     private var totalFilterBeingApplied = 0
     var viewModel: EventsViewModel!
     var selectedDate = Date()
+    var isSearchResult: Bool? {
+        didSet {
+            if isSearchResult ?? false {
+                eventsView.noEventsLabel.text = LocalizedKey.noEventFound.string
+                eventsView.noEventsImageView.image = UIImage(named: Image.noEventFound)
+            } else {
+                eventsView.noEventsLabel.text = LocalizedKey.noEventsAvailable.string
+                eventsView.noEventsImageView.image = UIImage(named: Image.noEvents)
+            }
+        }
+    }
 
     // MARK: - Override Methods
 
@@ -84,6 +96,8 @@ class EventsViewController: BaseViewController {
         viewModel = EventsViewModel(router: router)
         eventsView.calendarView.addTapAction(#selector(handleDatePicker), target: self)
         eventsView.filterView.addTapAction(#selector(handleFilter), target: self)
+        eventsView.searchIconImageView.addTapAction(#selector(handleClearSearch), target: self)
+        eventsView.searchTextField.delegate = self
         setupEventsTableView()
         setupViews()
     }
@@ -97,7 +111,7 @@ class EventsViewController: BaseViewController {
 
     private func setupViews() {
         eventsView.dateLabel.text = Date.monthYearFormatter.string(from: selectedDate)
-        FilterManager.getFilterBeingApplied { (typeThemeFilters, locationFilter) in
+        FilterManager.getFilterBeingApplied { typeThemeFilters, locationFilter in
             self.totalFilterBeingApplied = typeThemeFilters.count + locationFilter.count
             self.eventsView.filterNumberLabel.text = "\(self.totalFilterBeingApplied)"
         }
@@ -109,25 +123,19 @@ class EventsViewController: BaseViewController {
 
     @objc
     private func handleDatePicker() {
-        ActionSheetDatePicker.show(
-            withTitle: LocalizedKey.selectDate.string,
-            datePickerMode: .date,
-            selectedDate: selectedDate,
-            doneBlock: {
-                _, date, _ in
-                self.selectedDate = date as? Date ?? Date()
-                self.eventsView.dateLabel.text = Date.monthYearFormatter.string(from: self.selectedDate)
-                self.eventsView.eventsTableView.reloadData()
-                self.fetchDataFor(date: self.selectedDate)
-            },
-            cancel: nil,
-            origin: eventsView
-        )
+        viewModel.loadMonthYearPickerViewWith(selectedDate: selectedDate)
     }
 
     @objc
     private func handleFilter() {
-        viewModel.LoadFilterViewController()
+        viewModel.loadFilterViewController()
+    }
+
+    @objc
+    private func handleClearSearch() {
+        if eventsView.searchIconImageView.image == UIImage(systemName: Image.xMark) {
+            eventsView.searchTextField.text = LocalizedKey.empty.string
+        }
     }
 }
 
@@ -147,7 +155,7 @@ extension EventsViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_: UITableView, didSelectRowAt _: IndexPath) {
-        viewModel.LoadDetailsViewController()
+        viewModel.loadDetailsViewController()
     }
 
     func tableView(_: UITableView, heightForRowAt _: IndexPath) -> CGFloat {
@@ -155,13 +163,40 @@ extension EventsViewController: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
-//MARK: - Protocol Methods
+// MARK: - UITextFieldDelegate Methods
+
+extension EventsViewController: UITextFieldDelegate {
+    func textFieldDidEndEditing(_: UITextField) {
+        eventsView.searchIconImageView.image = UIImage(systemName: Image.search)
+        isSearchResult = eventsView.searchTextField.hasText
+        //        Hit API
+    }
+
+    func textFieldDidBeginEditing(_: UITextField) {
+        eventsView.searchIconImageView.image = UIImage(systemName: Image.xMark)
+        isSearchResult = true
+    }
+
+    func textFieldShouldReturn(_: UITextField) -> Bool {
+        eventsView.searchTextField.resignFirstResponder()
+        return true
+    }
+}
+
+// MARK: - Protocol Methods
 
 extension EventsViewController: UpdateSelectedValuesProtocol {
     func updateSelectedValues(typeThemeSelectedItems: [TypesAndThemeFilters], locationSelectedItems: [LocationFilters]) {
         totalFilterBeingApplied = typeThemeSelectedItems.count + locationSelectedItems.count
         eventsView.filterNumberLabel.text = "\(totalFilterBeingApplied)"
     }
-    
-    
+}
+
+// MARK: - Protocol Methods
+
+extension EventsViewController: UpdateMonthYearProtocol {
+    func updatedMonthAndYear(date: Date) {
+        selectedDate = date
+        eventsView.dateLabel.text = Date.monthYearFormatter.string(from: selectedDate)
+    }
 }

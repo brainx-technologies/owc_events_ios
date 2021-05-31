@@ -24,7 +24,7 @@ class EventsRouter: Router {
         viewController?.navigationController?.popViewController(animated: animated)
     }
 
-    func dismissVC(navigationType : NavigationType, animated: Bool, completion : (() -> Void)?) {
+    func dismissVC(navigationType: NavigationType, animated: Bool, completion: (() -> Void)?) {
         switch navigationType {
         case .overlay:
             viewController?.dismiss(animated: animated, completion: completion)
@@ -53,6 +53,16 @@ class EventsRouter: Router {
         case .EventsDetail:
             let detailReportController = UIViewController.instantiate(EventsDetailViewController.self, fromStoryboard: .Main)
             vc = detailReportController
+        case let .MonthYearPickerView(selectedDate):
+            let monthYearPickerController = UIViewController.instantiate(MonthYearPickerViewController.self, fromStoryboard: .Main)
+            let eventViewController: EventsViewController = viewController as! EventsViewController
+            monthYearPickerController.monthYearDelegate = eventViewController
+            if let date = selectedDate as? Date {
+                monthYearPickerController.selectedMonth = date.get(.month)
+                monthYearPickerController.selectedYear = date.get(.year)
+            }
+            vc = monthYearPickerController
+            vc.modalPresentationStyle = .overCurrentContext
         }
 
         switch navigationType {

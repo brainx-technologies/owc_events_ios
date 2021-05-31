@@ -58,6 +58,11 @@
 		D94ED5F8265E37C800ACD160 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = D94ED5F7265E37C800ACD160 /* SnapKit */; };
 		D94ED5FD265E44F100ACD160 /* EventsDetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D94ED5FC265E44F100ACD160 /* EventsDetailRouter.swift */; };
 		D94ED602265E457D00ACD160 /* EventsDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D94ED601265E457D00ACD160 /* EventsDetailViewModel.swift */; };
+		D95319C22664C23C00CC0B2E /* MonthYearPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D95319C12664C23C00CC0B2E /* MonthYearPickerView.swift */; };
+		D95319C82664C45E00CC0B2E /* MonthYearPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D95319C72664C45E00CC0B2E /* MonthYearPickerViewController.swift */; };
+		D95319D02664C86100CC0B2E /* MonthYearView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D95319CF2664C86100CC0B2E /* MonthYearView.swift */; };
+		D95319D82664D3D400CC0B2E /* MonthYearPickerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D95319D72664D3D400CC0B2E /* MonthYearPickerViewModel.swift */; };
+		D95319DD2664D3FC00CC0B2E /* MonthYearRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D95319DC2664D3FC00CC0B2E /* MonthYearRouter.swift */; };
 		D99D2131265FE5A5006B812D /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D99D2130265FE5A5006B812D /* UserDefaultsManager.swift */; };
 		D99D2136265FE835006B812D /* FilterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D99D2135265FE835006B812D /* FilterManager.swift */; };
 		F87128B2F021A092EFBBF1A5 /* Pods_OWC_Events_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15E80C01EA794408DC28BD9E /* Pods_OWC_Events_iOS.framework */; };
@@ -142,6 +147,11 @@
 		D94ED5F1265E36CE00ACD160 /* EventsFilterTableViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsFilterTableViewHeader.swift; sourceTree = "<group>"; };
 		D94ED5FC265E44F100ACD160 /* EventsDetailRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsDetailRouter.swift; sourceTree = "<group>"; };
 		D94ED601265E457D00ACD160 /* EventsDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsDetailViewModel.swift; sourceTree = "<group>"; };
+		D95319C12664C23C00CC0B2E /* MonthYearPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthYearPickerView.swift; sourceTree = "<group>"; };
+		D95319C72664C45E00CC0B2E /* MonthYearPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthYearPickerViewController.swift; sourceTree = "<group>"; };
+		D95319CF2664C86100CC0B2E /* MonthYearView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthYearView.swift; sourceTree = "<group>"; };
+		D95319D72664D3D400CC0B2E /* MonthYearPickerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthYearPickerViewModel.swift; sourceTree = "<group>"; };
+		D95319DC2664D3FC00CC0B2E /* MonthYearRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthYearRouter.swift; sourceTree = "<group>"; };
 		D99D2130265FE5A5006B812D /* UserDefaultsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
 		D99D2135265FE835006B812D /* FilterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -267,6 +277,7 @@
 				D94ED565265B9A0500ACD160 /* Events Detail */,
 				D94ED5D7265DF9D600ACD160 /* Events Filter */,
 				D94ED51D265B94AD00ACD160 /* Home */,
+				D95319C62664C42300CC0B2E /* Month Year Picker */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -278,6 +289,7 @@
 				D94ED5E7265DFFDC00ACD160 /* EventsViewModel.swift */,
 				D94ED601265E457D00ACD160 /* EventsDetailViewModel.swift */,
 				D92111F8265F8CC6002490EE /* EventsFilterViewModel.swift */,
+				D95319D72664D3D400CC0B2E /* MonthYearPickerViewModel.swift */,
 			);
 			path = "View Models";
 			sourceTree = "<group>";
@@ -353,6 +365,7 @@
 		D94ED4F6265B75B900ACD160 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				D95319C12664C23C00CC0B2E /* MonthYearPickerView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -428,6 +441,16 @@
 				D92111FD265F8FF3002490EE /* EventsFilterRouter.swift */,
 			);
 			path = "Events Filter";
+			sourceTree = "<group>";
+		};
+		D95319C62664C42300CC0B2E /* Month Year Picker */ = {
+			isa = PBXGroup;
+			children = (
+				D95319C72664C45E00CC0B2E /* MonthYearPickerViewController.swift */,
+				D95319CF2664C86100CC0B2E /* MonthYearView.swift */,
+				D95319DC2664D3FC00CC0B2E /* MonthYearRouter.swift */,
+			);
+			path = "Month Year Picker";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -701,11 +724,15 @@
 				D94ED5C3265D2BCD00ACD160 /* Calendar.swift in Sources */,
 				D94ED574265B9B5200ACD160 /* EventsDetailView.swift in Sources */,
 				D94ED5B1265D105500ACD160 /* UITableViewCell.swift in Sources */,
+				D95319C82664C45E00CC0B2E /* MonthYearPickerViewController.swift in Sources */,
 				D94ED5E3265DFEC200ACD160 /* EventsRouter.swift in Sources */,
+				D95319D82664D3D400CC0B2E /* MonthYearPickerViewModel.swift in Sources */,
 				D94ED5ED265E04B900ACD160 /* EventsFilterTableViewCell.swift in Sources */,
 				D94ED5AC265D0ECD00ACD160 /* EventsTableViewCell.swift in Sources */,
 				D94ED5FD265E44F100ACD160 /* EventsDetailRouter.swift in Sources */,
+				D95319D02664C86100CC0B2E /* MonthYearView.swift in Sources */,
 				D94ED54C265B97AA00ACD160 /* Colors.swift in Sources */,
+				D95319DD2664D3FC00CC0B2E /* MonthYearRouter.swift in Sources */,
 				D94ED57C265BF80E00ACD160 /* UIView.swift in Sources */,
 				D94ED5D9265DFA1400ACD160 /* EventsFilterViewController.swift in Sources */,
 				D99D2136265FE835006B812D /* FilterManager.swift in Sources */,
@@ -720,6 +747,7 @@
 				D99D2131265FE5A5006B812D /* UserDefaultsManager.swift in Sources */,
 				D94ED5E8265DFFDC00ACD160 /* EventsViewModel.swift in Sources */,
 				D94ED52C265B95EF00ACD160 /* EventsViewController.swift in Sources */,
+				D95319C22664C23C00CC0B2E /* MonthYearPickerView.swift in Sources */,
 				D94ED56F265B9B3500ACD160 /* EventsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

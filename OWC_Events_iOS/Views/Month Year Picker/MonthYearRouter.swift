@@ -1,24 +1,28 @@
 //
-//  EventsFilterRouter.swift
+//  MonthYearRouter.swift
 //  OWC_Events_iOS
 //
-//  Created by BrainX Technologies on 5/27/21.
+//  Created by BrainX Technologies on 5/31/21.
 //
 
 import UIKit
 
-class EventsFilterRouter: Router {
+class MonthYearRouter: Router {
     // MARK: - Instance variable
 
     var viewController: BaseViewController?
 
     // MARK: - Init Method
 
-    required init(controller: EventsFilterViewController) {
+    required init(controller: MonthYearPickerViewController) {
         viewController = controller
     }
 
     // MARK: - Public Methods
+
+    func dismissVC(routeType _: RouteType, navigationType _: NavigationType, animated: Bool, completion _: (() -> Void)?) {
+        viewController?.navigationController?.popViewController(animated: animated)
+    }
 
     func dismissVC(navigationType: NavigationType, animated: Bool, completion: (() -> Void)?) {
         switch navigationType {

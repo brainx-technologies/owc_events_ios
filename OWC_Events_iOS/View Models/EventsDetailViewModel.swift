@@ -37,7 +37,7 @@ class EventsDetailViewModel {
         mapItem.name = "Lahore" // will replace with actual data after api implementation
         mapItem.openInMaps(launchOptions: options)
     }
-    
+
     func openInGoogleMap(latitude: CLLocationDegrees, longitude: CLLocationDegrees) {
         if UIApplication.shared.canOpenURL(URL(string: "comgooglemaps://")!) {
             if let url = EndPoints.createGoogleMapURL(latitude, longitude) {

@@ -41,4 +41,7 @@ enum LocalizedKey: String {
     case failedToSave = "failed to save event with error"
     case successTitle = "Event Added Successfully"
     case successMessage = "Your event added successfully to your calendar"
+    case done = "Done"
+    case noEventsAvailable = "No Events Available"
+    case noEventFound = "No Event Found"
 }

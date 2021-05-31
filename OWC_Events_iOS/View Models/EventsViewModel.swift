@@ -20,12 +20,15 @@ class EventsViewModel {
 
     // MARK: - Public Methods
 
-    func LoadFilterViewController() {
+    func loadFilterViewController() {
         router.presentVC(routeType: EventsRouteType.FilterView(), navigationType: .overlay, animated: false, completion: nil)
     }
 
-    func LoadDetailsViewController() {
+    func loadDetailsViewController() {
         router.presentVC(routeType: EventsRouteType.EventsDetail(), navigationType: .stack, animated: false, completion: nil)
     }
-    
+
+    func loadMonthYearPickerViewWith(selectedDate: Date) {
+        router.presentVC(routeType: EventsRouteType.MonthYearPickerView(data: selectedDate), navigationType: .overlay, animated: false, completion: nil)
+    }
 }
