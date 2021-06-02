@@ -659,24 +659,24 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalHuggingPriority="260" verticalCompressionResistancePriority="737" placeholderIntrinsicWidth="374" placeholderIntrinsicHeight="100" text="test" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="N9B-ab-cql" customClass="ReadMoreTextView" customModule="ReadMoreTextView">
-                                                <rect key="frame" x="14" y="288.5" width="384" height="100"/>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalHuggingPriority="260" verticalCompressionResistancePriority="737" placeholderIntrinsicWidth="374" placeholderIntrinsicHeight="100" scrollEnabled="NO" editable="NO" text="test" adjustsFontForContentSizeCategory="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N9B-ab-cql">
+                                                <rect key="frame" x="14" y="288.5" width="384" height="64"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="72" id="goH-Ro-8Fd"/>
+                                                    <constraint firstAttribute="height" constant="64" id="goH-Ro-8Fd"/>
                                                 </constraints>
                                                 <color key="textColor" systemColor="labelColor"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Location Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fSQ-lj-mY1">
-                                                <rect key="frame" x="20" y="420.5" width="250" height="20.5"/>
+                                                <rect key="frame" x="20" y="384.5" width="250" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="257" horizontalCompressionResistancePriority="742" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Bl-YD-o10">
-                                                <rect key="frame" x="286" y="415" width="108" height="32"/>
+                                                <rect key="frame" x="286" y="379" width="108" height="32"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="108" id="MK0-aZ-9Q2"/>
@@ -690,13 +690,13 @@
                                                 </connections>
                                             </button>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mapView" translatesAutoresizingMaskIntoConstraints="NO" id="K8T-GP-3PB">
-                                                <rect key="frame" x="20" y="463" width="374" height="150"/>
+                                                <rect key="frame" x="20" y="427" width="374" height="150"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="150" id="WUO-y1-cts"/>
                                                 </constraints>
                                             </imageView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="08S-L3-GFF">
-                                                <rect key="frame" x="28" y="471" width="132" height="64"/>
+                                                <rect key="frame" x="28" y="435" width="132" height="64"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XkZ-4v-arB">
                                                         <rect key="frame" x="8" y="8" width="116" height="48"/>
@@ -716,7 +716,7 @@
                                                 </constraints>
                                             </view>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nb6-Sj-GN2">
-                                                <rect key="frame" x="20" y="633" width="374" height="50"/>
+                                                <rect key="frame" x="20" y="597" width="374" height="50"/>
                                                 <color key="backgroundColor" red="0.0039215686269999999" green="0.24313725489999999" blue="0.43137254899999999" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="xsi-Wa-HJa"/>
@@ -780,6 +780,7 @@
                         </constraints>
                         <connections>
                             <outlet property="aboutLabel" destination="f9v-1I-HZX" id="PcB-hb-FL8"/>
+                            <outlet property="aboutMessageHeightConstraint" destination="goH-Ro-8Fd" id="pS0-OY-RAx"/>
                             <outlet property="aboutMessageTextView" destination="N9B-ab-cql" id="X3n-vm-5zq"/>
                             <outlet property="addToCalendarButton" destination="Nb6-Sj-GN2" id="Sbl-KD-bnI"/>
                             <outlet property="backButton" destination="GIv-2m-H8s" id="TNr-cp-MXY"/>
@@ -799,6 +800,9 @@
                             <outlet property="topContainerView" destination="xyZ-w8-KKm" id="VxF-he-QIX"/>
                         </connections>
                     </view>
+                    <connections>
+                        <outlet property="eventsDetailView" destination="XjT-Z3-fX6" id="zHX-LI-Iip"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Svd-oe-5Um" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -994,11 +998,6 @@
             <point key="canvasLocation" x="1461" y="63"/>
         </scene>
     </scenes>
-    <designables>
-        <designable name="N9B-ab-cql">
-            <size key="intrinsicContentSize" width="374" height="100"/>
-        </designable>
-    </designables>
     <resources>
         <image name="back" width="23" height="23"/>
         <image name="calendar" width="24" height="24"/>

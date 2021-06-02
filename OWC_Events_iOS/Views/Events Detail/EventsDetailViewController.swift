@@ -10,7 +10,7 @@ import UIKit
 class EventsDetailViewController: BaseViewController {
     // MARK: Outlets
 
-    @IBOutlet var eventsView: EventsView!
+    @IBOutlet var eventsDetailView: EventsDetailView!
 
     // MARK: - Instance Variables
 
@@ -23,6 +23,7 @@ class EventsDetailViewController: BaseViewController {
         super.viewDidLoad()
         let router = EventsDetailRouter(controller: self)
         viewModel = EventsDetailViewModel(router: router)
+        eventsDetailView.aboutMessageTextView.addTapAction(#selector(handleTextViewExpandCollapse), target: self)
     }
 
     // MARK: - Action Methods
@@ -40,5 +41,17 @@ class EventsDetailViewController: BaseViewController {
     @IBAction
     func handleAddToCalendarButton(_: Any) {
         viewModel.addToCalendar()
+    }
+
+    @objc
+    func handleTextViewExpandCollapse() {
+        let fixedWidth = eventsDetailView.aboutMessageTextView.frame.size.width
+        if eventsDetailView.aboutMessageHeightConstraint.constant == 64 {
+            let newSize = eventsDetailView.aboutMessageTextView.sizeThatFits(CGSize(width: fixedWidth, height: .greatestFiniteMagnitude)).height
+            eventsDetailView.aboutMessageHeightConstraint.constant = newSize
+        } else {
+            eventsDetailView.aboutMessageHeightConstraint.constant = 64
+            eventsDetailView.aboutMessageTextView.textContainer.lineBreakMode = .byTruncatingTail
+        }
     }
 }

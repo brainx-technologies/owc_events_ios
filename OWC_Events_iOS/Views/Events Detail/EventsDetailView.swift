@@ -5,7 +5,7 @@
 //  Created by BrainX Technologies on 5/24/21.
 //
 
-import ReadMoreTextView
+// import ReadMoreTextView
 import UIKit
 
 class EventsDetailView: UIView {
@@ -22,7 +22,8 @@ class EventsDetailView: UIView {
     @IBOutlet var locationLabel: UILabel!
     @IBOutlet var dateLabel: UILabel!
     @IBOutlet var aboutLabel: UILabel!
-    @IBOutlet var aboutMessageTextView: ReadMoreTextView!
+    @IBOutlet var aboutMessageTextView: UITextView!
+    @IBOutlet var aboutMessageHeightConstraint: NSLayoutConstraint!
     @IBOutlet var locationTitleLabel: UILabel!
     @IBOutlet var mapButton: UIButton!
     @IBOutlet var mapImageView: UIImageView!
@@ -92,13 +93,11 @@ class EventsDetailView: UIView {
 
     private func setupViews() {
         locationValueLabel.text = "400 margrate st, Marelebone, London" // will replace with actual data after api implementation
-        aboutMessageTextView.text = "We had to develop app within 6 months. It’s quite short time but we managed it out. You can check how it works by downloading app on Appstore and Google. We had to develop app within 6 months. It’s quite short time but we managed it out. You can check how it works by downloading app on Appstore and Google" // will replace with actual data after api implementation
-        aboutMessageTextView.shouldTrim = true
-        aboutMessageTextView.maximumNumberOfLines = 3
-        let readMoreText = NSMutableAttributedString(string: LocalizedKey.threeDots.string, attributes: [NSAttributedString.Key.foregroundColor: Color.black])
-        let attributedString = NSAttributedString(string: LocalizedKey.seeMore.string, attributes: [NSAttributedString.Key.foregroundColor: Color.seeMoreColor])
-        readMoreText.append(attributedString)
-        aboutMessageTextView.attributedReadMoreText = readMoreText
-        aboutMessageTextView.attributedReadLessText = NSAttributedString(string: LocalizedKey.seeLess.string, attributes: [NSAttributedString.Key.foregroundColor: Color.seeMoreColor])
+        aboutMessageTextView.textContainer.lineBreakMode = .byTruncatingTail
+        let messageText = "We had to develop app within 6 months. It’s quite short time but we managed it out. You can check how it works by downloading app on Appstore and Google. We had to develop app within 6 months. It’s quite short time but we managed it out. You can check how it works by downloading app on Appstore and Google" // will replace with actual data after api implementation
+//        let readMoreText = NSMutableAttributedString(string: messageText + LocalizedKey.threeDots.string, attributes: [NSAttributedString.Key.foregroundColor: Color.black, NSAttributedString.Key.font: Font.sofiaRegular(14)])
+//        let attributedString = NSAttributedString(string: LocalizedKey.empty.string, attributes: [NSAttributedString.Key.foregroundColor: Color.seeMoreColor])
+//        readMoreText.append(attributedString)
+        aboutMessageTextView.text = messageText
     }
 }
