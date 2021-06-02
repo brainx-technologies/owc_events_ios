@@ -29,8 +29,8 @@ class MonthYearPickerViewController: BaseViewController {
         super.viewDidLoad()
         let router = MonthYearRouter(controller: self)
         viewModel = MonthYearPickerViewModel(router: router)
-        self.view.isUserInteractionEnabled = true
-        self.view.addTapAction(#selector(handleCloseViewController), target: self)
+        view.isUserInteractionEnabled = true
+        view.addTapAction(#selector(handleCloseViewController), target: self)
         handleDatePicker()
     }
 
@@ -57,7 +57,7 @@ class MonthYearPickerViewController: BaseViewController {
         view.backgroundColor = .clear
         viewModel.dismisViewController()
     }
-    
+
     @objc
     func handleCloseViewController() {
         view.backgroundColor = .clear

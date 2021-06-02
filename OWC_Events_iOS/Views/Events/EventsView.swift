@@ -23,7 +23,7 @@ class EventsView: UIView {
     @IBOutlet var filterNumberLabel: UILabel!
     @IBOutlet var noEventsImageView: UIImageView!
     @IBOutlet var noEventsLabel: UILabel!
-    @IBOutlet weak var bottomFilterConstraint: NSLayoutConstraint!
+    @IBOutlet var bottomFilterConstraint: NSLayoutConstraint!
 
     // MARK: Life Cycle Method
 

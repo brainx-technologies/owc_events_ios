@@ -30,7 +30,6 @@ class EventsDetailView: UIView {
     @IBOutlet var locationValueLabel: UILabel!
     @IBOutlet var addToCalendarButton: UIButton!
 
-
     // MARK: Life Cycle Method
 
     override func awakeFromNib() {

@@ -22,7 +22,7 @@ class EventsTableViewCell: UITableViewCell {
     @IBOutlet var startDateView: UIView!
     @IBOutlet var separatorView: UIView!
     @IBOutlet var endDateView: UIView!
-    
+
     // MARK: - Override methods
 
     override func awakeFromNib() {
@@ -72,17 +72,18 @@ class EventsTableViewCell: UITableViewCell {
     private func setColors() {
         dateStackView.backgroundColor = Color.tintColor
     }
-    
+
     // MARK: - PUblic Methods
-    
+
     func updateWith(event: OWCEvent) {
         eventTitleLabel.text = event.title
-        if event.startDate?.get(.day) == event.endDate?.get(.day) &&
-            event.startDate?.get(.month) == event.endDate?.get(.month) &&
-            event.startDate?.get(.year) == event.endDate?.get(.year){
+        if event.startDate?.get(.day) == event.endDate?.get(.day),
+           event.startDate?.get(.month) == event.endDate?.get(.month),
+           event.startDate?.get(.year) == event.endDate?.get(.year)
+        {
             separatorView.isHidden = true
             endDateView.isHidden = true
-        }else{
+        } else {
             separatorView.isHidden = false
             endDateView.isHidden = false
         }
