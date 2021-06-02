@@ -63,7 +63,7 @@ class EventsViewModel {
     
     func getDummyEvents(withCompletion completion: @escaping ([OWCEvent]) -> Void){
         router.viewController?.showLoader(true)
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
             var events: [OWCEvent] = []
             let endDate = Date().add(days: 1, hours: 2, minutes: 5, seconds: 14) ?? Date()
             events.append(OWCEvent(id: 0, title: "The Creative Coffee Talks Club", startDate: Date(), endDate: endDate, location: "40 Margaret St, Marylebone, London", kinds: ["Food and Beverage", "Agriculture"]))
@@ -72,6 +72,6 @@ class EventsViewModel {
             events.append(OWCEvent(id: 0, title: "Project daily stand-up", startDate: startDate2, endDate: endDate2, location: "40 Margaret St, Marylebone, London", kinds: ["Children and Youth", "Agriculture"]))
             completion(events)
             self.router.viewController?.showLoader(false)
-        }
+//        }
     }
 }

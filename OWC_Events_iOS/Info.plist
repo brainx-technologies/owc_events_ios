@@ -38,6 +38,8 @@
 		<string>Sofia_Regular.otf</string>
 		<string>Sofia_SemiBold.otf</string>
 		<string>Sofia_UltraLight.otf</string>
+		<string>Muli-Bold.ttf</string>
+		<string>Muli.ttf</string>
 	</array>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>

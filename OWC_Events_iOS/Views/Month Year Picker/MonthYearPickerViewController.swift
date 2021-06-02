@@ -29,6 +29,8 @@ class MonthYearPickerViewController: BaseViewController {
         super.viewDidLoad()
         let router = MonthYearRouter(controller: self)
         viewModel = MonthYearPickerViewModel(router: router)
+        self.view.isUserInteractionEnabled = true
+        self.view.addTapAction(#selector(handleCloseViewController), target: self)
         handleDatePicker()
     }
 
@@ -52,6 +54,13 @@ class MonthYearPickerViewController: BaseViewController {
         dateComponents.year = selectedYear
         let date = Calendar.current.date(from: dateComponents) ?? Date()
         monthYearDelegate?.updatedMonthAndYear(date: date)
+        view.backgroundColor = .clear
+        viewModel.dismisViewController()
+    }
+    
+    @objc
+    func handleCloseViewController() {
+        view.backgroundColor = .clear
         viewModel.dismisViewController()
     }
 }

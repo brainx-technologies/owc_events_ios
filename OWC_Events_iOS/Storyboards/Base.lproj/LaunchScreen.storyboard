@@ -22,7 +22,7 @@
                                     <fragment content="Powered By">
                                         <attributes>
                                             <color key="NSColor" white="1" alpha="0.55643112024221464" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <font key="NSFont" size="12" name="SofiaPro-SemiBold"/>
+                                            <font key="NSFont" size="12" name="SofiaPro"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>
@@ -35,7 +35,7 @@
                                     <fragment content="Huron County Economic Development">
                                         <attributes>
                                             <color key="NSColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <font key="NSFont" size="16" name="SofiaPro-SemiBold"/>
+                                            <font key="NSFont" size="16" name="SofiaPro"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
                                     </fragment>

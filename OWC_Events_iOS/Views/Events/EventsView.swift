@@ -23,6 +23,7 @@ class EventsView: UIView {
     @IBOutlet var filterNumberLabel: UILabel!
     @IBOutlet var noEventsImageView: UIImageView!
     @IBOutlet var noEventsLabel: UILabel!
+    @IBOutlet weak var bottomFilterConstraint: NSLayoutConstraint!
 
     // MARK: Life Cycle Method
 
@@ -45,6 +46,9 @@ class EventsView: UIView {
         searchBarView.setCornerRadius(10)
         filterView.setCornerRadius(25)
         filterNumberView.setCornerRadius(9)
+        [filterView].forEach {
+            $0?.addShadow(color: Color.shadowColor, alpha: 1, x: 0, y: 0, blur: 3)
+        }
     }
 
     private func setFonts() {

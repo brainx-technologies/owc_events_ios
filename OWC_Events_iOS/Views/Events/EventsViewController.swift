@@ -33,6 +33,7 @@ class EventsViewController: BaseViewController {
 
     // MARK: - Instance Variables
 
+    private var keyboardHeight:CGFloat?
     private let heightForEventsRow: CGFloat = 200
     var selectedTypeThemeFilters: [TypesAndThemeFilters] = []
     var selectedLocationFilters: [LocationFilters] = []
@@ -69,9 +70,13 @@ class EventsViewController: BaseViewController {
         eventsView.calendarView.addTapAction(#selector(handleDatePicker), target: self)
         eventsView.filterView.addTapAction(#selector(handleFilter), target: self)
         eventsView.searchIconImageView.addTapAction(#selector(handleClearSearch), target: self)
+        
         eventsView.searchTextField.delegate = self
         setupEventsTableView()
         setupViews()
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
 
     // MARK: - Private Methods
@@ -118,8 +123,10 @@ class EventsViewController: BaseViewController {
         }
     }
 
-    private func fetchDataFor(date _: Date) {}
-
+    private func fetchDataFor(date _: Date) {
+        // Will implement when API is available
+    }
+    
     // MARK: - Action Methods
 
     @objc
@@ -136,6 +143,28 @@ class EventsViewController: BaseViewController {
     private func handleClearSearch() {
         if eventsView.searchIconImageView.image == UIImage(systemName: Image.xMark) {
             eventsView.searchTextField.text = LocalizedKey.empty.string
+            updateSearchIconImage(textField: eventsView.searchTextField)
+        }else{
+            eventsView.searchTextField.becomeFirstResponder()
+        }
+    }
+    
+    @objc
+    func keyboardWillShow(notification: NSNotification) {        
+        if let height = keyboardHeight{
+            if eventsView.bottomFilterConstraint.constant < height { eventsView.bottomFilterConstraint.constant += height }
+        }else{
+            if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+                keyboardHeight = keyboardSize.height
+                eventsView.bottomFilterConstraint.constant += keyboardHeight ?? 0
+            }
+        }
+    }
+    
+    @objc
+    func keyboardWillHide(notification: NSNotification) {
+        if let height = keyboardHeight {
+            if eventsView.bottomFilterConstraint.constant > height { eventsView.bottomFilterConstraint.constant -= height }
         }
     }
 }
@@ -168,15 +197,26 @@ extension EventsViewController: UITableViewDelegate, UITableViewDataSource {
 // MARK: - UITextFieldDelegate Methods
 
 extension EventsViewController: UITextFieldDelegate {
-    func textFieldDidEndEditing(_: UITextField) {
-        eventsView.searchIconImageView.image = UIImage(systemName: Image.search)
+    private func updateSearchIconImage(textField: UITextField) {
+        if textField.text?.count ?? 0 > 0 {
+            eventsView.searchIconImageView.image = UIImage(systemName: Image.xMark)
+        }else{
+            eventsView.searchIconImageView.image = UIImage(systemName: Image.search)
+        }
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        updateSearchIconImage(textField: textField)
         isSearchResult = eventsView.searchTextField.hasText
         //        Hit API
     }
 
     func textFieldDidBeginEditing(_: UITextField) {
-        eventsView.searchIconImageView.image = UIImage(systemName: Image.xMark)
         isSearchResult = true
+    }
+    
+    func textFieldDidChangeSelection(_ textField: UITextField) {
+        updateSearchIconImage(textField: textField)
     }
 
     func textFieldShouldReturn(_: UITextField) -> Bool {

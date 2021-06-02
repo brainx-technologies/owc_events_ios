@@ -58,10 +58,10 @@ class EventsTableViewCell: UITableViewCell {
 
     private func setFonts() {
         [startDateLabel, endDateLabel].forEach {
-            $0?.font = Font.sofiaBold(22)
+            $0?.font = Font.muliBold(18)
         }
         [startDateDayLabel, endDateDayLabel].forEach {
-            $0?.font = Font.sofiaRegular(13)
+            $0?.font = Font.muliRegular(12)
         }
         eventTitleLabel.font = Font.sofiaBold(20)
         [eventTimeLabel, eventLocationLabel].forEach {

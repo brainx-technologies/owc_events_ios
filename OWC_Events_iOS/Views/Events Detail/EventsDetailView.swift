@@ -16,6 +16,7 @@ class EventsDetailView: UIView {
     @IBOutlet var backButton: UIButton!
     @IBOutlet var dateContainerView: UIView!
     @IBOutlet var timeLocationContainerView: UIView!
+    @IBOutlet var timeInnerLocationContainerView: UIView!
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var timeLabel: UILabel!
     @IBOutlet var locationLabel: UILabel!
@@ -28,6 +29,7 @@ class EventsDetailView: UIView {
     @IBOutlet var locationValueContainerView: UIView!
     @IBOutlet var locationValueLabel: UILabel!
     @IBOutlet var addToCalendarButton: UIButton!
+
 
     // MARK: Life Cycle Method
 
@@ -47,7 +49,7 @@ class EventsDetailView: UIView {
     }
 
     private func setBorders() {
-        [dateContainerView, timeLocationContainerView, mapImageView, addToCalendarButton].forEach {
+        [dateContainerView, mapButton, addToCalendarButton].forEach {
             $0?.addShadow(color: Color.shadowColor, alpha: 1, x: 0, y: 0, blur: 3)
         }
         [mapButton, addToCalendarButton].forEach {
@@ -56,7 +58,7 @@ class EventsDetailView: UIView {
     }
 
     private func setCorners() {
-        [dateContainerView, timeLocationContainerView, addToCalendarButton].forEach {
+        [dateContainerView, timeLocationContainerView, timeInnerLocationContainerView, addToCalendarButton].forEach {
             $0?.setCornerRadius(10)
         }
         locationValueContainerView.setCornerRadius(8)
@@ -85,7 +87,7 @@ class EventsDetailView: UIView {
     }
 
     private func setColors() {
-        backgroundColor = Color.backgroundPrimary
+        backgroundColor = Color.white
         dateContainerView.backgroundColor = Color.dateContainerColor
     }
 
@@ -93,7 +95,11 @@ class EventsDetailView: UIView {
         locationValueLabel.text = "400 margrate st, Marelebone, London" // will replace with actual data after api implementation
         aboutMessageTextView.text = "We had to develop app within 6 months. It’s quite short time but we managed it out. You can check how it works by downloading app on Appstore and Google. We had to develop app within 6 months. It’s quite short time but we managed it out. You can check how it works by downloading app on Appstore and Google" // will replace with actual data after api implementation
         aboutMessageTextView.shouldTrim = true
-        aboutMessageTextView.maximumNumberOfLines = 4
-        aboutMessageTextView.attributedReadMoreText = NSAttributedString(string: LocalizedKey.threeDots.string + LocalizedKey.seeMore.string, attributes: [NSAttributedString.Key.foregroundColor: Color.seeMoreColor])
+        aboutMessageTextView.maximumNumberOfLines = 3
+        let readMoreText = NSMutableAttributedString(string: LocalizedKey.threeDots.string, attributes: [NSAttributedString.Key.foregroundColor: Color.black])
+        let attributedString = NSAttributedString(string: LocalizedKey.seeMore.string, attributes: [NSAttributedString.Key.foregroundColor: Color.seeMoreColor])
+        readMoreText.append(attributedString)
+        aboutMessageTextView.attributedReadMoreText = readMoreText
+        aboutMessageTextView.attributedReadLessText = NSAttributedString(string: LocalizedKey.seeLess.string, attributes: [NSAttributedString.Key.foregroundColor: Color.seeMoreColor])
     }
 }

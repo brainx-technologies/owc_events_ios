@@ -13,7 +13,7 @@ enum Color {
     static let backgroundPrimary = UIColor(0xF4F4F7)
     static let black = UIColor(0x000000)
     static let borderGrey = UIColor(0x476992).withAlphaComponent(0.3)
-    static let shadowColor = UIColor(0x25265E).withAlphaComponent(0.1)
+    static let shadowColor = UIColor(0x25265E).withAlphaComponent(0.2)
     static let lightGrey = UIColor(0xD4DAE4)
     static let mainColor = UIColor(0x1D354A)
     static let selectedDisabledColor = UIColor(0xA2ACBA)

@@ -32,6 +32,7 @@ enum LocalizedKey: String {
     case aboutThisEvent = "About this event"
     case seeMore = "See More"
     case threeDots = "... "
+    case seeLess = " See Less"
     case viewMap = "View Map"
     case addToCalendar = "Add To Calendar"
     case openGoogleMap = "Open Google Map"

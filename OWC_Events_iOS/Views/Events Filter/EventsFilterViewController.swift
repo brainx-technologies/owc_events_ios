@@ -135,7 +135,11 @@ class EventsFilterViewController: BaseViewController {
     func handleCancelButton(_: Any) {
         selectedTypeThemeFilters = []
         selectedLocationFilters = []
+        UserDefaultsManager.typeThemeFilters = selectedTypeThemeFilters.map { $0.rawValue }
+        UserDefaultsManager.locationFilters = selectedLocationFilters.map { $0.rawValue }
+        delegate?.updateSelectedValues(typeThemeSelectedItems: selectedTypeThemeFilters, locationSelectedItems: selectedLocationFilters)
         eventsFilterView.filterTableView.reloadData()
+        viewModel.closedButtonPressed()
     }
 }
 

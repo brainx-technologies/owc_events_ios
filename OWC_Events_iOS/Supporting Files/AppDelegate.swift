@@ -13,6 +13,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_: UIApplication, didFinishLaunchingWithOptions _: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        RunLoop.current.run(until: Date(timeIntervalSinceNow: 1.5))
         setupKeyboardManager()
         setRootViewController()
         return true

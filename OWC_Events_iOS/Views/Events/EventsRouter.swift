@@ -50,6 +50,7 @@ class EventsRouter: Router {
             vc = dateFilterVC
             vc.modalPresentationStyle = .overFullScreen
             vc.modalTransitionStyle = .coverVertical
+
         case .EventsDetail:
             let detailReportController = UIViewController.instantiate(EventsDetailViewController.self, fromStoryboard: .Main)
             vc = detailReportController
