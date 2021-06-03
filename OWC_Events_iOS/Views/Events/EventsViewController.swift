@@ -189,8 +189,9 @@ extension EventsViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
 
-    func tableView(_: UITableView, didSelectRowAt _: IndexPath) {
-        viewModel.loadDetailsViewController()
+    func tableView(_: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let date = OWCEvents[indexPath.row].startDate else { return }
+        viewModel.loadDetailsViewController(selectedDate: date)
     }
 
     func tableView(_: UITableView, heightForRowAt _: IndexPath) -> CGFloat {

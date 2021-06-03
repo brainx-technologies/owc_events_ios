@@ -53,8 +53,8 @@ class EventsViewModel {
         router.presentVC(routeType: EventsRouteType.FilterView(), navigationType: .overlay, animated: false, completion: nil)
     }
 
-    func loadDetailsViewController() {
-        router.presentVC(routeType: EventsRouteType.EventsDetail(), navigationType: .stack, animated: false, completion: nil)
+    func loadDetailsViewController(selectedDate: Date) {
+        router.presentVC(routeType: EventsRouteType.EventsDetail(data: selectedDate), navigationType: .stack, animated: false, completion: nil)
     }
 
     func loadMonthYearPickerViewWith(selectedDate: Date) {

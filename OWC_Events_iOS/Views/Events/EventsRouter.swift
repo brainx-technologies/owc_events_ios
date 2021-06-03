@@ -51,8 +51,11 @@ class EventsRouter: Router {
             vc.modalPresentationStyle = .overFullScreen
             vc.modalTransitionStyle = .coverVertical
 
-        case .EventsDetail:
+        case let .EventsDetail(eventStartDate):
             let detailReportController = UIViewController.instantiate(EventsDetailViewController.self, fromStoryboard: .Main)
+            if let date = eventStartDate as? Date {
+                detailReportController.selectedDate = date
+            }
             vc = detailReportController
         case let .MonthYearPickerView(selectedDate):
             let monthYearPickerController = UIViewController.instantiate(MonthYearPickerViewController.self, fromStoryboard: .Main)

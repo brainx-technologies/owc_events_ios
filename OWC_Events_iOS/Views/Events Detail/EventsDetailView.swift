@@ -22,7 +22,7 @@ class EventsDetailView: UIView {
     @IBOutlet var locationLabel: UILabel!
     @IBOutlet var dateLabel: UILabel!
     @IBOutlet var aboutLabel: UILabel!
-    @IBOutlet var aboutMessageTextView: UITextView!
+    @IBOutlet var aboutMessageLabel: UILabel!
     @IBOutlet var aboutMessageHeightConstraint: NSLayoutConstraint!
     @IBOutlet var locationTitleLabel: UILabel!
     @IBOutlet var mapButton: UIButton!
@@ -30,6 +30,11 @@ class EventsDetailView: UIView {
     @IBOutlet var locationValueContainerView: UIView!
     @IBOutlet var locationValueLabel: UILabel!
     @IBOutlet var addToCalendarButton: UIButton!
+    @IBOutlet var scrollViewHeightConstraint: NSLayoutConstraint!
+
+    
+    // MARK: Instance Variables
+    let collapsedHeight: CGFloat = 72
 
     // MARK: Life Cycle Method
 
@@ -71,10 +76,9 @@ class EventsDetailView: UIView {
         [aboutLabel, locationTitleLabel].forEach {
             $0?.font = Font.sofiaBold(16)
         }
-        [timeLabel, locationLabel, dateLabel, locationValueLabel].forEach {
+        [timeLabel, locationLabel, dateLabel, locationValueLabel, aboutMessageLabel].forEach {
             $0?.font = Font.sofiaRegular(14)
         }
-        aboutMessageTextView.font = Font.sofiaRegular(14)
         addToCalendarButton.titleLabel?.font = Font.sofiaRegular(17)
     }
 
@@ -93,11 +97,25 @@ class EventsDetailView: UIView {
 
     private func setupViews() {
         locationValueLabel.text = "400 margrate st, Marelebone, London" // will replace with actual data after api implementation
-        aboutMessageTextView.textContainer.lineBreakMode = .byTruncatingTail
-        let messageText = "We had to develop app within 6 months. It’s quite short time but we managed it out. You can check how it works by downloading app on Appstore and Google. We had to develop app within 6 months. It’s quite short time but we managed it out. You can check how it works by downloading app on Appstore and Google" // will replace with actual data after api implementation
-//        let readMoreText = NSMutableAttributedString(string: messageText + LocalizedKey.threeDots.string, attributes: [NSAttributedString.Key.foregroundColor: Color.black, NSAttributedString.Key.font: Font.sofiaRegular(14)])
-//        let attributedString = NSAttributedString(string: LocalizedKey.empty.string, attributes: [NSAttributedString.Key.foregroundColor: Color.seeMoreColor])
-//        readMoreText.append(attributedString)
-        aboutMessageTextView.text = messageText
+    }
+    
+    // MARK: - Public Methods
+    
+    func handleAboutSeeMore() {
+        let fixedWidth = aboutMessageLabel.bounds.size.width
+        let messageText = "We had to develop app within 6 months. It’s quite short time but we managed it out. You can check how it works by downloading app on Appstore and Google. We had to develop app within 6 months. It’s quite short time but we managed it out. You can check how it works by downloading app on Appstore and Google. We had to develop app within 6 months. It’s quite short time but we managed it out. You can check how it works by downloading app on Appstore and Google." // will replace with actual data after api implementation
+        aboutMessageLabel.text = messageText
+        if aboutMessageHeightConstraint.constant == collapsedHeight {
+            let newSize = aboutMessageLabel.sizeThatFits(CGSize(width: fixedWidth, height: .greatestFiniteMagnitude)).height
+            aboutMessageHeightConstraint.constant = newSize
+            scrollViewHeightConstraint.constant = newSize/2
+        } else {
+            aboutMessageHeightConstraint.constant = collapsedHeight
+            scrollViewHeightConstraint.constant = 0
+            aboutMessageLabel.numberOfLines = 4
+            aboutMessageLabel.bounds.size.height = collapsedHeight
+            _ = aboutMessageLabel.setExpandActionIfPossible(LocalizedKey.seeMore.string, textColor: Color.seeMoreColor)
+            aboutMessageLabel.numberOfLines = 0
+        }
     }
 }

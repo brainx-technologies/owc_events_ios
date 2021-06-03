@@ -23,7 +23,10 @@ class EventsDetailViewController: BaseViewController {
         super.viewDidLoad()
         let router = EventsDetailRouter(controller: self)
         viewModel = EventsDetailViewModel(router: router)
-        eventsDetailView.aboutMessageTextView.addTapAction(#selector(handleTextViewExpandCollapse), target: self)
+        eventsDetailView.aboutMessageLabel.addTapAction(#selector(handleTextViewExpandCollapse), target: self)
+        eventsDetailView.aboutMessageHeightConstraint.constant = 100
+        handleTextViewExpandCollapse()
+        eventsDetailView.dateContainerView.backgroundColor = selectedDate.getWeekDay().getColor()
     }
 
     // MARK: - Action Methods
@@ -42,16 +45,9 @@ class EventsDetailViewController: BaseViewController {
     func handleAddToCalendarButton(_: Any) {
         viewModel.addToCalendar()
     }
-
+    
     @objc
     func handleTextViewExpandCollapse() {
-        let fixedWidth = eventsDetailView.aboutMessageTextView.frame.size.width
-        if eventsDetailView.aboutMessageHeightConstraint.constant == 64 {
-            let newSize = eventsDetailView.aboutMessageTextView.sizeThatFits(CGSize(width: fixedWidth, height: .greatestFiniteMagnitude)).height
-            eventsDetailView.aboutMessageHeightConstraint.constant = newSize
-        } else {
-            eventsDetailView.aboutMessageHeightConstraint.constant = 64
-            eventsDetailView.aboutMessageTextView.textContainer.lineBreakMode = .byTruncatingTail
-        }
+        eventsDetailView.handleAboutSeeMore()
     }
 }
