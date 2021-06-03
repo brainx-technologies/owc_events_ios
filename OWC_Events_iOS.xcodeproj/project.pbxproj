@@ -69,6 +69,7 @@
 		D95443B826678DF600A76C6E /* Muli.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D95443B726678DF500A76C6E /* Muli.ttf */; };
 		D99D2131265FE5A5006B812D /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D99D2130265FE5A5006B812D /* UserDefaultsManager.swift */; };
 		D99D2136265FE835006B812D /* FilterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D99D2135265FE835006B812D /* FilterManager.swift */; };
+		D99D9C1B2668C4C7000CAE38 /* UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D99D9C1A2668C4C7000CAE38 /* UILabel.swift */; };
 		F87128B2F021A092EFBBF1A5 /* Pods_OWC_Events_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15E80C01EA794408DC28BD9E /* Pods_OWC_Events_iOS.framework */; };
 /* End PBXBuildFile section */
 
@@ -161,6 +162,7 @@
 		D95443B726678DF500A76C6E /* Muli.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Muli.ttf; sourceTree = "<group>"; };
 		D99D2130265FE5A5006B812D /* UserDefaultsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
 		D99D2135265FE835006B812D /* FilterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterManager.swift; sourceTree = "<group>"; };
+		D99D9C1A2668C4C7000CAE38 /* UILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -330,6 +332,7 @@
 				D94ED5B0265D105500ACD160 /* UITableViewCell.swift */,
 				D94ED57B265BF80E00ACD160 /* UIView.swift */,
 				D94ED525265B953900ACD160 /* UIViewController.swift */,
+				D99D9C1A2668C4C7000CAE38 /* UILabel.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -742,6 +745,7 @@
 				D94ED526265B953900ACD160 /* UIViewController.swift in Sources */,
 				D94ED521265B94D700ACD160 /* HomeViewController.swift in Sources */,
 				D94ED556265B97C200ACD160 /* Images.swift in Sources */,
+				D99D9C1B2668C4C7000CAE38 /* UILabel.swift in Sources */,
 				D94ED4BB265B735400ACD160 /* AppDelegate.swift in Sources */,
 				D95319E32664F4F500CC0B2E /* OWCEvent.swift in Sources */,
 				D94ED567265B9A3300ACD160 /* EventsDetailViewController.swift in Sources */,

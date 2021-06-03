@@ -6,7 +6,6 @@ target 'OWC_Events_iOS' do
   use_frameworks!
 
   # Pods for OWC_Events_iOS
-  pod 'ActionSheetPicker-3.0'
   pod 'ReadMoreTextView'
   
   
