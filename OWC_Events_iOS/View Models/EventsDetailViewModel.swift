@@ -39,7 +39,7 @@ class EventsDetailViewModel {
     }
 
     func openInGoogleMap(latitude: CLLocationDegrees, longitude: CLLocationDegrees) {
-        if UIApplication.shared.canOpenURL(URL(string: "comgooglemaps://")!) {
+        if UIApplication.shared.canOpenURL(URL(string: AppConstants.googleMapUrlString)!) {
             if let url = EndPoints.createGoogleMapURL(latitude, longitude) {
                 UIApplication.shared.open(url, options: [:])
             }
@@ -59,16 +59,34 @@ class EventsDetailViewModel {
         let longitude: CLLocationDegrees = 74.3587 // will replace with actual data after api implementation
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         alert.view.tintColor = Color.tintColor
-        alert.addAction(UIAlertAction(title: LocalizedKey.openGoogleMap.string, style: .default, handler: { _ in
+        
+        let openGoogleMapAction = UIAlertAction(title: LocalizedKey.openGoogleMap.string, style: .default, handler: { _ in
             self.openInGoogleMap(latitude: latitude, longitude: longitude)
-        }))
-        alert.addAction(UIAlertAction(title: LocalizedKey.openAppleMap.string, style: .default, handler: { _ in
+        })
+        openGoogleMapAction.setValue(Color.googleAppleMapButtonColor, forKey: AppConstants.titleTextColor)
+        alert.addAction(openGoogleMapAction)
+        let openAppleMapAction = UIAlertAction(title: LocalizedKey.openAppleMap.string, style: .default, handler: { _ in
             self.openInAppleMap(latitude: latitude, longitude: longitude)
-        }))
-        alert.addAction(UIAlertAction(title: LocalizedKey.cancel.string, style: .cancel, handler: nil))
+        })
+        openAppleMapAction.setValue(Color.googleAppleMapButtonColor, forKey: AppConstants.titleTextColor)
+        alert.addAction(openAppleMapAction)
+        let cancelAction = UIAlertAction(title: LocalizedKey.cancel.string, style: .cancel, handler: nil)
+        cancelAction.setValue(Color.tintColor, forKey: AppConstants.titleTextColor)
+        alert.addAction(cancelAction)
         router.showActionSheet(alert: alert, animated: true, completion: nil)
     }
 
+    func showThisCustomAlertView(title: String, Message: String) {
+        let alertController = UIAlertController(title: title, message: Message, preferredStyle: .alert)
+        alertController.setTitle(font: Font.muliBold(18), color: UIColor.black)
+        alertController.setMessage(font: Font.muliRegular(13), color: UIColor.black)
+        alertController.setBackgroundColor(color: Color.white)
+        let okButton = UIAlertAction(title: LocalizedKey.ok.string, style: .default, handler: nil)
+        okButton.setValue(Color.black, forKey: AppConstants.titleTextColor)
+        alertController.addAction(okButton)
+        self.router.viewController?.showAlert(alertController: alertController)
+    }
+    
     func addToCalendar() {
         eventStore.requestAccess(to: .event) { granted, error in
             if granted, error == nil {
@@ -81,7 +99,7 @@ class EventsDetailViewModel {
                 do {
                     try self.eventStore.save(event, span: .thisEvent)
                     DispatchQueue.main.async {
-                        self.router.viewController?.showAlertView(message: LocalizedKey.successMessage.string, title: LocalizedKey.successTitle.string)
+                        self.showThisCustomAlertView(title: LocalizedKey.successTitle.string, Message: LocalizedKey.successMessage.string)
                     }
                 } catch let error as NSError {
                     let message = "\(LocalizedKey.failedToSave.string) : \(error)"

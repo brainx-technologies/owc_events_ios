@@ -32,9 +32,10 @@ class EventsDetailView: UIView {
     @IBOutlet var addToCalendarButton: UIButton!
     @IBOutlet var scrollViewHeightConstraint: NSLayoutConstraint!
 
-    
     // MARK: Instance Variables
+
     let collapsedHeight: CGFloat = 72
+    var messageText: String = LocalizedKey.empty.string
 
     // MARK: Life Cycle Method
 
@@ -54,9 +55,8 @@ class EventsDetailView: UIView {
     }
 
     private func setBorders() {
-        [dateContainerView, mapButton, addToCalendarButton].forEach {
-            $0?.addShadow(color: Color.shadowColor, alpha: 1, x: 0, y: 0, blur: 3)
-        }
+        timeLocationContainerView.addShadow(color: Color.shadowColor, alpha: 0.5, x: 0, y: 2, blur: 6)
+        mapButton.addShadow(color: Color.black, alpha: 0.1, x: 0, y: 2, blur: 6)
         [mapButton, addToCalendarButton].forEach {
             $0?.setBorderColor(Color.borderGrey, andWidth: 1)
         }
@@ -85,7 +85,7 @@ class EventsDetailView: UIView {
     private func setText() {
         eventDetailLabel.text = LocalizedKey.eventDetails.string
         aboutLabel.text = LocalizedKey.aboutThisEvent.string
-        locationTitleLabel.text = LocalizedKey.location.string
+        locationTitleLabel.text = LocalizedKey.eventLocation.string
         mapButton.setTitle(LocalizedKey.viewMap.string, for: .normal)
         addToCalendarButton.setTitle(LocalizedKey.addToCalendar.string, for: .normal)
     }
@@ -97,25 +97,36 @@ class EventsDetailView: UIView {
 
     private func setupViews() {
         locationValueLabel.text = "400 margrate st, Marelebone, London" // will replace with actual data after api implementation
+        messageText = "We had to develop app within 6 months. It’s quite short time but we managed it out. You can check how it works by downloading app on Appstore and Google. We had to develop app within 6 months. It’s quite short time but we managed it out. You can check how it works by downloading app on Appstore and Google. We had to develop app within 6 months. It’s quite short time but we managed it out. You can check how it works by downloading app on Appstore and Google." // will replace with actual data after api implementation
     }
-    
+
     // MARK: - Public Methods
-    
+
+    func collapseView() {
+        aboutMessageLabel.text = messageText
+        aboutMessageHeightConstraint.constant = collapsedHeight
+        scrollViewHeightConstraint.constant = 0
+        aboutMessageLabel.numberOfLines = 4
+        aboutMessageLabel.bounds.size.height = collapsedHeight
+        _ = aboutMessageLabel.setExpandActionIfPossible(LocalizedKey.seeMore.string, textColor: Color.seeMoreColor)
+        aboutMessageLabel.numberOfLines = 0
+    }
+
     func handleAboutSeeMore() {
         let fixedWidth = aboutMessageLabel.bounds.size.width
-        let messageText = "We had to develop app within 6 months. It’s quite short time but we managed it out. You can check how it works by downloading app on Appstore and Google. We had to develop app within 6 months. It’s quite short time but we managed it out. You can check how it works by downloading app on Appstore and Google. We had to develop app within 6 months. It’s quite short time but we managed it out. You can check how it works by downloading app on Appstore and Google." // will replace with actual data after api implementation
         aboutMessageLabel.text = messageText
         if aboutMessageHeightConstraint.constant == collapsedHeight {
             let newSize = aboutMessageLabel.sizeThatFits(CGSize(width: fixedWidth, height: .greatestFiniteMagnitude)).height
             aboutMessageHeightConstraint.constant = newSize
-            scrollViewHeightConstraint.constant = newSize/2
+            scrollViewHeightConstraint.constant = newSize / 2
+            UIView.animate(withDuration: 0.15) {
+                self.layoutIfNeeded()
+            }
         } else {
-            aboutMessageHeightConstraint.constant = collapsedHeight
-            scrollViewHeightConstraint.constant = 0
-            aboutMessageLabel.numberOfLines = 4
-            aboutMessageLabel.bounds.size.height = collapsedHeight
-            _ = aboutMessageLabel.setExpandActionIfPossible(LocalizedKey.seeMore.string, textColor: Color.seeMoreColor)
-            aboutMessageLabel.numberOfLines = 0
+            collapseView()
+            UIView.animate(withDuration: 0.15) {
+                self.layoutIfNeeded()
+            }
         }
     }
 }

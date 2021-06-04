@@ -7,6 +7,11 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Sofia_Regular.otf">
+            <string>SofiaPro</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--View Controller-->
         <scene sceneID="EHf-IW-A2E">
@@ -16,21 +21,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qed-Hu-RBj">
-                                <rect key="frame" x="16" y="818" width="382" height="12"/>
-                                <attributedString key="attributedText">
-                                    <fragment content="Powered By">
-                                        <attributes>
-                                            <color key="NSColor" white="1" alpha="0.55643112024221464" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <font key="NSFont" size="12" name="SofiaPro"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                        </attributes>
-                                    </fragment>
-                                </attributedString>
-                                <nil key="highlightedColor"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Powered By" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qed-Hu-RBj">
+                                <rect key="frame" x="16" y="810" width="382" height="12"/>
+                                <fontDescription key="fontDescription" name="SofiaPro" family="Sofia Pro" pointSize="12"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="highlightedColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="leg-CC-YgV">
-                                <rect key="frame" x="16" y="838" width="382" height="16"/>
+                                <rect key="frame" x="16" y="830" width="382" height="16"/>
                                 <attributedString key="attributedText">
                                     <fragment content="Huron County Economic Development">
                                         <attributes>
@@ -58,7 +56,7 @@
                             <constraint firstItem="leg-CC-YgV" firstAttribute="top" secondItem="Qed-Hu-RBj" secondAttribute="bottom" constant="8" id="8wA-LC-P6a"/>
                             <constraint firstItem="Xxz-ep-iGP" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="64" id="OGl-Dh-fzb"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Xxz-ep-iGP" secondAttribute="trailing" constant="64" id="U63-6G-GQa"/>
-                            <constraint firstItem="leg-CC-YgV" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" constant="-8" id="Ux7-eH-HiK"/>
+                            <constraint firstItem="leg-CC-YgV" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" constant="-16" id="Ux7-eH-HiK"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="leg-CC-YgV" secondAttribute="trailing" constant="16" id="bsG-ok-qLZ"/>
                             <constraint firstItem="Qed-Hu-RBj" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="pIr-Tx-Cbl"/>
                             <constraint firstItem="Xxz-ep-iGP" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="q8A-qR-N89"/>

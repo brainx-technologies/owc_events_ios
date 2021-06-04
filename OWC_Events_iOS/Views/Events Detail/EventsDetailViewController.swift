@@ -25,7 +25,7 @@ class EventsDetailViewController: BaseViewController {
         viewModel = EventsDetailViewModel(router: router)
         eventsDetailView.aboutMessageLabel.addTapAction(#selector(handleTextViewExpandCollapse), target: self)
         eventsDetailView.aboutMessageHeightConstraint.constant = 100
-        handleTextViewExpandCollapse()
+        eventsDetailView.collapseView()
         eventsDetailView.dateContainerView.backgroundColor = selectedDate.getWeekDay().getColor()
     }
 
@@ -45,7 +45,7 @@ class EventsDetailViewController: BaseViewController {
     func handleAddToCalendarButton(_: Any) {
         viewModel.addToCalendar()
     }
-    
+
     @objc
     func handleTextViewExpandCollapse() {
         eventsDetailView.handleAboutSeeMore()

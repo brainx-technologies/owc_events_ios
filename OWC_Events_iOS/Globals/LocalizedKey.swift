@@ -28,6 +28,7 @@ enum LocalizedKey: String {
     case applyFilter = "Apply Filter"
     case clearAll = "Clear All"
     case location = "Location"
+    case eventLocation = "Event Location"
     case eventDetails = "Event Details"
     case aboutThisEvent = "About this event"
     case seeMore = "See More"

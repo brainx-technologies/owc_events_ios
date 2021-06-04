@@ -67,6 +67,8 @@
 		D95319EC2664F64F00CC0B2E /* ObjectMapper in Frameworks */ = {isa = PBXBuildFile; productRef = D95319EB2664F64F00CC0B2E /* ObjectMapper */; };
 		D95443B326678DDA00A76C6E /* Muli-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D95443B226678DDA00A76C6E /* Muli-Bold.ttf */; };
 		D95443B826678DF600A76C6E /* Muli.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D95443B726678DF500A76C6E /* Muli.ttf */; };
+		D98E276C266A5B270052C07C /* UIAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D98E276B266A5B270052C07C /* UIAlertController.swift */; };
+		D98E2771266A60760052C07C /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D98E2770266A60760052C07C /* AppConstants.swift */; };
 		D99D2131265FE5A5006B812D /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D99D2130265FE5A5006B812D /* UserDefaultsManager.swift */; };
 		D99D2136265FE835006B812D /* FilterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D99D2135265FE835006B812D /* FilterManager.swift */; };
 		D99D9C1B2668C4C7000CAE38 /* UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D99D9C1A2668C4C7000CAE38 /* UILabel.swift */; };
@@ -160,6 +162,8 @@
 		D95319E22664F4F500CC0B2E /* OWCEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OWCEvent.swift; sourceTree = "<group>"; };
 		D95443B226678DDA00A76C6E /* Muli-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Muli-Bold.ttf"; sourceTree = "<group>"; };
 		D95443B726678DF500A76C6E /* Muli.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Muli.ttf; sourceTree = "<group>"; };
+		D98E276B266A5B270052C07C /* UIAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAlertController.swift; sourceTree = "<group>"; };
+		D98E2770266A60760052C07C /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
 		D99D2130265FE5A5006B812D /* UserDefaultsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
 		D99D2135265FE835006B812D /* FilterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterManager.swift; sourceTree = "<group>"; };
 		D99D9C1A2668C4C7000CAE38 /* UILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabel.swift; sourceTree = "<group>"; };
@@ -333,6 +337,7 @@
 				D94ED57B265BF80E00ACD160 /* UIView.swift */,
 				D94ED525265B953900ACD160 /* UIViewController.swift */,
 				D99D9C1A2668C4C7000CAE38 /* UILabel.swift */,
+				D98E276B266A5B270052C07C /* UIAlertController.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -345,6 +350,7 @@
 				D94ED555265B97C200ACD160 /* Images.swift */,
 				D94ED546265B97A100ACD160 /* LocalizedKey.swift */,
 				D93A4413265FCB2F00175B3E /* EndPoints.swift */,
+				D98E2770266A60760052C07C /* AppConstants.swift */,
 			);
 			path = Globals;
 			sourceTree = "<group>";
@@ -738,6 +744,7 @@
 				D94ED5CB265D2DD000ACD160 /* Date.swift in Sources */,
 				D94ED55B265B97DE00ACD160 /* LoaderManager.swift in Sources */,
 				D94ED551265B97B900ACD160 /* Fonts.swift in Sources */,
+				D98E276C266A5B270052C07C /* UIAlertController.swift in Sources */,
 				D94ED542265B977900ACD160 /* Router.swift in Sources */,
 				D94ED508265B797200ACD160 /* UIStoryboard.swift in Sources */,
 				D94ED534265B964200ACD160 /* HomeViewModel.swift in Sources */,
@@ -752,6 +759,7 @@
 				D94ED5C3265D2BCD00ACD160 /* Calendar.swift in Sources */,
 				D94ED574265B9B5200ACD160 /* EventsDetailView.swift in Sources */,
 				D94ED5B1265D105500ACD160 /* UITableViewCell.swift in Sources */,
+				D98E2771266A60760052C07C /* AppConstants.swift in Sources */,
 				D95319C82664C45E00CC0B2E /* MonthYearPickerViewController.swift in Sources */,
 				D94ED5E3265DFEC200ACD160 /* EventsRouter.swift in Sources */,
 				D95319D82664D3D400CC0B2E /* MonthYearPickerViewModel.swift in Sources */,
