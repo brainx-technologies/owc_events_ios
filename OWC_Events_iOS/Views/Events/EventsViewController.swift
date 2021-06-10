@@ -250,3 +250,10 @@ extension EventsViewController: UpdateMonthYearProtocol {
         eventsView.dateLabel.text = Date.monthYearFormatter.string(from: selectedDate)
     }
 }
+
+
+extension EventsViewController: UIViewControllerTransitioningDelegate {
+    func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
+        return HalfViewController(presentedViewController: presented, presenting: presentingViewController)
+    }
+}

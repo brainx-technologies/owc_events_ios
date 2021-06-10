@@ -62,3 +62,13 @@ class MonthYearPickerViewController: BaseViewController {
         viewModel.dismisViewController()
     }
 }
+
+extension MonthYearPickerViewController: UIViewControllerAnimatedTransitioning {
+    func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
+        return TimeInterval(20)
+    }
+    
+    func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
+        
+    }
+}

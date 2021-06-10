@@ -13,7 +13,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_: UIApplication, didFinishLaunchingWithOptions _: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        RunLoop.current.run(until: Date(timeIntervalSinceNow: 1.5))
+        RunLoop.current.run(until: Date(timeIntervalSinceNow: 0.5))
         setupKeyboardManager()
         setRootViewController()
         return true
@@ -30,7 +30,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     private func setRootViewController() {
         var vc: BaseViewController
-        vc = UIViewController.instantiate(HomeViewController.self, fromStoryboard: .Main)
+        vc = UIViewController.instantiate(HomeViewController.self, fromStoryboard: .Home)
         let navRootController = UINavigationController(rootViewController: vc)
         navRootController.setNavigationBarHidden(true, animated: false)
         window = UIWindow(frame: UIScreen.main.bounds)

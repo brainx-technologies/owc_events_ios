@@ -15,7 +15,6 @@ class HomeViewController: BaseViewController {
     // MARK: - Instance variables
 
     private var homeViewModel: HomeViewModel!
-    let myTabBarController = UITabBarController()
 
     // MARK: - Init Methods
 

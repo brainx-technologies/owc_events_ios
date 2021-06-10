@@ -13,7 +13,7 @@
 		D92111FE265F8FF3002490EE /* EventsFilterRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92111FD265F8FF3002490EE /* EventsFilterRouter.swift */; };
 		D93A4414265FCB2F00175B3E /* EndPoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93A4413265FCB2F00175B3E /* EndPoints.swift */; };
 		D94ED4BB265B735400ACD160 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D94ED4BA265B735400ACD160 /* AppDelegate.swift */; };
-		D94ED4C2265B735400ACD160 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D94ED4C0265B735400ACD160 /* Main.storyboard */; };
+		D94ED4C2265B735400ACD160 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D94ED4C0265B735400ACD160 /* Home.storyboard */; };
 		D94ED4C4265B735700ACD160 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D94ED4C3265B735700ACD160 /* Assets.xcassets */; };
 		D94ED4C7265B735700ACD160 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D94ED4C5265B735700ACD160 /* LaunchScreen.storyboard */; };
 		D94ED4D2265B735700ACD160 /* OWC_Events_iOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D94ED4D1265B735700ACD160 /* OWC_Events_iOSTests.swift */; };
@@ -72,6 +72,8 @@
 		D99D2131265FE5A5006B812D /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D99D2130265FE5A5006B812D /* UserDefaultsManager.swift */; };
 		D99D2136265FE835006B812D /* FilterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D99D2135265FE835006B812D /* FilterManager.swift */; };
 		D99D9C1B2668C4C7000CAE38 /* UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D99D9C1A2668C4C7000CAE38 /* UILabel.swift */; };
+		D9EFB62B26708A7F000B25A1 /* HalfViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9EFB62A26708A7F000B25A1 /* HalfViewController.swift */; };
+		D9EFB6362670F322000B25A1 /* testing.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9EFB6352670F322000B25A1 /* testing.storyboard */; };
 		F87128B2F021A092EFBBF1A5 /* Pods_OWC_Events_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15E80C01EA794408DC28BD9E /* Pods_OWC_Events_iOS.framework */; };
 /* End PBXBuildFile section */
 
@@ -107,7 +109,7 @@
 		D93A4413265FCB2F00175B3E /* EndPoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoints.swift; sourceTree = "<group>"; };
 		D94ED4B7265B735400ACD160 /* OWC_Events_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OWC_Events_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D94ED4BA265B735400ACD160 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D94ED4C1265B735400ACD160 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		D94ED4C1265B735400ACD160 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Home.storyboard; sourceTree = "<group>"; };
 		D94ED4C3265B735700ACD160 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D94ED4C6265B735700ACD160 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D94ED4C8265B735700ACD160 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -167,6 +169,8 @@
 		D99D2130265FE5A5006B812D /* UserDefaultsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
 		D99D2135265FE835006B812D /* FilterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterManager.swift; sourceTree = "<group>"; };
 		D99D9C1A2668C4C7000CAE38 /* UILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabel.swift; sourceTree = "<group>"; };
+		D9EFB62A26708A7F000B25A1 /* HalfViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HalfViewController.swift; sourceTree = "<group>"; };
+		D9EFB6352670F322000B25A1 /* testing.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = testing.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -313,7 +317,8 @@
 			isa = PBXGroup;
 			children = (
 				D94ED4C5265B735700ACD160 /* LaunchScreen.storyboard */,
-				D94ED4C0265B735400ACD160 /* Main.storyboard */,
+				D94ED4C0265B735400ACD160 /* Home.storyboard */,
+				D9EFB6352670F322000B25A1 /* testing.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -384,6 +389,7 @@
 			isa = PBXGroup;
 			children = (
 				D95319C12664C23C00CC0B2E /* MonthYearPickerView.swift */,
+				D9EFB62A26708A7F000B25A1 /* HalfViewController.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -601,6 +607,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D9EFB6362670F322000B25A1 /* testing.storyboard in Resources */,
 				D94ED595265CDCDB00ACD160 /* Sofia_Black.otf in Resources */,
 				D94ED59A265CDCDB00ACD160 /* Sofia_SemiBold.otf in Resources */,
 				D94ED597265CDCDB00ACD160 /* Sofia_Light.otf in Resources */,
@@ -609,7 +616,7 @@
 				D94ED4C7265B735700ACD160 /* LaunchScreen.storyboard in Resources */,
 				D94ED599265CDCDB00ACD160 /* Sofia_UltraLight.otf in Resources */,
 				D94ED4C4265B735700ACD160 /* Assets.xcassets in Resources */,
-				D94ED4C2265B735400ACD160 /* Main.storyboard in Resources */,
+				D94ED4C2265B735400ACD160 /* Home.storyboard in Resources */,
 				D95443B326678DDA00A76C6E /* Muli-Bold.ttf in Resources */,
 				D94ED598265CDCDB00ACD160 /* Sofia_Bold.otf in Resources */,
 				D94ED59B265CDCDB00ACD160 /* Sofia_Medium.otf in Resources */,
@@ -763,6 +770,7 @@
 				D95319C82664C45E00CC0B2E /* MonthYearPickerViewController.swift in Sources */,
 				D94ED5E3265DFEC200ACD160 /* EventsRouter.swift in Sources */,
 				D95319D82664D3D400CC0B2E /* MonthYearPickerViewModel.swift in Sources */,
+				D9EFB62B26708A7F000B25A1 /* HalfViewController.swift in Sources */,
 				D94ED5ED265E04B900ACD160 /* EventsFilterTableViewCell.swift in Sources */,
 				D94ED5AC265D0ECD00ACD160 /* EventsTableViewCell.swift in Sources */,
 				D94ED5FD265E44F100ACD160 /* EventsDetailRouter.swift in Sources */,
@@ -820,12 +828,12 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		D94ED4C0265B735400ACD160 /* Main.storyboard */ = {
+		D94ED4C0265B735400ACD160 /* Home.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				D94ED4C1265B735400ACD160 /* Base */,
 			);
-			name = Main.storyboard;
+			name = Home.storyboard;
 			sourceTree = "<group>";
 		};
 		D94ED4C5265B735700ACD160 /* LaunchScreen.storyboard */ = {
@@ -962,10 +970,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = HLQ454SBHW;
 				INFOPLIST_FILE = OWC_Events_iOS/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -984,10 +992,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = HLQ454SBHW;
 				INFOPLIST_FILE = OWC_Events_iOS/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

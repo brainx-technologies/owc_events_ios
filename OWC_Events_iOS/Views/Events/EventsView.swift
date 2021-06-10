@@ -46,7 +46,6 @@ class EventsView: UIView {
         searchBarView.setCornerRadius(10)
         filterView.setCornerRadius(25)
         filterNumberView.setCornerRadius(9)
-        filterView.setBorderColor(Color.white, andWidth: 0.5)
         [filterView].forEach {
             $0?.addShadow(color: Color.black.withAlphaComponent(0.25), alpha: 1, x: 0, y: 6, blur: 6)
         }
