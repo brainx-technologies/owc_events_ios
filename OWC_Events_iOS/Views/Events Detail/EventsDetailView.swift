@@ -55,7 +55,7 @@ class EventsDetailView: UIView {
     }
 
     private func setBorders() {
-        timeLocationContainerView.addShadow(color: Color.shadowColor, alpha: 0.5, x: 0, y: 2, blur: 6)
+        timeLocationContainerView.addShadow(color: Color.shadowColor, alpha: 0.25, x: 0, y: 2, blur: 10)
         mapButton.addShadow(color: Color.black, alpha: 0.1, x: 0, y: 2, blur: 6)
         [mapButton, addToCalendarButton].forEach {
             $0?.setBorderColor(Color.borderGrey, andWidth: 1)

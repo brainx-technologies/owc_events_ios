@@ -73,7 +73,6 @@
 		D99D2136265FE835006B812D /* FilterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D99D2135265FE835006B812D /* FilterManager.swift */; };
 		D99D9C1B2668C4C7000CAE38 /* UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D99D9C1A2668C4C7000CAE38 /* UILabel.swift */; };
 		D9EFB62B26708A7F000B25A1 /* HalfViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9EFB62A26708A7F000B25A1 /* HalfViewController.swift */; };
-		D9EFB6362670F322000B25A1 /* testing.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9EFB6352670F322000B25A1 /* testing.storyboard */; };
 		F87128B2F021A092EFBBF1A5 /* Pods_OWC_Events_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15E80C01EA794408DC28BD9E /* Pods_OWC_Events_iOS.framework */; };
 /* End PBXBuildFile section */
 
@@ -170,7 +169,6 @@
 		D99D2135265FE835006B812D /* FilterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterManager.swift; sourceTree = "<group>"; };
 		D99D9C1A2668C4C7000CAE38 /* UILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabel.swift; sourceTree = "<group>"; };
 		D9EFB62A26708A7F000B25A1 /* HalfViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HalfViewController.swift; sourceTree = "<group>"; };
-		D9EFB6352670F322000B25A1 /* testing.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = testing.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -318,7 +316,6 @@
 			children = (
 				D94ED4C5265B735700ACD160 /* LaunchScreen.storyboard */,
 				D94ED4C0265B735400ACD160 /* Home.storyboard */,
-				D9EFB6352670F322000B25A1 /* testing.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -607,7 +604,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D9EFB6362670F322000B25A1 /* testing.storyboard in Resources */,
 				D94ED595265CDCDB00ACD160 /* Sofia_Black.otf in Resources */,
 				D94ED59A265CDCDB00ACD160 /* Sofia_SemiBold.otf in Resources */,
 				D94ED597265CDCDB00ACD160 /* Sofia_Light.otf in Resources */,

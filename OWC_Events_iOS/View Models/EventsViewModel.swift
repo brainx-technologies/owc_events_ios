@@ -50,15 +50,15 @@ class EventsViewModel {
     // MARK: - Public Methods
 
     func loadFilterViewController() {
-        router.presentVC(routeType: EventsRouteType.FilterView(), navigationType: .overlay, animated: false, completion: nil)
+        router.presentVC(routeType: EventsRouteType.FilterView(), navigationType: .overlay, animated: true, completion: nil)
     }
 
     func loadDetailsViewController(selectedDate: Date) {
-        router.presentVC(routeType: EventsRouteType.EventsDetail(data: selectedDate), navigationType: .stack, animated: false, completion: nil)
+        router.presentVC(routeType: EventsRouteType.EventsDetail(data: selectedDate), navigationType: .stack, animated: true, completion: nil)
     }
 
     func loadMonthYearPickerViewWith(selectedDate: Date) {
-        router.presentVC(routeType: EventsRouteType.MonthYearPickerView(data: selectedDate), navigationType: .overlay, animated: false, completion: nil)
+        router.presentVC(routeType: EventsRouteType.MonthYearPickerView(data: selectedDate), navigationType: .overlay, animated: true, completion: nil)
     }
     
     func getDummyEvents(withCompletion completion: @escaping ([OWCEvent]) -> Void){
