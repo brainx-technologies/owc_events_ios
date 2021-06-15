@@ -6,7 +6,7 @@ target 'OWC_Events_iOS' do
   use_frameworks!
 
   # Pods for OWC_Events_iOS
-  pod 'ReadMoreTextView'
+#  pod 'ReadMoreTextView'
   
   
   target 'OWC_Events_iOSTests' do

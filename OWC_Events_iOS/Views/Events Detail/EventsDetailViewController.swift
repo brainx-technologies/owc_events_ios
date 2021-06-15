@@ -23,9 +23,7 @@ class EventsDetailViewController: BaseViewController {
         super.viewDidLoad()
         let router = EventsDetailRouter(controller: self)
         viewModel = EventsDetailViewModel(router: router)
-        eventsDetailView.aboutMessageLabel.addTapAction(#selector(handleTextViewExpandCollapse), target: self)
-        eventsDetailView.aboutMessageHeightConstraint.constant = 100
-        eventsDetailView.collapseView()
+        eventsDetailView.aboutMessageTextView.addTapAction(#selector(handleTextViewExpandCollapse), target: self)
         eventsDetailView.dateContainerView.backgroundColor = selectedDate.getWeekDay().getColor()
     }
 

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		333AD4942678A1FA004F0FEE /* UITextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 333AD4932678A1F9004F0FEE /* UITextView.swift */; };
+		33C2F991267888BF009A3C0A /* ReadMoreTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33C2F990267888BF009A3C0A /* ReadMoreTextView.swift */; };
 		9528C5D7CCC5C7673413B286 /* Pods_OWC_Events_iOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35F625BD058B8A5F32D0924F /* Pods_OWC_Events_iOSTests.framework */; };
 		9F6F17FA2B9C67F2532F2B89 /* Pods_OWC_Events_iOS_OWC_Events_iOSUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C35260ADF6699CDA2E24386 /* Pods_OWC_Events_iOS_OWC_Events_iOSUITests.framework */; };
 		D92111F9265F8CC6002490EE /* EventsFilterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92111F8265F8CC6002490EE /* EventsFilterViewModel.swift */; };
@@ -96,6 +98,8 @@
 /* Begin PBXFileReference section */
 		15E80C01EA794408DC28BD9E /* Pods_OWC_Events_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OWC_Events_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		18BDCB9AD968B3A60AF9CD0F /* Pods-OWC_Events_iOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OWC_Events_iOSTests.release.xcconfig"; path = "Target Support Files/Pods-OWC_Events_iOSTests/Pods-OWC_Events_iOSTests.release.xcconfig"; sourceTree = "<group>"; };
+		333AD4932678A1F9004F0FEE /* UITextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITextView.swift; sourceTree = "<group>"; };
+		33C2F990267888BF009A3C0A /* ReadMoreTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadMoreTextView.swift; sourceTree = "<group>"; };
 		35F625BD058B8A5F32D0924F /* Pods_OWC_Events_iOSTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OWC_Events_iOSTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F25ED9D6C4D834432FCC0D5 /* Pods-OWC_Events_iOS-OWC_Events_iOSUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OWC_Events_iOS-OWC_Events_iOSUITests.release.xcconfig"; path = "Target Support Files/Pods-OWC_Events_iOS-OWC_Events_iOSUITests/Pods-OWC_Events_iOS-OWC_Events_iOSUITests.release.xcconfig"; sourceTree = "<group>"; };
 		608FDBBAC02202E76503240D /* Pods-OWC_Events_iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OWC_Events_iOS.release.xcconfig"; path = "Target Support Files/Pods-OWC_Events_iOS/Pods-OWC_Events_iOS.release.xcconfig"; sourceTree = "<group>"; };
@@ -302,10 +306,10 @@
 		D94ED4EE265B753300ACD160 /* View Models */ = {
 			isa = PBXGroup;
 			children = (
-				D94ED533265B964200ACD160 /* HomeViewModel.swift */,
-				D94ED5E7265DFFDC00ACD160 /* EventsViewModel.swift */,
 				D94ED601265E457D00ACD160 /* EventsDetailViewModel.swift */,
 				D92111F8265F8CC6002490EE /* EventsFilterViewModel.swift */,
+				D94ED5E7265DFFDC00ACD160 /* EventsViewModel.swift */,
+				D94ED533265B964200ACD160 /* HomeViewModel.swift */,
 				D95319D72664D3D400CC0B2E /* MonthYearPickerViewModel.swift */,
 			);
 			path = "View Models";
@@ -333,13 +337,14 @@
 			children = (
 				D94ED5C2265D2BCD00ACD160 /* Calendar.swift */,
 				D94ED5CA265D2DD000ACD160 /* Date.swift */,
+				D98E276B266A5B270052C07C /* UIAlertController.swift */,
 				D94ED50C265B799F00ACD160 /* UIColor.swift */,
+				D99D9C1A2668C4C7000CAE38 /* UILabel.swift */,
 				D94ED507265B797200ACD160 /* UIStoryboard.swift */,
 				D94ED5B0265D105500ACD160 /* UITableViewCell.swift */,
+				333AD4932678A1F9004F0FEE /* UITextView.swift */,
 				D94ED57B265BF80E00ACD160 /* UIView.swift */,
 				D94ED525265B953900ACD160 /* UIViewController.swift */,
-				D99D9C1A2668C4C7000CAE38 /* UILabel.swift */,
-				D98E276B266A5B270052C07C /* UIAlertController.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -347,12 +352,12 @@
 		D94ED4F2265B755F00ACD160 /* Globals */ = {
 			isa = PBXGroup;
 			children = (
+				D98E2770266A60760052C07C /* AppConstants.swift */,
 				D94ED54B265B97AA00ACD160 /* Colors.swift */,
+				D93A4413265FCB2F00175B3E /* EndPoints.swift */,
 				D94ED550265B97B900ACD160 /* Fonts.swift */,
 				D94ED555265B97C200ACD160 /* Images.swift */,
 				D94ED546265B97A100ACD160 /* LocalizedKey.swift */,
-				D93A4413265FCB2F00175B3E /* EndPoints.swift */,
-				D98E2770266A60760052C07C /* AppConstants.swift */,
 			);
 			path = Globals;
 			sourceTree = "<group>";
@@ -375,9 +380,9 @@
 		D94ED4F5265B75B100ACD160 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				D99D2135265FE835006B812D /* FilterManager.swift */,
 				D94ED55A265B97DE00ACD160 /* LoaderManager.swift */,
 				D99D2130265FE5A5006B812D /* UserDefaultsManager.swift */,
-				D99D2135265FE835006B812D /* FilterManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -385,8 +390,9 @@
 		D94ED4F6265B75B900ACD160 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				D95319C12664C23C00CC0B2E /* MonthYearPickerView.swift */,
+				33C2F990267888BF009A3C0A /* ReadMoreTextView.swift */,
 				D9EFB62A26708A7F000B25A1 /* HalfViewController.swift */,
+				D95319C12664C23C00CC0B2E /* MonthYearPickerView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -495,7 +501,6 @@
 				D94ED4B3265B735400ACD160 /* Sources */,
 				D94ED4B4265B735400ACD160 /* Frameworks */,
 				D94ED4B5265B735400ACD160 /* Resources */,
-				6E3F216EFC26DE629AF677B5 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -539,7 +544,6 @@
 				D94ED4D4265B735700ACD160 /* Sources */,
 				D94ED4D5265B735700ACD160 /* Frameworks */,
 				D94ED4D6265B735700ACD160 /* Resources */,
-				D0C09D2B4541E3BEFE5EAE1A /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -658,40 +662,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		6E3F216EFC26DE629AF677B5 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-OWC_Events_iOS/Pods-OWC_Events_iOS-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-OWC_Events_iOS/Pods-OWC_Events_iOS-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-OWC_Events_iOS/Pods-OWC_Events_iOS-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		D0C09D2B4541E3BEFE5EAE1A /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-OWC_Events_iOS-OWC_Events_iOSUITests/Pods-OWC_Events_iOS-OWC_Events_iOSUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-OWC_Events_iOS-OWC_Events_iOSUITests/Pods-OWC_Events_iOS-OWC_Events_iOSUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-OWC_Events_iOS-OWC_Events_iOSUITests/Pods-OWC_Events_iOS-OWC_Events_iOSUITests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		D74A4518B24A8435DBCF5730 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -768,6 +738,7 @@
 				D95319D82664D3D400CC0B2E /* MonthYearPickerViewModel.swift in Sources */,
 				D9EFB62B26708A7F000B25A1 /* HalfViewController.swift in Sources */,
 				D94ED5ED265E04B900ACD160 /* EventsFilterTableViewCell.swift in Sources */,
+				333AD4942678A1FA004F0FEE /* UITextView.swift in Sources */,
 				D94ED5AC265D0ECD00ACD160 /* EventsTableViewCell.swift in Sources */,
 				D94ED5FD265E44F100ACD160 /* EventsDetailRouter.swift in Sources */,
 				D95319D02664C86100CC0B2E /* MonthYearView.swift in Sources */,
@@ -775,6 +746,7 @@
 				D95319DD2664D3FC00CC0B2E /* MonthYearRouter.swift in Sources */,
 				D94ED57C265BF80E00ACD160 /* UIView.swift in Sources */,
 				D94ED5D9265DFA1400ACD160 /* EventsFilterViewController.swift in Sources */,
+				33C2F991267888BF009A3C0A /* ReadMoreTextView.swift in Sources */,
 				D99D2136265FE835006B812D /* FilterManager.swift in Sources */,
 				D94ED602265E457D00ACD160 /* EventsDetailViewModel.swift in Sources */,
 				D94ED50D265B799F00ACD160 /* UIColor.swift in Sources */,
@@ -966,7 +938,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = HLQ454SBHW;
 				INFOPLIST_FILE = OWC_Events_iOS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
@@ -988,7 +960,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = HLQ454SBHW;
 				INFOPLIST_FILE = OWC_Events_iOS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.4;

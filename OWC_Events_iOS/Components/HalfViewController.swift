@@ -21,8 +21,6 @@ class HalfViewController: UIPresentationController{
         super.init(presentedViewController: presentedViewController, presenting: presentingViewController)
         tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.dismiss))
         blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        self.blurEffectView.isUserInteractionEnabled = true
-        self.blurEffectView.addGestureRecognizer(tapGestureRecognizer)
     }
     
     override var frameOfPresentedViewInContainerView: CGRect{
@@ -31,15 +29,20 @@ class HalfViewController: UIPresentationController{
     override func dismissalTransitionWillBegin() {
         self.presentedViewController.transitionCoordinator?.animate(alongsideTransition: { (UIViewControllerTransitionCoordinatorContext) in
             self.blurEffectView.alpha = 0
+            self.containerView?.backgroundColor = UIColor.black.withAlphaComponent(0)
         }, completion: { (UIViewControllerTransitionCoordinatorContext) in
             self.blurEffectView.removeFromSuperview()
         })
     }
     override func presentationTransitionWillBegin() {
         self.blurEffectView.alpha = 0
+        self.containerView?.isUserInteractionEnabled = true
+        self.containerView?.addGestureRecognizer(tapGestureRecognizer)
+        self.containerView?.backgroundColor = UIColor.black.withAlphaComponent(0)
         self.containerView?.addSubview(blurEffectView)
         self.presentedViewController.transitionCoordinator?.animate(alongsideTransition: { (UIViewControllerTransitionCoordinatorContext) in
-            self.blurEffectView.alpha = 0.5
+            self.blurEffectView.alpha = 0
+            self.containerView?.backgroundColor = UIColor.black.withAlphaComponent(0.5)
         }, completion: { (UIViewControllerTransitionCoordinatorContext) in
             
         })

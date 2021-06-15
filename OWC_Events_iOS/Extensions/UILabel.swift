@@ -27,6 +27,7 @@ extension UILabel {
             attributes: attributes,
             context: nil
         ).size
+        print(ceil(labelTextSize.height), frame.size.height)
         return ceil(labelTextSize.height)
     }
     
