@@ -8,14 +8,13 @@
 import UIKit
 
 extension UILabel {
-    
     var isTruncatedText: Bool {
         guard let height = textHeight else {
             return false
         }
         return height > bounds.size.height
     }
-    
+
     var textHeight: CGFloat? {
         guard let labelText = text else {
             return nil
@@ -30,7 +29,7 @@ extension UILabel {
         print(ceil(labelTextSize.height), frame.size.height)
         return ceil(labelTextSize.height)
     }
-    
+
     @discardableResult
     func setExpandActionIfPossible(_ text: String, textColor: UIColor? = nil) -> NSRange? {
         guard isTruncatedText, let visibleString = visibleText else {
@@ -38,17 +37,17 @@ extension UILabel {
         }
         let defaultTruncatedString = "... "
         let fontAttribute: [NSAttributedString.Key: UIFont] = [.font: font]
-        let expandAttributedString: NSMutableAttributedString = NSMutableAttributedString(
+        let expandAttributedString = NSMutableAttributedString(
             string: defaultTruncatedString,
             attributes: fontAttribute
         )
         let customExpandAttributes: [NSAttributedString.Key: Any] = [
             .font: font as Any,
-            .foregroundColor: (textColor ?? self.textColor) as Any
+            .foregroundColor: (textColor ?? self.textColor) as Any,
         ]
         let customExpandAttributedString = NSAttributedString(string: "\(text)", attributes: customExpandAttributes)
         expandAttributedString.append(customExpandAttributedString)
-        
+
         let visibleAttributedString = NSMutableAttributedString(string: visibleString, attributes: fontAttribute)
         guard visibleAttributedString.length > expandAttributedString.length else {
             return nil
@@ -58,11 +57,12 @@ extension UILabel {
         attributedText = visibleAttributedString
         return changeRange
     }
-    
+
     var visibleText: String? {
         guard isTruncatedText,
               let labelText = text,
-              let lastIndex = truncationIndex else {
+              let lastIndex = truncationIndex
+        else {
             return nil
         }
         let visibleTextRange = NSRange(location: 0, length: lastIndex)
@@ -71,7 +71,7 @@ extension UILabel {
         }
         return String(labelText[range])
     }
-    
+
     var truncationIndex: Int? {
         guard let text = text, isTruncatedText else {
             return nil
@@ -84,25 +84,25 @@ extension UILabel {
         )
         textContainer.maximumNumberOfLines = numberOfLines
         textContainer.lineBreakMode = lineBreakMode
-        
+
         let layoutManager = NSLayoutManager()
         layoutManager.addTextContainer(textContainer)
-        
+
         let textStorage = NSTextStorage(attributedString: attributedString)
         textStorage.addLayoutManager(layoutManager)
-        
+
         var glyphRange = NSRange()
         layoutManager.glyphRange(
             forCharacterRange: NSMakeRange(0, attributedString.length),
             actualCharacterRange: &glyphRange
         )
-        
+
         var truncationIndex = NSNotFound
         var i = 0
         layoutManager.enumerateLineFragments(
             forGlyphRange: glyphRange
-        ) { rect, usedRect, textContainer, glyphRange, stop in
-            if (i == self.numberOfLines - 1) {
+        ) { _, _, _, glyphRange, stop in
+            if i == self.numberOfLines - 1 {
                 let lineFragmentTruncatedGlyphIndex = glyphRange.location
                 if lineFragmentTruncatedGlyphIndex != NSNotFound {
                     truncationIndex = layoutManager.truncatedGlyphRange(inLineFragmentForGlyphAt: lineFragmentTruncatedGlyphIndex).location
@@ -113,7 +113,7 @@ extension UILabel {
         }
         return truncationIndex
     }
-    
+
     private func getIndex(from point: CGPoint) -> Int? {
         guard let attributedString = attributedText, attributedString.length > 0 else {
             return nil
@@ -126,7 +126,7 @@ extension UILabel {
         textContainer.maximumNumberOfLines = numberOfLines
         textContainer.lineBreakMode = lineBreakMode
         layoutManager.addTextContainer(textContainer)
-        
+
         let index = layoutManager.characterIndex(
             for: point,
             in: textContainer,
@@ -134,7 +134,7 @@ extension UILabel {
         )
         return index
     }
-    
+
     func didTapInRange(_ point: CGPoint, targetRange: NSRange) -> Bool {
         guard let indexOfPoint = getIndex(from: point) else {
             return false

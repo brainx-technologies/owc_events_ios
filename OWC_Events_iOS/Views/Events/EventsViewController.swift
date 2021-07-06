@@ -251,9 +251,8 @@ extension EventsViewController: UpdateMonthYearProtocol {
     }
 }
 
-
 extension EventsViewController: UIViewControllerTransitioningDelegate {
-    func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
+    func presentationController(forPresented presented: UIViewController, presenting _: UIViewController?, source _: UIViewController) -> UIPresentationController? {
         return HalfViewController(presentedViewController: presented, presenting: presentingViewController)
     }
 }

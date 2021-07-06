@@ -38,6 +38,7 @@ class EventsDetailView: UIView {
     var fullSizeTextHeight: CGFloat = 0
     var messageText: String = LocalizedKey.empty.string
     var isCollapased: Bool = true
+
     // MARK: Life Cycle Method
 
     override func awakeFromNib() {
@@ -106,7 +107,7 @@ class EventsDetailView: UIView {
         isCollapased = true
         let fixedWidth = aboutMessageTextView.bounds.size.width
         fullSizeTextHeight = aboutMessageTextView.sizeThatFits(CGSize(width: fixedWidth, height: .greatestFiniteMagnitude)).height
-        scrollViewHeightConstraint.constant = fullSizeTextHeight/2
+        scrollViewHeightConstraint.constant = fullSizeTextHeight / 2
     }
 
     // MARK: - Public Methods

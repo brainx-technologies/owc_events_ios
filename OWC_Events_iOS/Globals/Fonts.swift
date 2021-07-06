@@ -36,11 +36,11 @@ enum Font {
     static func sofiaUltraLight(_ size: CGFloat) -> UIFont? {
         return UIFont(name: "SofiaPro-UltraLight", size: size)
     }
-    
+
     static func muliRegular(_ size: CGFloat) -> UIFont? {
         return UIFont(name: "Muli", size: size)
     }
-    
+
     static func muliBold(_ size: CGFloat) -> UIFont? {
         return UIFont(name: "Muli-Bold", size: size)
     }

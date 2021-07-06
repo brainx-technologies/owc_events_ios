@@ -59,7 +59,7 @@ class EventsDetailViewModel {
         let longitude: CLLocationDegrees = 74.3587 // will replace with actual data after api implementation
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         alert.view.tintColor = Color.tintColor
-        
+
         let openGoogleMapAction = UIAlertAction(title: LocalizedKey.openGoogleMap.string, style: .default, handler: { _ in
             self.openInGoogleMap(latitude: latitude, longitude: longitude)
         })
@@ -84,9 +84,9 @@ class EventsDetailViewModel {
         let okButton = UIAlertAction(title: LocalizedKey.ok.string, style: .default, handler: nil)
         okButton.setValue(Color.black, forKey: AppConstants.titleTextColor)
         alertController.addAction(okButton)
-        self.router.viewController?.showAlert(alertController: alertController)
+        router.viewController?.showAlert(alertController: alertController)
     }
-    
+
     func addToCalendar() {
         eventStore.requestAccess(to: .event) { granted, error in
             if granted, error == nil {

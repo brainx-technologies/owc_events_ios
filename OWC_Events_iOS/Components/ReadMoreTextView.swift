@@ -13,29 +13,28 @@ import UIKit
  */
 @IBDesignable
 public class ReadMoreTextView: UITextView {
-    
-    public override init(frame: CGRect, textContainer: NSTextContainer?) {
+    override public init(frame: CGRect, textContainer: NSTextContainer?) {
         readMoreTextPadding = .zero
         readLessTextPadding = .zero
         super.init(frame: frame, textContainer: textContainer)
         setupDefaults()
     }
-    
+
     public convenience init(frame: CGRect) {
         self.init(frame: frame, textContainer: nil)
     }
-    
+
     public convenience init() {
         self.init(frame: CGRect.zero, textContainer: nil)
     }
-    
+
     public required init?(coder aDecoder: NSCoder) {
         readMoreTextPadding = .zero
         readLessTextPadding = .zero
         super.init(coder: aDecoder)
         setupDefaults()
     }
-    
+
     func setupDefaults() {
         let defaultReadMoreText = NSLocalizedString("ReadMoreTextView.readMore", value: LocalizedKey.seeMore.string, comment: "")
         let attributedReadMoreText = NSMutableAttributedString(string: "... ")
@@ -44,18 +43,18 @@ public class ReadMoreTextView: UITextView {
         readLessTextPadding = .zero
         isScrollEnabled = false
         isEditable = false
-        
+
         let attributedDefaultReadMoreText = NSAttributedString(string: defaultReadMoreText, attributes: [
             NSAttributedString.Key.foregroundColor: Color.seeMoreColor,
-            NSAttributedString.Key.font: font ?? UIFont.systemFont(ofSize: 14)
+            NSAttributedString.Key.font: font ?? UIFont.systemFont(ofSize: 14),
         ])
         attributedReadMoreText.append(attributedDefaultReadMoreText)
         self.attributedReadMoreText = attributedReadMoreText
     }
-    
-    /**Block to be invoked when text view changes its content size.*/
-    public var onSizeChange: (ReadMoreTextView)->() = { _ in }
-    
+
+    /** Block to be invoked when text view changes its content size. */
+    public var onSizeChange: (ReadMoreTextView) -> Void = { _ in }
+
     /**
      The maximum number of lines that the text view can display. If text does not fit that number it will be trimmed.
      Default is `0` which means that no text will be never trimmed.
@@ -67,8 +66,8 @@ public class ReadMoreTextView: UITextView {
             setNeedsLayout()
         }
     }
-    
-    /**The text to trim the original text. Setting this property resets `attributedReadMoreText`.*/
+
+    /** The text to trim the original text. Setting this property resets `attributedReadMoreText`. */
     @IBInspectable
     public var readMoreText: String? {
         get {
@@ -82,14 +81,14 @@ public class ReadMoreTextView: UITextView {
             }
         }
     }
-    
-    /**The attributed text to trim the original text. Setting this property resets `readMoreText`.*/
+
+    /** The attributed text to trim the original text. Setting this property resets `readMoreText`. */
     public var attributedReadMoreText: NSAttributedString? {
         didSet {
             setNeedsLayout()
         }
     }
-    
+
     /**
      The text to append to the original text when not trimming.
      */
@@ -106,7 +105,7 @@ public class ReadMoreTextView: UITextView {
             }
         }
     }
-    
+
     /**
      The attributed text to append to the original text when not trimming.
      */
@@ -115,7 +114,7 @@ public class ReadMoreTextView: UITextView {
             setNeedsLayout()
         }
     }
-    
+
     /**
      A Boolean that controls whether the text view should trim it's content to fit the `maximumNumberOfLines`.
      The default value is `false`.
@@ -124,7 +123,7 @@ public class ReadMoreTextView: UITextView {
     public var shouldTrim: Bool = false {
         didSet {
             guard shouldTrim != oldValue else { return }
-            
+
             if shouldTrim {
                 maximumNumberOfLines = _originalMaximumNumberOfLines
             } else {
@@ -136,22 +135,22 @@ public class ReadMoreTextView: UITextView {
             setNeedsLayout()
         }
     }
-    
+
     /**
-     Force to update trimming on the next layout pass. To update right away call `layoutIfNeeded` right after.
-    */
+      Force to update trimming on the next layout pass. To update right away call `layoutIfNeeded` right after.
+     */
     public func setNeedsUpdateTrim() {
         _needsUpdateTrim = true
         setNeedsLayout()
     }
-    
+
     /**
      A padding around "read more" text to adjust touchable area.
      If text is trimmed touching in this area will change `shouldTream` to `false` and remove trimming.
      That will cause text view to change it's content size. Use `onSizeChange` to adjust layout on that event.
      */
     public var readMoreTextPadding: UIEdgeInsets
-    
+
     /**
      A padding around "read less" text to adjust touchable area.
      If text is not trimmed and `readLessText` or `attributedReadLessText` is set touching in this area
@@ -159,8 +158,8 @@ public class ReadMoreTextView: UITextView {
      Use `onSizeChange` to adjust layout on that event.
      */
     public var readLessTextPadding: UIEdgeInsets
-    
-    public override var text: String! {
+
+    override public var text: String! {
         didSet {
             if let text = text {
                 _originalAttributedText = attributedStringWithDefaultAttributes(from: text)
@@ -169,11 +168,11 @@ public class ReadMoreTextView: UITextView {
             }
         }
     }
-    
-    public override var attributedText: NSAttributedString! {
+
+    override public var attributedText: NSAttributedString! {
         willSet {
             if #available(iOS 9.0, *) { return }
-            //on iOS 8 text view should be selectable to properly set attributed text
+            // on iOS 8 text view should be selectable to properly set attributed text
             if newValue != nil {
                 isSelectable = true
             }
@@ -182,19 +181,19 @@ public class ReadMoreTextView: UITextView {
             _originalAttributedText = attributedText
         }
     }
-    
-    public override func layoutSubviews() {
+
+    override public func layoutSubviews() {
         super.layoutSubviews()
-        
+
         if _needsUpdateTrim {
-            //reset text to force update trim
+            // reset text to force update trim
             attributedText = _originalAttributedText
             _needsUpdateTrim = false
         }
         needsTrim() ? showLessText() : showMoreText()
     }
-    
-    public override var intrinsicContentSize : CGSize {
+
+    override public var intrinsicContentSize: CGSize {
         textContainer.size = CGSize(width: bounds.size.width, height: CGFloat.greatestFiniteMagnitude)
         var intrinsicContentSize = layoutManager.boundingRect(forGlyphRange: layoutManager.glyphRange(for: textContainer), in: textContainer).size
         intrinsicContentSize.width = UIView.noIntrinsicMetric
@@ -202,55 +201,53 @@ public class ReadMoreTextView: UITextView {
         intrinsicContentSize.height = ceil(intrinsicContentSize.height)
         return intrinsicContentSize
     }
-    
+
     private var intrinsicContentHeight: CGFloat {
         return intrinsicContentSize.height
     }
-    
+
     private var cachedIntrinsicContentHeight: CGFloat?
-    
-    public override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
+
+    override public func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
         return hitTest(pointInGliphRange: point, event: event) { _ in
             guard pointIsInReadMoreOrReadLessTextRange(point: point) != nil else { return nil }
             return self
         }
     }
-    
-    public override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+
+    override public func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         if let point = touches.first?.location(in: self) {
             shouldTrim = pointIsInReadMoreOrReadLessTextRange(point: point) ?? shouldTrim
         }
         super.touchesEnded(touches, with: event)
     }
-    
-    //MARK: Private methods
-    
+
+    // MARK: Private methods
+
     private var _needsUpdateTrim = false
     private var _originalMaximumNumberOfLines: Int = 0
     private var _originalAttributedText: NSAttributedString!
     private var _originalTextLength: Int {
-        get {
-            return _originalAttributedText?.string.length ?? 0
-        }
+        return _originalAttributedText?.string.length ?? 0
     }
-    
+
     private func attributedStringWithDefaultAttributes(from text: String) -> NSAttributedString {
         return NSAttributedString(string: text, attributes: [
             NSAttributedString.Key.font: font ?? UIFont.systemFont(ofSize: 14),
-            NSAttributedString.Key.foregroundColor: textColor ?? UIColor.black
+            NSAttributedString.Key.foregroundColor: textColor ?? UIColor.black,
         ])
     }
-    
+
     private func needsTrim() -> Bool {
         return shouldTrim && readMoreText != nil
     }
-    
+
     private func showLessText() {
         if let readMoreText = readMoreText, text.hasSuffix(readMoreText) { return }
-        
+
         shouldTrim = true
         textContainer.maximumNumberOfLines = maximumNumberOfLines
-        
+
         layoutManager.invalidateLayout(forCharacterRange: layoutManager.characterRangeThatFits(textContainer: textContainer), actualCharacterRange: nil)
         textContainer.size = CGSize(width: bounds.size.width, height: CGFloat.greatestFiniteMagnitude)
 
@@ -260,14 +257,14 @@ public class ReadMoreTextView: UITextView {
 
             textStorage.replaceCharacters(in: range, with: text)
         }
-        
+
         invalidateIntrinsicContentSize()
         invokeOnSizeChangeIfNeeded()
     }
-    
+
     private func showMoreText() {
         if let readLessText = readLessText, text.hasSuffix(readLessText) { return }
-        
+
         shouldTrim = false
         textContainer.maximumNumberOfLines = 0
 
@@ -279,11 +276,11 @@ public class ReadMoreTextView: UITextView {
             }
             textStorage.replaceCharacters(in: range, with: originalAttributedText)
         }
-        
+
         invalidateIntrinsicContentSize()
         invokeOnSizeChangeIfNeeded()
     }
-    
+
     private func invokeOnSizeChangeIfNeeded() {
         if let cachedIntrinsicContentHeight = cachedIntrinsicContentHeight {
             if intrinsicContentHeight != cachedIntrinsicContentHeight {
@@ -291,31 +288,29 @@ public class ReadMoreTextView: UITextView {
                 onSizeChange(self)
             }
         } else {
-            self.cachedIntrinsicContentHeight = intrinsicContentHeight
+            cachedIntrinsicContentHeight = intrinsicContentHeight
             onSizeChange(self)
         }
     }
-    
+
     private func rangeToReplaceWithReadMoreText() -> NSRange {
         let rangeThatFitsContainer = layoutManager.characterRangeThatFits(textContainer: textContainer)
         if NSMaxRange(rangeThatFitsContainer) == _originalTextLength {
             return NSMakeRange(NSNotFound, 0)
-        }
-        else {
+        } else {
             let lastCharacterIndex = characterIndexBeforeTrim(range: rangeThatFitsContainer)
             if lastCharacterIndex > 0 {
                 return NSMakeRange(lastCharacterIndex, textStorage.string.length - lastCharacterIndex)
-            }
-            else {
+            } else {
                 return NSMakeRange(NSNotFound, 0)
             }
         }
     }
-    
+
     private func characterIndexBeforeTrim(range rangeThatFits: NSRange) -> Int {
         if let text = attributedReadMoreText {
             let readMoreBoundingRect = attributedReadMoreText(text: text, boundingRectThatFits: textContainer.size)
-            let lastCharacterRect = layoutManager.boundingRectForCharacterRange(range: NSMakeRange(NSMaxRange(rangeThatFits)-1, 1), inTextContainer: textContainer)
+            let lastCharacterRect = layoutManager.boundingRectForCharacterRange(range: NSMakeRange(NSMaxRange(rangeThatFits) - 1, 1), inTextContainer: textContainer)
             var point = lastCharacterRect.origin
             point.x = textContainer.size.width - ceil(readMoreBoundingRect.size.width)
             let glyphIndex = layoutManager.glyphIndex(for: point, in: textContainer, fractionOfDistanceThroughGlyph: nil)
@@ -325,7 +320,7 @@ public class ReadMoreTextView: UITextView {
             return NSMaxRange(rangeThatFits) - readMoreText!.length
         }
     }
-    
+
     private func attributedReadMoreText(text aText: NSAttributedString, boundingRectThatFits size: CGSize) -> CGRect {
         let textContainer = NSTextContainer(size: size)
         let textStorage = NSTextStorage(attributedString: aText)
@@ -335,7 +330,7 @@ public class ReadMoreTextView: UITextView {
         let readMoreBoundingRect = layoutManager.boundingRectForCharacterRange(range: NSMakeRange(0, text.length), inTextContainer: textContainer)
         return readMoreBoundingRect
     }
-    
+
     private func readMoreTextRange() -> NSRange {
         var readMoreTextRange = rangeToReplaceWithReadMoreText()
         if readMoreTextRange.location != NSNotFound {
@@ -343,12 +338,12 @@ public class ReadMoreTextView: UITextView {
         }
         return readMoreTextRange
     }
-    
+
     private func readLessTextRange() -> NSRange {
         return NSRange(location: _originalTextLength, length: readLessText!.length + 1)
     }
 
-    private func pointIsInReadMoreOrReadLessTextRange(point aPoint: CGPoint) -> Bool? {
+    private func pointIsInReadMoreOrReadLessTextRange(point _: CGPoint) -> Bool? {
         if needsTrim() {
             return false
         } else {
