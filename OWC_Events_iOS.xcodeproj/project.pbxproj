@@ -7,13 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		333AD4942678A1FA004F0FEE /* UITextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 333AD4932678A1F9004F0FEE /* UITextView.swift */; };
+		33C2F991267888BF009A3C0A /* ReadMoreTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33C2F990267888BF009A3C0A /* ReadMoreTextView.swift */; };
 		9528C5D7CCC5C7673413B286 /* Pods_OWC_Events_iOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35F625BD058B8A5F32D0924F /* Pods_OWC_Events_iOSTests.framework */; };
 		9F6F17FA2B9C67F2532F2B89 /* Pods_OWC_Events_iOS_OWC_Events_iOSUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C35260ADF6699CDA2E24386 /* Pods_OWC_Events_iOS_OWC_Events_iOSUITests.framework */; };
 		D92111F9265F8CC6002490EE /* EventsFilterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92111F8265F8CC6002490EE /* EventsFilterViewModel.swift */; };
 		D92111FE265F8FF3002490EE /* EventsFilterRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92111FD265F8FF3002490EE /* EventsFilterRouter.swift */; };
 		D93A4414265FCB2F00175B3E /* EndPoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93A4413265FCB2F00175B3E /* EndPoints.swift */; };
 		D94ED4BB265B735400ACD160 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D94ED4BA265B735400ACD160 /* AppDelegate.swift */; };
-		D94ED4C2265B735400ACD160 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D94ED4C0265B735400ACD160 /* Main.storyboard */; };
+		D94ED4C2265B735400ACD160 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D94ED4C0265B735400ACD160 /* Home.storyboard */; };
 		D94ED4C4265B735700ACD160 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D94ED4C3265B735700ACD160 /* Assets.xcassets */; };
 		D94ED4C7265B735700ACD160 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D94ED4C5265B735700ACD160 /* LaunchScreen.storyboard */; };
 		D94ED4D2265B735700ACD160 /* OWC_Events_iOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D94ED4D1265B735700ACD160 /* OWC_Events_iOSTests.swift */; };
@@ -58,6 +60,21 @@
 		D94ED5F8265E37C800ACD160 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = D94ED5F7265E37C800ACD160 /* SnapKit */; };
 		D94ED5FD265E44F100ACD160 /* EventsDetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D94ED5FC265E44F100ACD160 /* EventsDetailRouter.swift */; };
 		D94ED602265E457D00ACD160 /* EventsDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D94ED601265E457D00ACD160 /* EventsDetailViewModel.swift */; };
+		D95319C22664C23C00CC0B2E /* MonthYearPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D95319C12664C23C00CC0B2E /* MonthYearPickerView.swift */; };
+		D95319C82664C45E00CC0B2E /* MonthYearPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D95319C72664C45E00CC0B2E /* MonthYearPickerViewController.swift */; };
+		D95319D02664C86100CC0B2E /* MonthYearView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D95319CF2664C86100CC0B2E /* MonthYearView.swift */; };
+		D95319D82664D3D400CC0B2E /* MonthYearPickerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D95319D72664D3D400CC0B2E /* MonthYearPickerViewModel.swift */; };
+		D95319DD2664D3FC00CC0B2E /* MonthYearRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D95319DC2664D3FC00CC0B2E /* MonthYearRouter.swift */; };
+		D95319E32664F4F500CC0B2E /* OWCEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D95319E22664F4F500CC0B2E /* OWCEvent.swift */; };
+		D95319EC2664F64F00CC0B2E /* ObjectMapper in Frameworks */ = {isa = PBXBuildFile; productRef = D95319EB2664F64F00CC0B2E /* ObjectMapper */; };
+		D95443B326678DDA00A76C6E /* Muli-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D95443B226678DDA00A76C6E /* Muli-Bold.ttf */; };
+		D95443B826678DF600A76C6E /* Muli.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D95443B726678DF500A76C6E /* Muli.ttf */; };
+		D98E276C266A5B270052C07C /* UIAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D98E276B266A5B270052C07C /* UIAlertController.swift */; };
+		D98E2771266A60760052C07C /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D98E2770266A60760052C07C /* AppConstants.swift */; };
+		D99D2131265FE5A5006B812D /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D99D2130265FE5A5006B812D /* UserDefaultsManager.swift */; };
+		D99D2136265FE835006B812D /* FilterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D99D2135265FE835006B812D /* FilterManager.swift */; };
+		D99D9C1B2668C4C7000CAE38 /* UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D99D9C1A2668C4C7000CAE38 /* UILabel.swift */; };
+		D9EFB62B26708A7F000B25A1 /* HalfViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9EFB62A26708A7F000B25A1 /* HalfViewController.swift */; };
 		F87128B2F021A092EFBBF1A5 /* Pods_OWC_Events_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15E80C01EA794408DC28BD9E /* Pods_OWC_Events_iOS.framework */; };
 /* End PBXBuildFile section */
 
@@ -81,6 +98,8 @@
 /* Begin PBXFileReference section */
 		15E80C01EA794408DC28BD9E /* Pods_OWC_Events_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OWC_Events_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		18BDCB9AD968B3A60AF9CD0F /* Pods-OWC_Events_iOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OWC_Events_iOSTests.release.xcconfig"; path = "Target Support Files/Pods-OWC_Events_iOSTests/Pods-OWC_Events_iOSTests.release.xcconfig"; sourceTree = "<group>"; };
+		333AD4932678A1F9004F0FEE /* UITextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITextView.swift; sourceTree = "<group>"; };
+		33C2F990267888BF009A3C0A /* ReadMoreTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadMoreTextView.swift; sourceTree = "<group>"; };
 		35F625BD058B8A5F32D0924F /* Pods_OWC_Events_iOSTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OWC_Events_iOSTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F25ED9D6C4D834432FCC0D5 /* Pods-OWC_Events_iOS-OWC_Events_iOSUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OWC_Events_iOS-OWC_Events_iOSUITests.release.xcconfig"; path = "Target Support Files/Pods-OWC_Events_iOS-OWC_Events_iOSUITests/Pods-OWC_Events_iOS-OWC_Events_iOSUITests.release.xcconfig"; sourceTree = "<group>"; };
 		608FDBBAC02202E76503240D /* Pods-OWC_Events_iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OWC_Events_iOS.release.xcconfig"; path = "Target Support Files/Pods-OWC_Events_iOS/Pods-OWC_Events_iOS.release.xcconfig"; sourceTree = "<group>"; };
@@ -93,7 +112,7 @@
 		D93A4413265FCB2F00175B3E /* EndPoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoints.swift; sourceTree = "<group>"; };
 		D94ED4B7265B735400ACD160 /* OWC_Events_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OWC_Events_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D94ED4BA265B735400ACD160 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D94ED4C1265B735400ACD160 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		D94ED4C1265B735400ACD160 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Home.storyboard; sourceTree = "<group>"; };
 		D94ED4C3265B735700ACD160 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D94ED4C6265B735700ACD160 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D94ED4C8265B735700ACD160 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -140,6 +159,20 @@
 		D94ED5F1265E36CE00ACD160 /* EventsFilterTableViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsFilterTableViewHeader.swift; sourceTree = "<group>"; };
 		D94ED5FC265E44F100ACD160 /* EventsDetailRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsDetailRouter.swift; sourceTree = "<group>"; };
 		D94ED601265E457D00ACD160 /* EventsDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsDetailViewModel.swift; sourceTree = "<group>"; };
+		D95319C12664C23C00CC0B2E /* MonthYearPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthYearPickerView.swift; sourceTree = "<group>"; };
+		D95319C72664C45E00CC0B2E /* MonthYearPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthYearPickerViewController.swift; sourceTree = "<group>"; };
+		D95319CF2664C86100CC0B2E /* MonthYearView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthYearView.swift; sourceTree = "<group>"; };
+		D95319D72664D3D400CC0B2E /* MonthYearPickerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthYearPickerViewModel.swift; sourceTree = "<group>"; };
+		D95319DC2664D3FC00CC0B2E /* MonthYearRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthYearRouter.swift; sourceTree = "<group>"; };
+		D95319E22664F4F500CC0B2E /* OWCEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OWCEvent.swift; sourceTree = "<group>"; };
+		D95443B226678DDA00A76C6E /* Muli-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Muli-Bold.ttf"; sourceTree = "<group>"; };
+		D95443B726678DF500A76C6E /* Muli.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Muli.ttf; sourceTree = "<group>"; };
+		D98E276B266A5B270052C07C /* UIAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAlertController.swift; sourceTree = "<group>"; };
+		D98E2770266A60760052C07C /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
+		D99D2130265FE5A5006B812D /* UserDefaultsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
+		D99D2135265FE835006B812D /* FilterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterManager.swift; sourceTree = "<group>"; };
+		D99D9C1A2668C4C7000CAE38 /* UILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabel.swift; sourceTree = "<group>"; };
+		D9EFB62A26708A7F000B25A1 /* HalfViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HalfViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,6 +181,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D94ED561265B984A00ACD160 /* MBProgressHUD in Frameworks */,
+				D95319EC2664F64F00CC0B2E /* ObjectMapper in Frameworks */,
 				D94ED5F8265E37C800ACD160 /* SnapKit in Frameworks */,
 				D94ED513265B942A00ACD160 /* IQKeyboardManagerSwift in Frameworks */,
 				F87128B2F021A092EFBBF1A5 /* Pods_OWC_Events_iOS.framework in Frameworks */,
@@ -226,6 +260,7 @@
 				D94ED4F1265B755700ACD160 /* Extensions */,
 				D94ED4F2265B755F00ACD160 /* Globals */,
 				D94ED4F5265B75B100ACD160 /* Managers */,
+				D95319E12664F4A800CC0B2E /* Models */,
 				D94ED4F3265B756E00ACD160 /* Repositories */,
 				D94ED4F0265B755000ACD160 /* Resources */,
 				D94ED4F4265B75AA00ACD160 /* Router */,
@@ -263,6 +298,7 @@
 				D94ED565265B9A0500ACD160 /* Events Detail */,
 				D94ED5D7265DF9D600ACD160 /* Events Filter */,
 				D94ED51D265B94AD00ACD160 /* Home */,
+				D95319C62664C42300CC0B2E /* Month Year Picker */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -270,10 +306,11 @@
 		D94ED4EE265B753300ACD160 /* View Models */ = {
 			isa = PBXGroup;
 			children = (
-				D94ED533265B964200ACD160 /* HomeViewModel.swift */,
-				D94ED5E7265DFFDC00ACD160 /* EventsViewModel.swift */,
 				D94ED601265E457D00ACD160 /* EventsDetailViewModel.swift */,
 				D92111F8265F8CC6002490EE /* EventsFilterViewModel.swift */,
+				D94ED5E7265DFFDC00ACD160 /* EventsViewModel.swift */,
+				D94ED533265B964200ACD160 /* HomeViewModel.swift */,
+				D95319D72664D3D400CC0B2E /* MonthYearPickerViewModel.swift */,
 			);
 			path = "View Models";
 			sourceTree = "<group>";
@@ -282,7 +319,7 @@
 			isa = PBXGroup;
 			children = (
 				D94ED4C5265B735700ACD160 /* LaunchScreen.storyboard */,
-				D94ED4C0265B735400ACD160 /* Main.storyboard */,
+				D94ED4C0265B735400ACD160 /* Home.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -300,9 +337,12 @@
 			children = (
 				D94ED5C2265D2BCD00ACD160 /* Calendar.swift */,
 				D94ED5CA265D2DD000ACD160 /* Date.swift */,
+				D98E276B266A5B270052C07C /* UIAlertController.swift */,
 				D94ED50C265B799F00ACD160 /* UIColor.swift */,
+				D99D9C1A2668C4C7000CAE38 /* UILabel.swift */,
 				D94ED507265B797200ACD160 /* UIStoryboard.swift */,
 				D94ED5B0265D105500ACD160 /* UITableViewCell.swift */,
+				333AD4932678A1F9004F0FEE /* UITextView.swift */,
 				D94ED57B265BF80E00ACD160 /* UIView.swift */,
 				D94ED525265B953900ACD160 /* UIViewController.swift */,
 			);
@@ -312,11 +352,12 @@
 		D94ED4F2265B755F00ACD160 /* Globals */ = {
 			isa = PBXGroup;
 			children = (
+				D98E2770266A60760052C07C /* AppConstants.swift */,
 				D94ED54B265B97AA00ACD160 /* Colors.swift */,
+				D93A4413265FCB2F00175B3E /* EndPoints.swift */,
 				D94ED550265B97B900ACD160 /* Fonts.swift */,
 				D94ED555265B97C200ACD160 /* Images.swift */,
 				D94ED546265B97A100ACD160 /* LocalizedKey.swift */,
-				D93A4413265FCB2F00175B3E /* EndPoints.swift */,
 			);
 			path = Globals;
 			sourceTree = "<group>";
@@ -339,7 +380,9 @@
 		D94ED4F5265B75B100ACD160 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				D99D2135265FE835006B812D /* FilterManager.swift */,
 				D94ED55A265B97DE00ACD160 /* LoaderManager.swift */,
+				D99D2130265FE5A5006B812D /* UserDefaultsManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -347,6 +390,9 @@
 		D94ED4F6265B75B900ACD160 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				33C2F990267888BF009A3C0A /* ReadMoreTextView.swift */,
+				D9EFB62A26708A7F000B25A1 /* HalfViewController.swift */,
+				D95319C12664C23C00CC0B2E /* MonthYearPickerView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -408,6 +454,8 @@
 				D94ED583265BF96400ACD160 /* Sofia_Regular.otf */,
 				D94ED585265BF96500ACD160 /* Sofia_SemiBold.otf */,
 				D94ED584265BF96500ACD160 /* Sofia_UltraLight.otf */,
+				D95443B226678DDA00A76C6E /* Muli-Bold.ttf */,
+				D95443B726678DF500A76C6E /* Muli.ttf */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -424,6 +472,24 @@
 			path = "Events Filter";
 			sourceTree = "<group>";
 		};
+		D95319C62664C42300CC0B2E /* Month Year Picker */ = {
+			isa = PBXGroup;
+			children = (
+				D95319C72664C45E00CC0B2E /* MonthYearPickerViewController.swift */,
+				D95319CF2664C86100CC0B2E /* MonthYearView.swift */,
+				D95319DC2664D3FC00CC0B2E /* MonthYearRouter.swift */,
+			);
+			path = "Month Year Picker";
+			sourceTree = "<group>";
+		};
+		D95319E12664F4A800CC0B2E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				D95319E22664F4F500CC0B2E /* OWCEvent.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -435,7 +501,6 @@
 				D94ED4B3265B735400ACD160 /* Sources */,
 				D94ED4B4265B735400ACD160 /* Frameworks */,
 				D94ED4B5265B735400ACD160 /* Resources */,
-				6E3F216EFC26DE629AF677B5 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -446,6 +511,7 @@
 				D94ED512265B942A00ACD160 /* IQKeyboardManagerSwift */,
 				D94ED560265B984A00ACD160 /* MBProgressHUD */,
 				D94ED5F7265E37C800ACD160 /* SnapKit */,
+				D95319EB2664F64F00CC0B2E /* ObjectMapper */,
 			);
 			productName = OWC_Events_iOS;
 			productReference = D94ED4B7265B735400ACD160 /* OWC_Events_iOS.app */;
@@ -478,7 +544,6 @@
 				D94ED4D4265B735700ACD160 /* Sources */,
 				D94ED4D5265B735700ACD160 /* Frameworks */,
 				D94ED4D6265B735700ACD160 /* Resources */,
-				D0C09D2B4541E3BEFE5EAE1A /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -525,6 +590,7 @@
 				D94ED511265B942A00ACD160 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
 				D94ED55F265B984A00ACD160 /* XCRemoteSwiftPackageReference "MBProgressHUD" */,
 				D94ED5F6265E37C800ACD160 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				D95319EA2664F64F00CC0B2E /* XCRemoteSwiftPackageReference "ObjectMapper" */,
 			);
 			productRefGroup = D94ED4B8265B735400ACD160 /* Products */;
 			projectDirPath = "";
@@ -545,11 +611,13 @@
 				D94ED595265CDCDB00ACD160 /* Sofia_Black.otf in Resources */,
 				D94ED59A265CDCDB00ACD160 /* Sofia_SemiBold.otf in Resources */,
 				D94ED597265CDCDB00ACD160 /* Sofia_Light.otf in Resources */,
+				D95443B826678DF600A76C6E /* Muli.ttf in Resources */,
 				D94ED596265CDCDB00ACD160 /* Sofia_Regular.otf in Resources */,
 				D94ED4C7265B735700ACD160 /* LaunchScreen.storyboard in Resources */,
 				D94ED599265CDCDB00ACD160 /* Sofia_UltraLight.otf in Resources */,
 				D94ED4C4265B735700ACD160 /* Assets.xcassets in Resources */,
-				D94ED4C2265B735400ACD160 /* Main.storyboard in Resources */,
+				D94ED4C2265B735400ACD160 /* Home.storyboard in Resources */,
+				D95443B326678DDA00A76C6E /* Muli-Bold.ttf in Resources */,
 				D94ED598265CDCDB00ACD160 /* Sofia_Bold.otf in Resources */,
 				D94ED59B265CDCDB00ACD160 /* Sofia_Medium.otf in Resources */,
 			);
@@ -592,40 +660,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		6E3F216EFC26DE629AF677B5 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-OWC_Events_iOS/Pods-OWC_Events_iOS-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-OWC_Events_iOS/Pods-OWC_Events_iOS-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-OWC_Events_iOS/Pods-OWC_Events_iOS-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		D0C09D2B4541E3BEFE5EAE1A /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-OWC_Events_iOS-OWC_Events_iOSUITests/Pods-OWC_Events_iOS-OWC_Events_iOSUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-OWC_Events_iOS-OWC_Events_iOSUITests/Pods-OWC_Events_iOS-OWC_Events_iOSUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-OWC_Events_iOS-OWC_Events_iOSUITests/Pods-OWC_Events_iOS-OWC_Events_iOSUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		D74A4518B24A8435DBCF5730 /* [CP] Check Pods Manifest.lock */ = {
@@ -683,6 +717,7 @@
 				D94ED5CB265D2DD000ACD160 /* Date.swift in Sources */,
 				D94ED55B265B97DE00ACD160 /* LoaderManager.swift in Sources */,
 				D94ED551265B97B900ACD160 /* Fonts.swift in Sources */,
+				D98E276C266A5B270052C07C /* UIAlertController.swift in Sources */,
 				D94ED542265B977900ACD160 /* Router.swift in Sources */,
 				D94ED508265B797200ACD160 /* UIStoryboard.swift in Sources */,
 				D94ED534265B964200ACD160 /* HomeViewModel.swift in Sources */,
@@ -690,18 +725,29 @@
 				D94ED526265B953900ACD160 /* UIViewController.swift in Sources */,
 				D94ED521265B94D700ACD160 /* HomeViewController.swift in Sources */,
 				D94ED556265B97C200ACD160 /* Images.swift in Sources */,
+				D99D9C1B2668C4C7000CAE38 /* UILabel.swift in Sources */,
 				D94ED4BB265B735400ACD160 /* AppDelegate.swift in Sources */,
+				D95319E32664F4F500CC0B2E /* OWCEvent.swift in Sources */,
 				D94ED567265B9A3300ACD160 /* EventsDetailViewController.swift in Sources */,
 				D94ED5C3265D2BCD00ACD160 /* Calendar.swift in Sources */,
 				D94ED574265B9B5200ACD160 /* EventsDetailView.swift in Sources */,
 				D94ED5B1265D105500ACD160 /* UITableViewCell.swift in Sources */,
+				D98E2771266A60760052C07C /* AppConstants.swift in Sources */,
+				D95319C82664C45E00CC0B2E /* MonthYearPickerViewController.swift in Sources */,
 				D94ED5E3265DFEC200ACD160 /* EventsRouter.swift in Sources */,
+				D95319D82664D3D400CC0B2E /* MonthYearPickerViewModel.swift in Sources */,
+				D9EFB62B26708A7F000B25A1 /* HalfViewController.swift in Sources */,
 				D94ED5ED265E04B900ACD160 /* EventsFilterTableViewCell.swift in Sources */,
+				333AD4942678A1FA004F0FEE /* UITextView.swift in Sources */,
 				D94ED5AC265D0ECD00ACD160 /* EventsTableViewCell.swift in Sources */,
 				D94ED5FD265E44F100ACD160 /* EventsDetailRouter.swift in Sources */,
+				D95319D02664C86100CC0B2E /* MonthYearView.swift in Sources */,
 				D94ED54C265B97AA00ACD160 /* Colors.swift in Sources */,
+				D95319DD2664D3FC00CC0B2E /* MonthYearRouter.swift in Sources */,
 				D94ED57C265BF80E00ACD160 /* UIView.swift in Sources */,
 				D94ED5D9265DFA1400ACD160 /* EventsFilterViewController.swift in Sources */,
+				33C2F991267888BF009A3C0A /* ReadMoreTextView.swift in Sources */,
+				D99D2136265FE835006B812D /* FilterManager.swift in Sources */,
 				D94ED602265E457D00ACD160 /* EventsDetailViewModel.swift in Sources */,
 				D94ED50D265B799F00ACD160 /* UIColor.swift in Sources */,
 				D94ED547265B97A100ACD160 /* LocalizedKey.swift in Sources */,
@@ -710,8 +756,10 @@
 				D94ED5F2265E36CE00ACD160 /* EventsFilterTableViewHeader.swift in Sources */,
 				D92111FE265F8FF3002490EE /* EventsFilterRouter.swift in Sources */,
 				D94ED519265B94A000ACD160 /* BaseViewController.swift in Sources */,
+				D99D2131265FE5A5006B812D /* UserDefaultsManager.swift in Sources */,
 				D94ED5E8265DFFDC00ACD160 /* EventsViewModel.swift in Sources */,
 				D94ED52C265B95EF00ACD160 /* EventsViewController.swift in Sources */,
+				D95319C22664C23C00CC0B2E /* MonthYearPickerView.swift in Sources */,
 				D94ED56F265B9B3500ACD160 /* EventsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -748,12 +796,12 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		D94ED4C0265B735400ACD160 /* Main.storyboard */ = {
+		D94ED4C0265B735400ACD160 /* Home.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				D94ED4C1265B735400ACD160 /* Base */,
 			);
-			name = Main.storyboard;
+			name = Home.storyboard;
 			sourceTree = "<group>";
 		};
 		D94ED4C5265B735700ACD160 /* LaunchScreen.storyboard */ = {
@@ -890,9 +938,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = HLQ454SBHW;
 				INFOPLIST_FILE = OWC_Events_iOS/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -911,9 +960,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = HLQ454SBHW;
 				INFOPLIST_FILE = OWC_Events_iOS/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1079,6 +1129,14 @@
 				minimumVersion = 5.0.1;
 			};
 		};
+		D95319EA2664F64F00CC0B2E /* XCRemoteSwiftPackageReference "ObjectMapper" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/tristanhimmelman/ObjectMapper";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.2.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1096,6 +1154,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = D94ED5F6265E37C800ACD160 /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
+		};
+		D95319EB2664F64F00CC0B2E /* ObjectMapper */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D95319EA2664F64F00CC0B2E /* XCRemoteSwiftPackageReference "ObjectMapper" */;
+			productName = ObjectMapper;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

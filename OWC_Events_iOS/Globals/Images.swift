@@ -11,4 +11,8 @@ import UIKit
 enum Image {
     static let checkbox = "checkBox"
     static let emptyCheckbox = "emptyCheckBox"
+    static let xMark = "xmark"
+    static let search = "magnifyingglass"
+    static let noEventFound = "noSearchResult"
+    static let noEvents = "noEvents"
 }

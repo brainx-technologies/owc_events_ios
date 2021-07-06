@@ -5,7 +5,7 @@
 //  Created by BrainX Technologies on 5/24/21.
 //
 
-import ReadMoreTextView
+// import ReadMoreTextView
 import UIKit
 
 class EventsDetailView: UIView {
@@ -16,18 +16,28 @@ class EventsDetailView: UIView {
     @IBOutlet var backButton: UIButton!
     @IBOutlet var dateContainerView: UIView!
     @IBOutlet var timeLocationContainerView: UIView!
+    @IBOutlet var timeInnerLocationContainerView: UIView!
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var timeLabel: UILabel!
     @IBOutlet var locationLabel: UILabel!
     @IBOutlet var dateLabel: UILabel!
     @IBOutlet var aboutLabel: UILabel!
     @IBOutlet var aboutMessageTextView: ReadMoreTextView!
+    @IBOutlet var aboutMessageHeightConstraint: NSLayoutConstraint!
     @IBOutlet var locationTitleLabel: UILabel!
     @IBOutlet var mapButton: UIButton!
     @IBOutlet var mapImageView: UIImageView!
     @IBOutlet var locationValueContainerView: UIView!
     @IBOutlet var locationValueLabel: UILabel!
     @IBOutlet var addToCalendarButton: UIButton!
+    @IBOutlet var scrollViewHeightConstraint: NSLayoutConstraint!
+
+    // MARK: Instance Variables
+
+    let collapsedHeight: CGFloat = 72
+    var fullSizeTextHeight: CGFloat = 0
+    var messageText: String = LocalizedKey.empty.string
+    var isCollapased: Bool = true
 
     // MARK: Life Cycle Method
 
@@ -47,16 +57,15 @@ class EventsDetailView: UIView {
     }
 
     private func setBorders() {
-        [dateContainerView, timeLocationContainerView, mapImageView, addToCalendarButton].forEach {
-            $0?.addShadow(color: Color.shadowColor, alpha: 1, x: 0, y: 0, blur: 3)
-        }
+        timeLocationContainerView.addShadow(color: Color.shadowColor, alpha: 0.25, x: 0, y: 2, blur: 10)
+        mapButton.addShadow(color: Color.black, alpha: 0.1, x: 0, y: 2, blur: 6)
         [mapButton, addToCalendarButton].forEach {
             $0?.setBorderColor(Color.borderGrey, andWidth: 1)
         }
     }
 
     private func setCorners() {
-        [dateContainerView, timeLocationContainerView, addToCalendarButton].forEach {
+        [dateContainerView, timeLocationContainerView, timeInnerLocationContainerView, addToCalendarButton].forEach {
             $0?.setCornerRadius(10)
         }
         locationValueContainerView.setCornerRadius(8)
@@ -79,21 +88,43 @@ class EventsDetailView: UIView {
     private func setText() {
         eventDetailLabel.text = LocalizedKey.eventDetails.string
         aboutLabel.text = LocalizedKey.aboutThisEvent.string
-        locationTitleLabel.text = LocalizedKey.location.string
+        locationTitleLabel.text = LocalizedKey.eventLocation.string
         mapButton.setTitle(LocalizedKey.viewMap.string, for: .normal)
         addToCalendarButton.setTitle(LocalizedKey.addToCalendar.string, for: .normal)
     }
 
     private func setColors() {
-        backgroundColor = Color.backgroundPrimary
+        backgroundColor = Color.white
         dateContainerView.backgroundColor = Color.dateContainerColor
     }
 
     private func setupViews() {
         locationValueLabel.text = "400 margrate st, Marelebone, London" // will replace with actual data after api implementation
-        aboutMessageTextView.text = "We had to develop app within 6 months. It’s quite short time but we managed it out. You can check how it works by downloading app on Appstore and Google. We had to develop app within 6 months. It’s quite short time but we managed it out. You can check how it works by downloading app on Appstore and Google" // will replace with actual data after api implementation
-        aboutMessageTextView.shouldTrim = true
+        messageText = "We had to develop app within 6 months. It’s quite short time but we managed it out. You can check how it works by downloading app on Appstore and Google. We had to develop app within 6 months. It’s quite short time but we managed it out. You can check how it works by downloading app on Appstore and Google. We had to develop app within 6 months. It’s quite short time but we managed it out. You can check how it works by downloading app on Appstore and Google." // will replace with actual data after api implementation
+        aboutMessageTextView.text = messageText
         aboutMessageTextView.maximumNumberOfLines = 4
-        aboutMessageTextView.attributedReadMoreText = NSAttributedString(string: LocalizedKey.threeDots.string + LocalizedKey.seeMore.string, attributes: [NSAttributedString.Key.foregroundColor: Color.seeMoreColor])
+        aboutMessageTextView.shouldTrim = true
+        isCollapased = true
+        let fixedWidth = aboutMessageTextView.bounds.size.width
+        fullSizeTextHeight = aboutMessageTextView.sizeThatFits(CGSize(width: fixedWidth, height: .greatestFiniteMagnitude)).height
+        scrollViewHeightConstraint.constant = fullSizeTextHeight / 2
+    }
+
+    // MARK: - Public Methods
+
+    func handleAboutSeeMore() {
+        if isCollapased {
+            isCollapased = false
+            aboutMessageHeightConstraint.constant = fullSizeTextHeight
+            UIView.animate(withDuration: 0.15) {
+                self.layoutIfNeeded()
+            }
+        } else {
+            isCollapased = true
+            aboutMessageHeightConstraint.constant = collapsedHeight
+            UIView.animate(withDuration: 0.15) {
+                self.layoutIfNeeded()
+            }
+        }
     }
 }

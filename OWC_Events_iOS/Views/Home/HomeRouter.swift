@@ -29,7 +29,7 @@ class HomeRouter: Router {
 
         switch routeType {
         case .Events:
-            let viewController = UIViewController.instantiate(EventsViewController.self, fromStoryboard: .Main)
+            let viewController = UIViewController.instantiate(EventsViewController.self, fromStoryboard: .Home)
             vc = viewController
         }
 

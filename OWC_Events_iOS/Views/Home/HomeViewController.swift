@@ -15,7 +15,6 @@ class HomeViewController: BaseViewController {
     // MARK: - Instance variables
 
     private var homeViewModel: HomeViewModel!
-    let myTabBarController = UITabBarController()
 
     // MARK: - Init Methods
 
@@ -30,6 +29,8 @@ class HomeViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         homeViewModel.LoadEventsViewController()
+        UserDefaultsManager.typeThemeFilters.removeAll()
+        UserDefaultsManager.locationFilters.removeAll()
     }
 
     override var preferredStatusBarStyle: UIStatusBarStyle {

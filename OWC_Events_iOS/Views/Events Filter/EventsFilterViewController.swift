@@ -63,6 +63,7 @@ class EventsFilterViewController: BaseViewController {
         let router = EventsFilterRouter(controller: self)
         viewModel = EventsFilterViewModel(router: router)
         setupEventsTableView()
+        setupViews()
     }
 
     // MARK: - Private Methods
@@ -76,6 +77,14 @@ class EventsFilterViewController: BaseViewController {
         eventsFilterView.filterTableView.separatorStyle = .none
         eventsFilterView.filterTableView.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: eventsFilterView.filterTableView.bounds.size.width, height: eventsTableViewHeaderHeight))
         eventsFilterView.filterTableView.contentInset = UIEdgeInsets(top: -eventsTableViewHeaderHeight, left: 0, bottom: 0, right: 0)
+    }
+
+    private func setupViews() {
+        FilterManager.getFilterBeingApplied { typeThemeFilters, locationFilter in
+            self.selectedTypeThemeFilters = typeThemeFilters
+            self.selectedLocationFilters = locationFilter
+        }
+        eventsFilterView.filterTableView.reloadData()
     }
 
     private func addBottomRadiusAndBorder(_ cell: UITableViewCell, _ indexPath: IndexPath, _ tableView: UITableView) {
@@ -116,6 +125,8 @@ class EventsFilterViewController: BaseViewController {
 
     @IBAction
     func handleApplyFiltersButton(_: Any) {
+        UserDefaultsManager.typeThemeFilters = selectedTypeThemeFilters.map { $0.rawValue }
+        UserDefaultsManager.locationFilters = selectedLocationFilters.map { $0.rawValue }
         delegate?.updateSelectedValues(typeThemeSelectedItems: selectedTypeThemeFilters, locationSelectedItems: selectedLocationFilters)
         viewModel.closedButtonPressed()
     }
@@ -124,7 +135,11 @@ class EventsFilterViewController: BaseViewController {
     func handleCancelButton(_: Any) {
         selectedTypeThemeFilters = []
         selectedLocationFilters = []
+        UserDefaultsManager.typeThemeFilters = selectedTypeThemeFilters.map { $0.rawValue }
+        UserDefaultsManager.locationFilters = selectedLocationFilters.map { $0.rawValue }
+        delegate?.updateSelectedValues(typeThemeSelectedItems: selectedTypeThemeFilters, locationSelectedItems: selectedLocationFilters)
         eventsFilterView.filterTableView.reloadData()
+        viewModel.closedButtonPressed()
     }
 }
 
@@ -166,9 +181,17 @@ extension EventsFilterViewController: UITableViewDelegate, UITableViewDataSource
     func tableView(_: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath.section {
         case 0:
-            selectedTypeThemeFilters.append(typeThemeFilters[indexPath.row])
+            if selectedTypeThemeFilters.contains(typeThemeFilters[indexPath.row]) {
+                selectedTypeThemeFilters.remove(at: selectedTypeThemeFilters.firstIndex(of: typeThemeFilters[indexPath.row]) ?? 0)
+            } else {
+                selectedTypeThemeFilters.append(typeThemeFilters[indexPath.row])
+            }
         default:
-            selectedLocationFilters.append(locationFilters[indexPath.row])
+            if selectedLocationFilters.contains(locationFilters[indexPath.row]) {
+                selectedLocationFilters.remove(at: selectedLocationFilters.firstIndex(of: locationFilters[indexPath.row]) ?? 0)
+            } else {
+                selectedLocationFilters.append(locationFilters[indexPath.row])
+            }
         }
         eventsFilterView.filterTableView.reloadData()
     }

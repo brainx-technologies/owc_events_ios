@@ -12,13 +12,16 @@ class EventsTableViewCell: UITableViewCell {
 
     @IBOutlet var containerView: UIView!
     @IBOutlet var dateStackView: UIStackView!
-    @IBOutlet var dateLabel: UILabel!
-    @IBOutlet var dateDayLabel: UILabel!
+    @IBOutlet var startDateLabel: UILabel!
+    @IBOutlet var startDateDayLabel: UILabel!
     @IBOutlet var endDateLabel: UILabel!
     @IBOutlet var endDateDayLabel: UILabel!
     @IBOutlet var eventTitleLabel: UILabel!
     @IBOutlet var eventTimeLabel: UILabel!
     @IBOutlet var eventLocationLabel: UILabel!
+    @IBOutlet var startDateView: UIView!
+    @IBOutlet var separatorView: UIView!
+    @IBOutlet var endDateView: UIView!
 
     // MARK: - Override methods
 
@@ -35,16 +38,14 @@ class EventsTableViewCell: UITableViewCell {
     override func layoutSubviews() {
         super.layoutSubviews()
 
-        contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 8, left: 0, bottom: 8, right: 0))
+        contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 0, left: 0, bottom: 12, right: 0))
     }
 
     // MARK: - Private Methods
 
     private func configureView() {
         setCorners()
-        setBorders()
         setFonts()
-        setText()
         setColors()
     }
 
@@ -55,14 +56,12 @@ class EventsTableViewCell: UITableViewCell {
         dateStackView.setCornerRadius(10)
     }
 
-    private func setBorders() {}
-
     private func setFonts() {
-        [dateLabel, endDateLabel].forEach {
-            $0?.font = Font.sofiaBold(22)
+        [startDateLabel, endDateLabel].forEach {
+            $0?.font = Font.muliBold(18)
         }
-        [dateDayLabel, endDateDayLabel].forEach {
-            $0?.font = Font.sofiaRegular(13)
+        [startDateDayLabel, endDateDayLabel].forEach {
+            $0?.font = Font.muliRegular(12)
         }
         eventTitleLabel.font = Font.sofiaBold(20)
         [eventTimeLabel, eventLocationLabel].forEach {
@@ -70,9 +69,28 @@ class EventsTableViewCell: UITableViewCell {
         }
     }
 
-    private func setText() {}
-
     private func setColors() {
         dateStackView.backgroundColor = Color.tintColor
+    }
+
+    // MARK: - PUblic Methods
+
+    func updateWith(event: OWCEvent) {
+        eventTitleLabel.text = event.title
+        if event.startDate?.get(.day) == event.endDate?.get(.day),
+           event.startDate?.get(.month) == event.endDate?.get(.month),
+           event.startDate?.get(.year) == event.endDate?.get(.year)
+        {
+            separatorView.isHidden = true
+            endDateView.isHidden = true
+        } else {
+            separatorView.isHidden = false
+            endDateView.isHidden = false
+        }
+        startDateLabel.text = Date.dayNumberFormator.string(from: event.startDate ?? Date())
+        startDateDayLabel.text = Date.dayNameFormator.string(from: event.startDate ?? Date())
+        endDateLabel.text = Date.dayNumberFormator.string(from: event.endDate ?? Date())
+        endDateDayLabel.text = Date.dayNameFormator.string(from: event.endDate ?? Date())
+        dateStackView.backgroundColor = event.startDate?.getWeekDay().getColor()
     }
 }

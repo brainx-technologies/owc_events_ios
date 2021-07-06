@@ -5,8 +5,6 @@
 //  Created by BrainX Technologies on 5/24/21.
 //
 
-import Foundation
-
 import UIKit
 
 class EventsView: UIView {
@@ -21,6 +19,11 @@ class EventsView: UIView {
     @IBOutlet var searchTextField: UITextField!
     @IBOutlet var eventsTableView: UITableView!
     @IBOutlet var filterView: UIView!
+    @IBOutlet var filterNumberView: UIView!
+    @IBOutlet var filterNumberLabel: UILabel!
+    @IBOutlet var noEventsImageView: UIImageView!
+    @IBOutlet var noEventsLabel: UILabel!
+    @IBOutlet var bottomFilterConstraint: NSLayoutConstraint!
 
     // MARK: Life Cycle Method
 
@@ -42,17 +45,25 @@ class EventsView: UIView {
         calendarView.setBorderColor(Color.borderGrey, andWidth: 1)
         searchBarView.setCornerRadius(10)
         filterView.setCornerRadius(25)
+        filterNumberView.setCornerRadius(9)
+        [filterView].forEach {
+            $0?.addShadow(color: Color.black.withAlphaComponent(0.25), alpha: 1, x: 0, y: 6, blur: 6)
+        }
     }
 
     private func setFonts() {
         eventsLabel.font = Font.sofiaBold(30)
-        dateLabel.font = Font.sofiaBold(16)
+        [dateLabel, noEventsLabel].forEach {
+            $0.font = Font.sofiaBold(16)
+        }
         searchTextField.font = Font.sofiaSemiBold(13)
+        filterNumberLabel.font = Font.sofiaRegular(12)
     }
 
     private func setText() {
         eventsLabel.text = LocalizedKey.events.string
         searchTextField.placeholder = LocalizedKey.searchEvents.string
+        noEventsLabel.text = LocalizedKey.noEventsAvailable.string
     }
 
     private func setColors() {
@@ -60,5 +71,6 @@ class EventsView: UIView {
         calendarImageView.tintColor = Color.tintColor
         filterView.backgroundColor = Color.tintColor
         searchIconImageView.tintColor = Color.selectedDisabledColor
+        filterNumberView.backgroundColor = Color.filterNumberBackground
     }
 }

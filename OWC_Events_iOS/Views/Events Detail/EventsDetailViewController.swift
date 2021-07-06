@@ -10,7 +10,7 @@ import UIKit
 class EventsDetailViewController: BaseViewController {
     // MARK: Outlets
 
-    @IBOutlet var eventsView: EventsView!
+    @IBOutlet var eventsDetailView: EventsDetailView!
 
     // MARK: - Instance Variables
 
@@ -23,6 +23,8 @@ class EventsDetailViewController: BaseViewController {
         super.viewDidLoad()
         let router = EventsDetailRouter(controller: self)
         viewModel = EventsDetailViewModel(router: router)
+        eventsDetailView.aboutMessageTextView.addTapAction(#selector(handleTextViewExpandCollapse), target: self)
+        eventsDetailView.dateContainerView.backgroundColor = selectedDate.getWeekDay().getColor()
     }
 
     // MARK: - Action Methods
@@ -40,5 +42,10 @@ class EventsDetailViewController: BaseViewController {
     @IBAction
     func handleAddToCalendarButton(_: Any) {
         viewModel.addToCalendar()
+    }
+
+    @objc
+    func handleTextViewExpandCollapse() {
+        eventsDetailView.handleAboutSeeMore()
     }
 }

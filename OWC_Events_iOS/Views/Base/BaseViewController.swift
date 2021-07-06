@@ -52,6 +52,10 @@ class BaseViewController: UIViewController {
         present(alertController, animated: true, completion: nil)
     }
 
+    func showAlert(alertController: UIAlertController) {
+        present(alertController, animated: true, completion: nil)
+    }
+
     private func disableDarkMode() {
         if #available(iOS 13.0, *) {
             overrideUserInterfaceStyle = .light
