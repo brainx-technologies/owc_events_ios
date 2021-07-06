@@ -106,6 +106,7 @@ class EventsDetailView: UIView {
         isCollapased = true
         let fixedWidth = aboutMessageTextView.bounds.size.width
         fullSizeTextHeight = aboutMessageTextView.sizeThatFits(CGSize(width: fixedWidth, height: .greatestFiniteMagnitude)).height
+        scrollViewHeightConstraint.constant = fullSizeTextHeight/2
     }
 
     // MARK: - Public Methods
